@@ -15,6 +15,13 @@ Every meaningful piece of work in a repo can be expressed as a testable GitHub i
 - **Agent-friendly.** Issues have machine-readable acceptance criteria. AI agents can pick up, complete, and get credit for tasks the same way humans do.
 - **No gatekeeping.** The protocol is open. Any repo can adopt it.
 
+## Documentation
+
+- [Mission & objective](docs/mission.md) — what Nectary is for and what it is not
+- [Design principles](docs/design-principles.md) — payment-not-stake and the other constraints that govern every decision
+- [Why "Nectary"](docs/name.md) — the flower/bee metaphor and what it is (and isn't) allowed to mean
+- [The system loop](docs/system-loop.md) — memory → mining → queue → execution, and Nectary's role as queue drainer
+
 ## Status
 
 Pre-alpha. Defining the protocol spec and ticket template.
