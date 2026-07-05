@@ -1,0 +1,66 @@
+<svg width="960" height="540" viewBox="0 0 960 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Nectary</title>
+  <desc id="desc">A stylized flower secreting a drop of nectar, with a bee approaching — the incentive cycle the Nectary protocol is named for.</desc>
+
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="38%" r="75%">
+      <stop offset="0%" stop-color="#FFF8E7"/>
+      <stop offset="100%" stop-color="#FFEFC7"/>
+    </radialGradient>
+    <linearGradient id="petal" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFC857"/>
+      <stop offset="100%" stop-color="#F2A73B"/>
+    </linearGradient>
+    <radialGradient id="nectar" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#FFF3B0"/>
+      <stop offset="70%" stop-color="#F2C230"/>
+      <stop offset="100%" stop-color="#D89A12"/>
+    </radialGradient>
+    <linearGradient id="stem" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4C8C4A"/>
+      <stop offset="100%" stop-color="#356B34"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="960" height="540" fill="url(#bg)"/>
+
+  <!-- stem and leaves -->
+  <path d="M 480 300 C 470 360 470 420 480 480" stroke="url(#stem)" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <path d="M 478 380 C 430 370 400 400 385 440 C 430 445 465 425 478 390 Z" fill="#4C8C4A"/>
+  <path d="M 482 410 C 530 400 560 430 575 468 C 530 475 495 452 482 418 Z" fill="#356B34"/>
+
+  <!-- flower -->
+  <g transform="translate(480,250)">
+    <g id="petals">
+      <ellipse cx="0" cy="-92" rx="46" ry="78" fill="url(#petal)"/>
+      <ellipse cx="65" cy="-58" rx="46" ry="78" fill="url(#petal)" transform="rotate(60 65 -58)"/>
+      <ellipse cx="65" cy="58" rx="46" ry="78" fill="url(#petal)" transform="rotate(120 65 58)"/>
+      <ellipse cx="0" cy="92" rx="46" ry="78" fill="url(#petal)" transform="rotate(180 0 92)"/>
+      <ellipse cx="-65" cy="58" rx="46" ry="78" fill="url(#petal)" transform="rotate(240 -65 58)"/>
+      <ellipse cx="-65" cy="-58" rx="46" ry="78" fill="url(#petal)" transform="rotate(300 -65 -58)"/>
+    </g>
+
+    <!-- nectary: the gland at the center that secretes the incentive -->
+    <circle r="40" fill="url(#nectar)" stroke="#B87E0F" stroke-width="2"/>
+
+    <!-- the nectar droplet being secreted -->
+    <path d="M 0 46 C 10 60 18 74 18 86 C 18 100 10 110 0 110 C -10 110 -18 100 -18 86 C -18 74 -10 60 0 46 Z"
+          fill="#F2C230" stroke="#D89A12" stroke-width="1.5"/>
+  </g>
+
+  <!-- bee, drawn to the nectar -->
+  <g transform="translate(660,205) rotate(-18)">
+    <ellipse cx="0" cy="0" rx="26" ry="17" fill="#2B2B2B"/>
+    <path d="M -22 -17 Q 0 -6 22 -17 L 22 -3 Q 0 8 -22 -3 Z" fill="#2B2B2B"/>
+    <path d="M -14 -12 L -6 -12 L -6 12 L -14 12 Z" fill="#FFC857"/>
+    <path d="M 2 -12 L 10 -12 L 10 12 L 2 12 Z" fill="#FFC857"/>
+    <ellipse cx="-24" cy="-4" rx="10" ry="14" fill="#EAF6FF" opacity="0.85" transform="rotate(-25 -24 -4)"/>
+    <ellipse cx="-14" cy="-16" rx="9" ry="12" fill="#EAF6FF" opacity="0.85" transform="rotate(-10 -14 -16)"/>
+    <circle cx="27" cy="0" r="7" fill="#2B2B2B"/>
+    <line x1="30" y1="-6" x2="40" y2="-16" stroke="#2B2B2B" stroke-width="2" stroke-linecap="round"/>
+    <line x1="30" y1="6" x2="40" y2="16" stroke="#2B2B2B" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- flight path from bee to nectar -->
+  <path d="M 636 218 C 590 235 545 255 508 275" fill="none" stroke="#D89A12" stroke-width="2" stroke-dasharray="2 8" stroke-linecap="round" opacity="0.6"/>
+</svg>
