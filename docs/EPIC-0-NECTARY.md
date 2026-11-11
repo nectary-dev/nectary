@@ -28,14 +28,13 @@ Define and ship the minimal open protocol and tooling for ticket-backed, capped,
 
 Owner: Jordi (AlfaBlok); root steward: repo delivery manager
 Status: active
-Last attempted: 2026-11-11 run_507cc01d reactivated Nectary on Jordi's voice note vn_322d841c, answered EPIC-0-A1 and EPIC-0-A2, filed E0-S1 ready and E0-S2..S4 draft
-Result: pre-alpha, docs only (README, four concept pages, hero SVG now on main); repayment currency is the open design question (E0-S1)
-Evidence: commits 7f37510, 826daa4, 576b1f1 on main ; research [inference for tokens](http://vps3.taild81fbb.ts.net:8973/)
-Waiting on: E0-S1 holds for market-bots E3-S1 iteration 2 (run_3894ef1e), which is researching the same utility-token question
-Monitoring: market-bots run_3894ef1e (E3-S1 iteration 2) since 2026-11-11T00:41Z · next check 2026-11-11T02:45Z its outcome · then dispatch E0-S1 to write the one-pager and raise EPIC-0-A3
-Approved work: E0-S1 (Jordi, L-37, 2026-11-11)
-Next action: dispatch E0-S1 once run_3894ef1e ends; Jordi's EPIC-0-A3 answer settles E0-2 and the Non-Goals line on tokens
-Source revision: main @ 576b1f1
+Last attempted: 2026-11-11 run_bdfe9aaf dispatched E0-S1 (child run_69ad9c34 on seat5); earlier run_81aa2c1c recorded Jordi's repayment-currency choice (units now, sellable token only after a lawyer), added E0-4 and E0-S5, answered the market-bots desk note
+Result: pre-alpha, docs only; repayment currency decided by Jordi (Decisions 2026-11-11), so no EPIC-0-A3 ask; E0-S1 writing docs/repayment-currency.md and the design-doc changes
+Evidence: commits 98f8d52, fb771a3 on main ; market-bots 58699a7 (his approval), 7694201 (desk reply) ; research [inference for tokens](http://vps3.taild81fbb.ts.net:8973/)
+Waiting on: nothing from Jordi; E0-S5 starts when E0-S1 lands
+Approved work: E0-S1, E0-S5 (Jordi, L-37, 2026-11-11)
+Next action: when E0-S1 finishes, dispatch E0-S5 (units ledger on one seed repo, Zenod's backlog first)
+Source revision: main @ fb771a3
 Verified at: 2026-11-11
 
 ## Waiting on
