@@ -22,6 +22,7 @@ Define and ship the minimal open protocol and tooling for ticket-backed, capped,
 - [ ] E0-1 Funding-grade ticket template: a published template whose tickets carry acceptance criteria, evidence requirements, eligible-cost accounting and a repayment trigger ([principle 2](design-principles.md#2-claims-attach-to-auditable-deliverables)).
 - [ ] E0-2 Repayment queue: revenue flows to a queue that repays eligible contributors in order, up to their eligible contributed cost and no further, written as rules in the repo.
 - [ ] E0-3 Verification: submissions are tested against the ticket's deliverable, and approval and repayment follow rules written in the repo, not operator discretion.
+- [ ] E0-4 Spend-only service units work on one seed repo: each accepted ticket earns non-transferable units priced in the service (burned when spent, capped issue per epic), recorded in a public ledger in that repo, as the contributor's alternative to a capped revenue claim (Jordi, market-bots E3-S2, 2026-11-11).
 
 ## Current State
 
@@ -39,12 +40,12 @@ Verified at: 2026-11-11
 
 ## Waiting on
 
-- [answered EPIC-0-A1 2026-11-11 @Jordi] Is Nectary still an active goal, and are E0-1..E0-3 (from docs/mission.md) its Done means? — answer: active again; voice note vn_322d841c on market-bots E3-S1: "I like the idea of reactivating Nectary, because I think it's actually super important" — the Done means stay as drafted until his repayment-currency decision (row E0-S1) lands, since a utility token would change E0-2 and the Non-Goals
+- [answered EPIC-0-A1 2026-11-11 @Jordi · done 2026-11-11 7f37510] Is Nectary still an active goal, and are E0-1..E0-3 (from docs/mission.md) its Done means? — answer: active again; voice note vn_322d841c on market-bots E3-S1: "I like the idea of reactivating Nectary, because I think it's actually super important" — the Done means stay as drafted until his repayment-currency decision (row E0-S1) lands, since a utility token would change E0-2 and the Non-Goals
 - [answered EPIC-0-A2 2026-11-11 @Delivery-Manager] Branch `origin/add-nectary-hero-image` (hero SVG for nectary.dev, 2026-07-05) is not in main — answer: merged into main (one new file, assets/images/nectary-hero.svg) — why: additive, nothing uses it yet, keeps the art for the future site and clears the stale branch — rollback: delete the file
 
 ## Non-Goals
 
-Not an investment platform, equity, governance-by-wealth or token launch; no return above contributed cost ([mission](mission.md#what-nectary-is-not)). Nothing here is legal, securities, tax or accounting advice. Memory guardian and miner roles of the [system loop](system-loop.md) belong to other projects (e.g. Zenod), not this repo.
+Not an investment platform, equity, governance-by-wealth or sellable token launch; no return above contributed cost; spend-only service units are allowed as payment in kind (Jordi, 2026-11-11), a sellable token only after a lawyer's yes ([mission](mission.md#what-nectary-is-not)). Nothing here is legal, securities, tax or accounting advice. Memory guardian and miner roles of the [system loop](system-loop.md) belong to other projects (e.g. Zenod), not this repo.
 
 ## Pages
 
@@ -75,15 +76,17 @@ none
 | Issue | Role | Owner / Assignment | Title | Status | Depends On | PR/Branch | Base | Latest Evidence | Last Verified | Next Action |
 |---|---|---|---|---|---|---|---|---|---|---|
 | draft | Owner | Jordi | Confirm goal and Done means (see Waiting on) | done (EPIC-0-A1 answered: active, 2026-11-11) | none | none | main | vn_322d841c | 2026-11-11 | Done means confirmed with E0-S1's decision |
-| E0-S1 | Researcher | unassigned | Repayment currency: revenue-backed claims vs the app's own utility tokens; one page, bottom line first, compare upside, accounting, securities risk and what projects do today; recommend; feeds a coded ask | ready | market-bots E3-S1 iteration 2 (run_3894ef1e, started 2026-11-11T00:41Z on the same question) | main | main | Jordi's ask vn_322d841c 2026-11-11 | 2026-11-11 | when that run ends: write docs/research/repayment-currency.md from its findings plus Nectary's design, raise EPIC-0-A3; close done (fed EPIC-0-A3) |
+| E0-S1 | Researcher | unassigned | Repayment currency: revenue-backed claims vs the app's own utility tokens; one page, bottom line first, compare upside, accounting, securities risk and what projects do today; recommend; feeds a coded ask | ready | none (market-bots E3-S1 done, approved by Jordi 2026-11-11) | main | main | research http://vps3.taild81fbb.ts.net:8973/ section 0 (market-bots 351b64f) ; Jordi chose units now, sellable token after a lawyer (market-bots 58699a7) | 2026-11-11 | write docs/repayment-currency.md (one page, bottom line first, his choice and why) and amend design-principles, mission and README so units are allowed and a sellable token is not; no new ask: his choice is made; close done (no confirm: he approved the research card) |
 | E0-S2 | Ticket worker | unassigned | E0-1: funding-grade ticket template (acceptance, evidence, eligible cost, repayment trigger) | draft | E0-S1 | none | main | none | 2026-11-11 | waits for the repayment-currency decision |
 | E0-S3 | Ticket worker | unassigned | E0-2: repayment queue rules in the repo (order, cap at cost, the currency E0-S1 settles) | draft | E0-S1 | none | main | none | 2026-11-11 | waits for the repayment-currency decision |
 | E0-S4 | Ticket worker | unassigned | E0-3: verification rules (submissions tested against the ticket, approval and repayment by written rule) | draft | E0-S2 | none | main | none | 2026-11-11 | after the template exists |
+| E0-S5 | Ticket worker | unassigned | E0-4: spend-only service units ledger on one seed repo (market-bots E3-S2) | ready | E0-S1 | none | main | Jordi started market-bots E3-S2 2026-11-11 | 2026-11-11 | pick the seed repo (Zenod's backlog first), write unit rules and ledger.json, pay the first accepted ticket; review card when units show on the seed repo |
 
 ## Decisions
 
 | Date | Outcome | Decision / Attempt | Durable Summary | Evidence | Revisit When |
 |---|---|---|---|---|---|
+| 2026-11-11 | accepted | Repayment currency chosen by Jordi; E0-4 and E0-S5 ready (L-37) | Jordi approved market-bots E3-S1 iteration 2 (units now, sellable token only after a lawyer) and started E3-S2 "restart Nectary with spend-only service units on one seed repo" (market-bots 58699a7, desk note 30c71a6). Settles E0-S1's question without an EPIC-0-A3 ask; adds Done means E0-4 and row E0-S5; Non-Goals now bar a sellable token, not units. | market-bots 58699a7, 351b64f | a lawyer answers the resale question |
 | 2026-11-11 | accepted | decided by Delivery Manager: merge hero SVG branch (EPIC-0-A2) | additive asset, not ask tier — why: stale 4 months, harmless — rollback: delete assets/images/nectary-hero.svg | merge commit on main | site work starts |
 | 2026-11-11 | accepted | Nectary reactivated; E0-S1 ready on Jordi's ask (L-37) | Jordi, voice note vn_322d841c on market-bots E3-S1, 2026-11-11: "I like the idea of reactivating Nectary, because I think it's actually super important, but … what about you're paid back in utility tokens? … you're paid back in the currency of the app itself … this currency will have an FX, and that's how you account for it … if you exchange for the utility token, then you have more upside … it's not you're compensated by the efforts of others. This is a payment in kind for your effort. What do you think?" Readies E0-S1 (compare and recommend); E0-S2..S4 drafted for E0-1..E0-3 behind it. | vn_322d841c | his EPIC-0-A3 answer |
 | 2026-10-24 | accepted | Root spine for nectary | Goal and Done means from docs/mission.md, not invented; owner to confirm. Concept docs are pages, no child epic: none is an active plan. | EPIC-3-A1 answer 2026-10-24 | owner confirms the goal |
