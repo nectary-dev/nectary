@@ -10,7 +10,7 @@ Additional root rationale: n/a
 Integration branch: main
 Integration policy: main-direct
 Project name: Nectary
-Goal sentence: Let a repo pay the people and agents who build it, out of what the repo earns, capped at their cost.
+Goal sentence: Let a repo pay its builders from its revenue or in its own service units, capped at cost.
 
 ## Goal
 
