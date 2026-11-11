@@ -12,7 +12,7 @@ This is the central legal-design principle of the project. It keeps the instrume
 
 The claim is binary in operation: at maturity it is either repaid from the revenue queue up to the eligible cost cap, or it is not. It does not accrue interest while it waits.
 
-**Payment in kind is allowed next to the claim.** Per ticket, a contributor may instead take **spend-only service units**: priced in the app's service, non-transferable, burned when spent, issued only for accepted tickets at a rate fixed before work, under a public cap per epic. Units are prepaid service, not a claim on revenue. A **sellable token is not allowed** until a lawyer answers the question in [repayment-currency.md](repayment-currency.md) (Jordi's choice, 2026-11-11). Equity and any amount above cost for revenue claims stay barred.
+**Payment in kind is allowed next to the claim.** Per ticket, a contributor may instead take **service units**: issued only for accepted tickets at a rate fixed before work, under a public cap per epic, priced in the app's service, transferable between holders, burned when spent. Units are prepaid service, not a claim on revenue. The project never sells units, never lists them and never talks about their price. Transferability raises the securities and MiCA risk ([repayment-currency.md](repayment-currency.md)), so an **on-chain token or exchange listing is not allowed** until a lawyer answers the question there (Jordi's choices, 2026-11-11). Equity and any amount above cost for revenue claims stay barred.
 
 ## 2. Claims attach to auditable deliverables
 

@@ -2,7 +2,7 @@
 
 **A funding protocol for open-source repos.**
 
-Contributors complete well-defined tasks and receive capped, revenue-repaid cost claims — or, if they choose per ticket, spend-only service units of the app as payment in kind. No equity, no sellable token, nothing above cost on revenue claims. If the repo generates revenue, contributors are repaid up to their eligible contributed cost.
+Contributors complete well-defined tasks and receive capped, revenue-repaid cost claims — or, if they choose per ticket, service units of the app as payment in kind. No equity, no units sold or listed by the project, nothing above cost on revenue claims. If the repo generates revenue, contributors are repaid up to their eligible contributed cost.
 
 ## The idea in one paragraph
 
@@ -11,7 +11,7 @@ Every meaningful piece of work in a repo can be expressed as a testable GitHub i
 ## Key properties
 
 - **Payment, not investment.** Claims are repayment of contributed cost. No equity, no revenue share, no return above cost.
-- **Or payment in kind.** Per ticket, a contributor may take spend-only service units instead: priced in the app's service, non-transferable, burned when spent, capped per epic. No sellable token before a lawyer's yes ([repayment currency](docs/repayment-currency.md)).
+- **Or payment in kind.** Per ticket, a contributor may take service units instead: issued only for accepted tickets at a rate fixed before work, capped per epic, priced in the app's service, transferable between holders, burned when spent. The project never sells, lists or prices them; no on-chain token or listing before a lawyer's yes, because transferability raises the securities risk ([repayment currency](docs/repayment-currency.md)).
 - **Auditable.** Claims are attached to merged PRs and accepted deliverables. Every claim has a provenance link.
 - **Agent-friendly.** Issues have machine-readable acceptance criteria. AI agents can pick up, complete, and get credit for tasks the same way humans do.
 - **No gatekeeping.** The protocol is open. Any repo can adopt it.
@@ -19,7 +19,7 @@ Every meaningful piece of work in a repo can be expressed as a testable GitHub i
 ## Documentation
 
 - [Mission & objective](docs/mission.md) — what Nectary is for and what it is not
-- [Repayment currency](docs/repayment-currency.md) — capped revenue claims or spend-only service units, and why no sellable token yet
+- [Repayment currency](docs/repayment-currency.md) — capped revenue claims or transferable service units, the risk that brings, and why no on-chain token yet
 - [Units](docs/units.md) — the unit rules, with the public [ledger](ledger/units.json) and `python3 tools/units.py verify`
 - [Design principles](docs/design-principles.md) — payment-not-stake and the other constraints that govern every decision
 - [Why "Nectary"](docs/name.md) — the flower/bee metaphor and what it is (and isn't) allowed to mean

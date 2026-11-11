@@ -16,9 +16,10 @@ RULES = [
     ("Rate fixed before work", "Each ticket's units are written in the ledger before anyone starts it."),
     ("Your choice per ticket", "Take units, or a capped revenue claim repaid at cost. One or the other, never both."),
     ("Public cap per epic", "Each epic can issue only the total written in the ledger."),
-    ("Cannot be sold or sent", "Only the holder spends them. The ledger has no transfer entry."),
+    ("Transferable between holders", "A holder can send units to anyone. Never more than they hold, never to themselves."),
     ("Burned when spent", "Spending destroys the units, so supply only shrinks with use."),
-    ("No price talk", "Nobody on the project says units will go up. The team gets the same rates and caps."),
+    ("Never sold or listed by us", "The project never sells units, never lists them on an exchange, never talks about their price."),
+    ("Same rules for the team", "The team's own units follow the same rates and caps."),
 ]
 
 
@@ -47,15 +48,27 @@ def build(ledger):
                  f"<div class=bar><i style='width:{pct:.1f}%'></i></div>"
                  f"<p class=meta><b>{n}</b> of <b>{ep['cap']}</b> units issued, {ep['cap'] - n} left under the cap</p>"
                  f"<table><tr><th>Ticket</th><th class=n>Units</th><th>Paid in</th><th>Rate fixed</th></tr>{rates}</table>")
-    rows = "".join(
-        f"<tr><td>{e['seq']}</td><td>{esc(e['date'])}</td><td>{'Award' if e['type']=='award' else 'Spend, burned'}</td>"
-        f"<td>{esc(e['holder'])}</td><td>{esc(e.get('row') or '')}</td><td class=n>{'+' if e['type']=='award' else '−'}{e['units']}</td>"
-        f"<td>{link(e['evidence'], 'evidence')}</td></tr>" for e in ledger["entries"])
+    def what(e):
+        if e["type"] == "award":
+            return "Award", esc(e["holder"]), f"+{e['units']}", link(e.get("evidence"), "evidence")
+        if e["type"] == "transfer":
+            return ("Transfer", f"{esc(e['holder'])} <b>→</b> {esc(e['to'])}", f"{e['units']}", esc(e.get("note", "")))
+        return "Spend, burned", esc(e["holder"]), f"−{e['units']}", link(e.get("evidence"), "evidence")
+    rows = ""
+    for e in ledger["entries"]:
+        kind, who, n, extra = what(e)
+        cls = " class=tr" if e["type"] == "transfer" else ""
+        rows += (f"<tr{cls}><td>{e['seq']}</td><td>{esc(e['date'])}</td><td>{kind}</td><td>{who}</td>"
+                 f"<td>{esc(e.get('row') or '')}</td><td class=n>{n}</td><td>{extra}</td></tr>")
+    transfers = [e for e in ledger["entries"] if e["type"] == "transfer"]
+    trrows = "".join(f"<tr><td>{esc(e['date'])}</td><td>{esc(e['holder'])}</td><td>{esc(e['to'])}</td>"
+                     f"<td class=n>{e['units']}</td><td>{esc(e.get('note', ''))}</td></tr>" for e in transfers)
     balrows = "".join(f"<tr><td>{esc(h)}</td><td class=n>{b}</td><td class=n>{b * 1000:,}</td></tr>" for h, b in sorted(bal.items()))
-    status = ("<p class=ok>✓ Ledger checks pass: caps held, no negative balances, no transfers, every award cites a done ticket.</p>"
+    total = sum(bal.values())
+    status = (f"<p class=ok>✓ Ledger checks pass: hash chain intact, caps held, no negative balances, {len(transfers)} transfer{'s' if len(transfers) != 1 else ''} each covered by the sender's balance, every award cites a done ticket.</p>"
               if not errs else "<p class=bad>✗ Ledger check failed:<br>" + "<br>".join(map(esc, errs)) + "</p>")
     redeem = ("Redemption is live." if u.get("redemption_live") else
-              "Not spendable yet: Zenod's team has been asked whether Zenod is the service units are spent on. Until they say yes, units are counted but buy nothing.")
+              "Not spendable yet: Zenod's team agreed in principle to be the service units are spent on. Turning it on costs money, so it waits for Jordi's yes. Until then units are counted and can be sent, but buy nothing.")
     return f"""<!doctype html><html lang=en><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1">
 <title>Nectary units, the ledger</title>
 <style>
@@ -74,20 +87,28 @@ th,td{{text-align:left;padding:7px 8px;border-bottom:1px solid #d8d0bf}} th{{fon
 .n{{text-align:right;font-variant-numeric:tabular-nums}}
 .bar{{height:10px;background:#e4dccb}} .bar i{{display:block;height:100%;background:#1f5135}}
 .meta{{color:#4a463c;margin:6px 0}} .ok{{color:#1f5135;font-weight:600}} .bad{{color:#8a2a1b;font-weight:600}}
+.tr td{{background:#eef3ec}} .sum td{{font-weight:600;border-top:2px solid #1d1b16}}
+.risk{{border-left:4px solid #8a2a1b;background:#fbf8f1;padding:12px 16px;margin:28px 0;font-size:15px}}
 footer{{margin-top:48px;color:#6a655a;font-size:14px}}
 @media(max-width:640px){{ol{{grid-template-columns:1fr}}}}
 </style>
 <main>
 <h1>Nectary units</h1>
-<p class=lede>Contributors can be paid in units of a service instead of a capped revenue claim. Nectary is the first seed repo: its own tickets are the work, and this ledger is public.</p>
+<p class=lede>Contributors can be paid in units of a service instead of a capped revenue claim. Units can be sent to other holders and are burned when spent. Nectary is the first seed repo: its own tickets are the work, and this ledger is public.</p>
 <div class=unit><b>1 unit = {esc(u['buys'])}</b><br>{esc(redeem)}</div>
 {status}
-<h2>Balances</h2>
-<table><tr><th>Holder</th><th class=n>Units</th><th class=n>Zenod operations</th></tr>{balrows}</table>
+<div class=risk><b>Risk, said plainly.</b> Units that can be sent can also be sold between holders. That raises the US securities and EU MiCA risk the <a href="http://vps3.taild81fbb.ts.net:8973/">research, section 0</a> described, which found units low-risk only while they could not be sold. We keep it small: the project never sells or lists units, never talks about their price, and keeps them off-chain in this ledger. An on-chain token or exchange listing waits for a lawyer's answer to whether transferable units like these are a security or need a MiCA white paper. Not legal advice.</div>
+<h2>Balances by holder</h2>
+<table><tr><th>Holder</th><th class=n>Units</th><th class=n>Zenod operations</th></tr>{balrows}
+<tr class=sum><td>All holders</td><td class=n>{total}</td><td class=n>{total * 1000:,}</td></tr></table>
+<h2>Transfers</h2>
+<p class=meta>A holder sends units to another holder. Nothing is issued or burned, and nobody can send more than they hold or send to themselves.</p>
+<table><tr><th>Date</th><th>From</th><th>To</th><th class=n>Units</th><th>Note</th></tr>{trrows or "<tr><td colspan=5>None yet</td></tr>"}</table>
 <h2>Caps and ticket rates</h2>{caps}
 <h2>Ledger</h2>
 <table><tr><th>#</th><th>Date</th><th>What</th><th>Holder</th><th>Ticket</th><th class=n>Units</th><th></th></tr>{rows}</table>
 <h2>The rules</h2><ol>{rules}</ol>
+
 <footer>Built from <a href="{REPO}ledger/units.json">ledger/units.json</a> · rules in <a href="{REPO}docs/units.md">docs/units.md</a> and <a href="{REPO}docs/repayment-currency.md">why units</a> · not legal, tax or accounting advice.</footer>
 </main></html>
 """

@@ -66,11 +66,53 @@ class UnitsTest(unittest.TestCase):
         with self.assertRaisesRegex(units.LedgerError, "below zero"):
             units.spend(self.ledger, "bob", "T", 1, "https://example.org/s", "2026-11-03", root=self.dir)
 
-    def test_transfer_rejected(self):
+    def transfer(self, frm, to, n, date="2026-11-03"):
+        return units.transfer(self.ledger, frm, to, n, date, note="test", root=self.dir)
+
+    def test_transfer_ok_and_balances(self):
         self.award("T-1")
-        units.append(self.ledger, {"type": "transfer", "date": "2026-11-03", "holder": "ana", "to": "bob",
-                                   "epic": "T", "units": 10, "evidence": "x"})
-        self.assertTrue(any("non-transferable" in e for e in units.verify(self.ledger, self.dir)))
+        self.transfer("ana", "bob", 20)
+        self.assertEqual(units.balances(self.ledger), {"ana": 30, "bob": 20})
+        units.spend(self.ledger, "bob", "T", 20, "https://example.org/s", "2026-11-04", root=self.dir)
+        self.assertEqual(units.balances(self.ledger), {"ana": 30, "bob": 0})
+        self.assertEqual(units.burned(self.ledger), 20)
+        self.assertEqual(units.issued(self.ledger, "T"), 50)
+        self.assertEqual(units.verify(self.ledger, self.dir), [])
+
+    def test_transfer_overdraft_refused(self):
+        self.award("T-1")
+        with self.assertRaisesRegex(units.LedgerError, "below zero"):
+            self.transfer("ana", "bob", 51)
+        with self.assertRaisesRegex(units.LedgerError, "below zero"):
+            self.transfer("carl", "bob", 1)
+        self.assertEqual(len(self.ledger["entries"]), 1)
+
+    def test_transfer_to_self_or_nonpositive_refused(self):
+        self.award("T-1")
+        with self.assertRaisesRegex(units.LedgerError, "oneself"):
+            self.transfer("ana", "ana", 5)
+        for n in (0, -5):
+            with self.assertRaisesRegex(units.LedgerError, "positive"):
+                self.transfer("ana", "bob", n)
+        self.assertEqual(len(self.ledger["entries"]), 1)
+
+    def test_transfer_keeps_chain(self):
+        self.award("T-1")
+        self.transfer("ana", "bob", 10)
+        self.award("T-2", holder="bob", date="2026-11-04")
+        self.assertEqual(units.verify(self.ledger, self.dir), [])
+        self.ledger["entries"][1]["units"] = 40
+        self.assertTrue(any("chain" in e for e in units.verify(self.ledger, self.dir)))
+
+    def test_received_units_spendable_not_more(self):
+        self.award("T-1")
+        self.transfer("ana", "bob", 10)
+        with self.assertRaisesRegex(units.LedgerError, "below zero"):
+            units.spend(self.ledger, "bob", "T", 11, "https://example.org/s", "2026-11-04", root=self.dir)
+
+    def test_unknown_type_rejected(self):
+        units.append(self.ledger, {"type": "mint", "date": "2026-11-03", "holder": "ana", "units": 10})
+        self.assertTrue(any("not allowed" in e for e in units.verify(self.ledger, self.dir)))
 
     def test_rate_must_match_and_predate(self):
         self.award("T-1")
@@ -91,6 +133,7 @@ class UnitsTest(unittest.TestCase):
         ledger = units.load(units.DEFAULT_LEDGER)
         self.assertEqual(units.verify(ledger), [])
         self.assertGreater(len(ledger["entries"]), 0)
+        self.assertTrue(any(e["type"] == "transfer" for e in ledger["entries"]))
 
 
 if __name__ == "__main__":

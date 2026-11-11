@@ -1,11 +1,11 @@
 {
-  "about": "Nectary spend-only service units, public append-only ledger. Rules: docs/units.md. Check: python3 tools/units.py verify",
+  "about": "Nectary transferable service units, public append-only ledger. Rules: docs/units.md. Check: python3 tools/units.py verify",
   "unit": {
     "name": "Nectary unit",
     "buys": "1,000 Zenod memory operations (one operation = one memory saved or recalled)",
     "service": "Zenod",
     "redemption_live": false,
-    "redemption_note": "Proposed to Zenod's team on 2026-11-11 (desk note). Nothing can be spent until they agree."
+    "redemption_note": "Zenod's team agreed in principle on 2026-11-11 (desk reply 9a23657). Going live costs money and is Jordi's call; nothing can be spent until then."
   },
   "epics": {
     "EPIC-0": {
@@ -60,6 +60,16 @@
       "evidence": "https://github.com/nectary-dev/nectary/commit/181f9c9",
       "seq": 1,
       "prev": "0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "type": "transfer",
+      "date": "2026-11-11",
+      "holder": "AlfaBlok (team, agent run_69ad9c34)",
+      "to": "Jordi",
+      "units": 10,
+      "note": "Demonstration that units move between holders (E0-S5 iteration 2). Nothing was paid for it.",
+      "seq": 2,
+      "prev": "cd2cec564af6188dd294f80f3cc1e277af2641b8e9b2864f365693bfb587c251"
     }
   ]
 }

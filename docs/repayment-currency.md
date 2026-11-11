@@ -1,6 +1,8 @@
 # Repayment currency: capped revenue claims or the app's own units
 
-**Bottom line (2026-11-11):** a contributor chooses, per ticket, how to be paid: a **capped revenue claim** (repaid from repo revenue, at most the cost of the work) or **spend-only service units** (priced in the app's service, non-transferable, burned when spent, issued under a public cap per epic). Units give contributors more if the app becomes widely used, with almost none of the legal weight of a sellable token. **A sellable token is not allowed** until a lawyer answers the one question at the end of this page. Jordi chose this on 2026-11-11 after reading the research ([section 0](http://vps3.taild81fbb.ts.net:8973/), [source](https://github.com/AlfaBlok/market-bots/blob/main/docs/research/inference-for-tokens.md)).
+**Bottom line (2026-11-11):** a contributor chooses, per ticket, how to be paid: a **capped revenue claim** (repaid from repo revenue, at most the cost of the work) or **transferable service units** (priced in the app's service, transferable between holders, burned when spent, issued only for accepted tickets under a public cap per epic). The project never sells units, never lists them on an exchange and never talks about their price. **An on-chain token or an exchange listing is not allowed** until a lawyer answers the one question at the end of this page. Jordi chose service units on 2026-11-11 after reading the research ([section 0](http://vps3.taild81fbb.ts.net:8973/), [source](https://github.com/AlfaBlok/market-bots/blob/main/docs/research/inference-for-tokens.md)), and the same day made them transferable: "If you can't transfer only use, not what we want."
+
+**Transferability raises the risk.** The research below found units low-risk *while they cannot be sold*. Units that holders can pass to others can also be sold between them, which moves them toward what the SEC treats as an investment contract and can remove MiCA's limited-network and utility exemptions. That risk is accepted knowingly, kept small by the guard rails below, and is the reason for the lawyer question. Source: [the research, section 0](http://vps3.taild81fbb.ts.net:8973/). Not legal advice.
 
 *Not legal, securities, tax or accounting advice. Sources were read on 2026-11-11 unless a date says otherwise.*
 
@@ -10,7 +12,7 @@ Jordi asked (voice note vn_322d841c, 2026-11-11) whether contributors should be 
 
 ## The two options side by side
 
-| | Capped revenue claim | Spend-only service units |
+| | Capped revenue claim | Service units (research read them as non-transferable) |
 |---|---|---|
 | **What you get** | A payable: the eligible cost of the work, repaid from repo revenue in queue order | N units, each buying a fixed amount of the app's service (for example 1 unit = 1,000 Zenod memory operations) |
 | **Most you can get** | The cost of the work, never more | Whatever that service is worth when you spend the units. If the app later charges more for it, each unit buys something worth more |
@@ -35,14 +37,14 @@ The pattern: with a tradable token, contributors' pay follows the market more th
 
 ## Jordi's choice and why
 
-Contributors choose per ticket: a capped revenue claim, or spend-only service units. A sellable token comes only after a lawyer's yes (Jordi, 2026-11-11, approving the research card market-bots E3-S1; he then started market-bots E3-S2, "restart Nectary with spend-only service units on one seed repo").
+Contributors choose per ticket: a capped revenue claim, or service units. An on-chain token or exchange listing comes only after a lawyer's yes (Jordi, 2026-11-11, approving the research card market-bots E3-S1; he then started market-bots E3-S2, "restart Nectary with spend-only service units on one seed repo"). Reviewing the first units ledger the same day, he changed one rule: "If you can't transfer only use, not what we want." Units are now transferable between holders.
 
-Why: units give contributors what the capped claim leaves out (more value when the app is widely used) and cost no cash today, while staying a prepaid voucher for an existing service rather than something people buy and sell. Like oil that can only be burned in our own engine.
+Why: units pay contributors in the app's service instead of cash, cost the project no cash today, and stay a prepaid voucher for a service that exists. Holders can give or pass them to someone who will use the service. Like oil that can only be burned in our own engine, which can change hands before it is burned.
 
 ## Unit rules
 
 1. **Priced in the service**, never in dollars or euros: one unit buys a fixed amount of the app's service.
-2. **Non-transferable**: units can be spent by the holder, never sold or sent.
+2. **Transferable between holders**: a holder can move units to another holder in the public ledger. The project itself never sells units, never lists them on an exchange and never helps anyone set a price for them.
 3. **Burned when spent**: supply shrinks as the app is used.
 4. **Issued only for accepted tickets**, at a rate fixed and published before work starts. Never per line or per pull request size.
 5. **Public cap per epic**: the total units an epic may issue is written in the repo before its tickets open.
@@ -50,10 +52,10 @@ Why: units give contributors what the capped claim leaves out (more value when t
 
 The per-ticket rate between cost and units is set in each epic before work; the research suggested a premium in service value (for example 1.5 times cost), which is our speculation and not decided.
 
-## The lawyer question that gates a sellable token
+## The lawyer question that gates an on-chain token or a listing
 
-> "Can we pay contributors in a token they can resell, while our team is still building the app, without it being a security in the US or needing a MiCA white paper in the EU?"
+> "We pay contributors in service units they can transfer to other holders, recorded in a public ledger, never sold or listed by us. Is that a security in the US or a crypto-asset needing a MiCA white paper in the EU, and would putting the units on-chain or on an exchange change the answer?"
 
-Until a lawyer answers yes, units stay non-transferable and unlisted, and capped revenue claims stay repayment of cost with nothing above it.
+Until a lawyer answers, units stay in the repo's ledger, off-chain and unlisted, and capped revenue claims stay repayment of cost with nothing above it.
 
 See also: [design principles](design-principles.md), [mission](mission.md).

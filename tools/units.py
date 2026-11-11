@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Nectary spend-only service units: award, spend, balance, verify (docs/units.md).
+"""Nectary transferable service units: award, transfer, spend, balance, verify (docs/units.md).
 
 Stdlib only. The ledger is append-only JSON; every entry carries the sha256 of the one before it.
 """
@@ -13,7 +13,7 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEFAULT_LEDGER = os.path.join(ROOT, "ledger", "units.json")
-ENTRY_TYPES = ("award", "spend")
+ENTRY_TYPES = ("award", "transfer", "spend")
 GENESIS = "0" * 64
 
 
@@ -53,9 +53,17 @@ def is_done(status):
 def balances(ledger):
     out = {}
     for e in ledger["entries"]:
-        sign = 1 if e["type"] == "award" else -1
-        out[e["holder"]] = out.get(e["holder"], 0) + sign * e["units"]
+        if e["type"] == "transfer":
+            out[e["holder"]] = out.get(e["holder"], 0) - e["units"]
+            out[e["to"]] = out.get(e["to"], 0) + e["units"]
+        else:
+            sign = 1 if e["type"] == "award" else -1
+            out[e["holder"]] = out.get(e["holder"], 0) + sign * e["units"]
     return out
+
+
+def burned(ledger):
+    return sum(e["units"] for e in ledger["entries"] if e["type"] == "spend")
 
 
 def issued(ledger, epic):
@@ -72,10 +80,8 @@ def verify(ledger, root=ROOT):
         where = f"entry {i}"
         t = e.get("type")
         if t not in ENTRY_TYPES:
-            errs.append(f"{where}: type {t!r} not allowed (only award or spend; units are non-transferable)")
+            errs.append(f"{where}: type {t!r} not allowed (only award, transfer or spend)")
             continue
-        if any(k in e for k in ("to", "from", "recipient")):
-            errs.append(f"{where}: carries a transfer field; units are non-transferable")
         if e.get("seq") != i:
             errs.append(f"{where}: seq {e.get('seq')} should be {i}")
         if e.get("prev") != prev:
@@ -91,6 +97,20 @@ def verify(ledger, root=ROOT):
             continue
         if not holder:
             errs.append(f"{where}: no holder")
+        if t == "transfer":
+            to = e.get("to")
+            if not to:
+                errs.append(f"{where}: transfer has no receiver")
+                continue
+            if to == holder:
+                errs.append(f"{where}: transfer to oneself")
+                continue
+            if bal.get(holder, 0) < units:
+                errs.append(f"{where}: {holder} sends {units} but holds {bal.get(holder, 0)}, would go below zero")
+                continue
+            bal[holder] = bal.get(holder, 0) - units
+            bal[to] = bal.get(to, 0) + units
+            continue
         if not e.get("evidence"):
             errs.append(f"{where}: no evidence link")
         epic = epics.get(e.get("epic"))
@@ -147,6 +167,17 @@ def award(ledger, holder, epic, row, evidence, date, root=ROOT):
     return entry
 
 
+def transfer(ledger, holder, to, units, date, note="", root=ROOT):
+    """Move units from one holder to another. Nothing is issued or burned."""
+    entry = append(ledger, {"type": "transfer", "date": date, "holder": holder, "to": to,
+                            "units": units, "note": note})
+    errs = verify(ledger, root)
+    if errs:
+        ledger["entries"].pop()
+        raise LedgerError("; ".join(errs))
+    return entry
+
+
 def spend(ledger, holder, epic, units, evidence, date, note="", root=ROOT):
     entry = append(ledger, {"type": "spend", "date": date, "holder": holder, "epic": epic,
                             "row": None, "units": units, "evidence": evidence, "note": note})
@@ -170,6 +201,10 @@ def main(argv=None):
     s.add_argument("--holder", required=True); s.add_argument("--epic", required=True)
     s.add_argument("--units", type=int, required=True); s.add_argument("--evidence", required=True)
     s.add_argument("--note", default=""); s.add_argument("--date", default=today)
+    t = sub.add_parser("transfer")
+    t.add_argument("--from", dest="holder", required=True); t.add_argument("--to", required=True)
+    t.add_argument("--units", type=int, required=True); t.add_argument("--note", default="")
+    t.add_argument("--date", default=today)
     sub.add_parser("balance")
     sub.add_parser("verify")
     args = p.parse_args(argv)
@@ -178,6 +213,9 @@ def main(argv=None):
     try:
         if args.cmd == "award":
             print(json.dumps(award(ledger, args.holder, args.epic, args.row, args.evidence, args.date, root)))
+            save(args.ledger, ledger)
+        elif args.cmd == "transfer":
+            print(json.dumps(transfer(ledger, args.holder, args.to, args.units, args.date, args.note, root)))
             save(args.ledger, ledger)
         elif args.cmd == "spend":
             print(json.dumps(spend(ledger, args.holder, args.epic, args.units, args.evidence, args.date, args.note, root)))
@@ -193,7 +231,8 @@ def main(argv=None):
                 print("FAIL", e)
             if errs:
                 return 1
-            print(f"OK: {len(ledger['entries'])} entries, caps held, no negative balances, no transfers")
+            n_tr = sum(1 for e in ledger["entries"] if e["type"] == "transfer")
+            print(f"OK: {len(ledger['entries'])} entries ({n_tr} transfers), chain intact, caps held, no negative balances")
     except (LedgerError, KeyError) as e:
         print("refused:", e, file=sys.stderr)
         return 1
