@@ -32,6 +32,7 @@ Last attempted: 2026-11-11 run_bdfe9aaf dispatched E0-S1 (child run_69ad9c34 on 
 Result: pre-alpha, docs only; repayment currency decided by Jordi (Decisions 2026-11-11), so no EPIC-0-A3 ask; E0-S1 writing docs/repayment-currency.md and the design-doc changes
 Evidence: commits 98f8d52, fb771a3 on main ; market-bots 58699a7 (his approval), 7694201 (desk reply) ; research [inference for tokens](http://vps3.taild81fbb.ts.net:8973/)
 Waiting on: nothing from Jordi; E0-S5 starts when E0-S1 lands
+Monitoring: E0-S1 worker run_69ad9c34 running (claimed 06:47Z); E0-S5 ready but depends on E0-S1; nothing else ready; spine unchanged · next check 2026-11-11T08:00:00.000Z
 Approved work: E0-S1, E0-S5 (Jordi, L-37, 2026-11-11)
 Next action: when E0-S1 finishes, dispatch E0-S5 (units ledger on one seed repo, Zenod's backlog first)
 Source revision: main @ fb771a3
