@@ -22,7 +22,7 @@ Define and ship the minimal open protocol and tooling for ticket-backed, capped,
 - [ ] E0-1 Funding-grade ticket template: a published template whose tickets carry acceptance criteria, evidence requirements, eligible-cost accounting and a repayment trigger ([principle 2](design-principles.md#2-claims-attach-to-auditable-deliverables)).
 - [ ] E0-2 Repayment queue: revenue flows to a queue that repays eligible contributors in order, up to their eligible contributed cost and no further, written as rules in the repo.
 - [ ] E0-3 Verification: submissions are tested against the ticket's deliverable, and approval and repayment follow rules written in the repo, not operator discretion.
-- [ ] E0-4 Spend-only service units work on one seed repo: each accepted ticket earns non-transferable units priced in the service (burned when spent, capped issue per epic), recorded in a public ledger in that repo, as the contributor's alternative to a capped revenue claim (Jordi, market-bots E3-S2, 2026-11-11).
+- [ ] E0-4 Service units work on one seed repo: each accepted ticket earns units priced in the service that holders can transfer to others and spend (burned when spent, capped issue per epic; transferable per Jordi 2026-11-11), recorded in a public ledger in that repo, as the contributor's alternative to a capped revenue claim (Jordi, market-bots E3-S2, 2026-11-11).
 
 ## Current State
 
@@ -44,7 +44,7 @@ Verified at: 2026-11-11
 
 ## Non-Goals
 
-Not an investment platform, equity, governance-by-wealth or sellable token launch; no return above contributed cost; spend-only service units are allowed as payment in kind (Jordi, 2026-11-11), a sellable token only after a lawyer's yes ([mission](mission.md#what-nectary-is-not)). Nothing here is legal, securities, tax or accounting advice. Memory guardian and miner roles of the [system loop](system-loop.md) belong to other projects (e.g. Zenod), not this repo.
+Not an investment platform, equity, governance-by-wealth or exchange-listed token launch; no return above contributed cost; transferable service units are allowed as payment in kind (Jordi, 2026-11-11: "If you can't transfer only use, not what we want"); no listing, sale by the project or price talk before a lawyer's yes ([mission](mission.md#what-nectary-is-not)). Nothing here is legal, securities, tax or accounting advice. Memory guardian and miner roles of the [system loop](system-loop.md) belong to other projects (e.g. Zenod), not this repo.
 
 ## Pages
 
@@ -87,6 +87,7 @@ none
 
 | Date | Outcome | Decision / Attempt | Durable Summary | Evidence | Revisit When |
 |---|---|---|---|---|---|
+| 2026-11-11 | accepted | Units must be transferable; E0-S5 iteration 2 (L-37) | Jordi, reviewing E0-S5: "If you can't transfer only use, not what we want." Units become transferable between holders in the ledger; still capped, priced in the service and burned when spent; the project does not sell or list them or talk price; the lawyer question now covers listing and an on-chain token. E0-4 text updated to match. | console relaunch fd3cb4d | a lawyer answers, or Jordi asks for listing |
 | 2026-11-11 | accepted | Zenod answers the units proposal | Zenod's Delivery Manager: no objection, 1,000 memory operations per unit is a sane size (about 1 to 3 dollars of model spend); accepting units for real costs money so it is Jordi's call, raised by Zenod as one coded ask when Nectary asks for the redemption path. Parked as draft E0-S6. | zenod desk reply 9a23657 | E0-S6 is started |
 | 2026-11-11 | accepted | Repayment currency chosen by Jordi; E0-4 and E0-S5 ready (L-37) | Jordi approved market-bots E3-S1 iteration 2 (units now, sellable token only after a lawyer) and started E3-S2 "restart Nectary with spend-only service units on one seed repo" (market-bots 58699a7, desk note 30c71a6). Settles E0-S1's question without an EPIC-0-A3 ask; adds Done means E0-4 and row E0-S5; Non-Goals now bar a sellable token, not units. | market-bots 58699a7, 351b64f | a lawyer answers the resale question |
 | 2026-11-11 | accepted | decided by Delivery Manager: merge hero SVG branch (EPIC-0-A2) | additive asset, not ask tier — why: stale 4 months, harmless — rollback: delete assets/images/nectary-hero.svg | merge commit on main | site work starts |
