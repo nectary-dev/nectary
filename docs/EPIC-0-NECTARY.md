@@ -51,6 +51,7 @@ Not an investment platform, equity, governance-by-wealth or sellable token launc
 
 - [Mission & objective](mission.md): what Nectary is for and is not; source of Goal and Done means.
 - [Design principles](design-principles.md): payment-not-stake and the other constraints every proposal must pass.
+- [Repayment currency](repayment-currency.md): Jordi's choice (2026-11-11): per ticket a capped revenue claim or spend-only service units; unit rules; the lawyer question that gates a sellable token.
 - [Why "Nectary"](name.md): the flower/bee metaphor and its allowed meaning.
 - [The system loop](system-loop.md): memory → mining → queue → execution; Nectary as queue drainer; Zenod as first adopter.
 - [Inference for tokens](http://vps3.taild81fbb.ts.net:8973/) (market-bots research, 2026-11-10, [source](https://github.com/AlfaBlok/market-bots/blob/main/docs/research/inference-for-tokens.md), row market-bots E3-S1): who pays tokens for agent work today (Gittensor, FLOP, Naïve, bounty boards); recommends building on Nectary with a non-transferable credits ledger first, no tradable token before a lawyer's read.

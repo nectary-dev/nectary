@@ -18,7 +18,7 @@ Build the minimal protocol and tooling for **ticket-backed, capped, revenue-repa
 
 - It is **not** an investment platform. Claims carry no return, no upside multiple, no profit participation.
 - It is **not** equity or governance-by-wealth. Holding a claim is being owed a payment, not owning a piece of anything.
-- It is **not** a token launch. The mechanism is bookkeeping: cost in, capped repayment out.
+- It is **not** a sellable token launch. The mechanism is bookkeeping: cost in, capped repayment out. Contributors may instead take **spend-only service units** as payment in kind (priced in the app's service, non-transferable, burned when spent); a sellable token only after a lawyer's yes. See [repayment-currency.md](repayment-currency.md).
 
 ## Why this matters
 

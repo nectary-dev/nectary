@@ -12,6 +12,8 @@ This is the central legal-design principle of the project. It keeps the instrume
 
 The claim is binary in operation: at maturity it is either repaid from the revenue queue up to the eligible cost cap, or it is not. It does not accrue interest while it waits.
 
+**Payment in kind is allowed next to the claim.** Per ticket, a contributor may instead take **spend-only service units**: priced in the app's service, non-transferable, burned when spent, issued only for accepted tickets at a rate fixed before work, under a public cap per epic. Units are prepaid service, not a claim on revenue. A **sellable token is not allowed** until a lawyer answers the question in [repayment-currency.md](repayment-currency.md) (Jordi's choice, 2026-11-11). Equity and any amount above cost for revenue claims stay barred.
+
 ## 2. Claims attach to auditable deliverables
 
 Revenue-backed repayment needs something testable to attach to. The unit of fundable work is a **well-described, testable ticket** — not a vague promise, not "effort."
