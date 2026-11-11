@@ -27,14 +27,15 @@ Define and ship the minimal open protocol and tooling for ticket-backed, capped,
 
 Owner: Jordi (AlfaBlok); root steward: repo delivery manager
 Status: active
-Last attempted: 2026-10-24 root spine created (EPIC-3 E3-3, EPIC-3-A1 answered `all`)
-Result: pre-alpha, docs only: README plus four concept pages (mission, design principles, name, system loop), 2026-06-12. No protocol spec, ticket template, queue or code yet. Unmerged branch `origin/add-nectary-hero-image` (one SVG for nectary.dev, 2026-07-05, Codex).
-Evidence: [README](../README.md) Status "Pre-alpha. Defining the protocol spec and ticket template."; git log main @ 8c7e05b
-Waiting on: EPIC-0-A1, EPIC-0-A2 (owner)
-Approved work: none beyond keeping this spine true
-Next action: owner answers EPIC-0-A1; then the first goal (likely the ticket template, E0-1) gets its own epic via `spine_new.py`
-Source revision: main @ 8c7e05b
-Verified at: 2026-10-24
+Last attempted: 2026-11-11 run_507cc01d reactivated Nectary on Jordi's voice note vn_322d841c, answered EPIC-0-A1 and EPIC-0-A2, filed E0-S1 ready and E0-S2..S4 draft
+Result: pre-alpha, docs only (README, four concept pages, hero SVG now on main); repayment currency is the open design question (E0-S1)
+Evidence: commits 7f37510, 826daa4, 576b1f1 on main ; research [inference for tokens](http://vps3.taild81fbb.ts.net:8973/)
+Waiting on: E0-S1 holds for market-bots E3-S1 iteration 2 (run_3894ef1e), which is researching the same utility-token question
+Monitoring: market-bots run_3894ef1e (E3-S1 iteration 2) since 2026-11-11T00:41Z · next check 2026-11-11T02:45Z its outcome · then dispatch E0-S1 to write the one-pager and raise EPIC-0-A3
+Approved work: E0-S1 (Jordi, L-37, 2026-11-11)
+Next action: dispatch E0-S1 once run_3894ef1e ends; Jordi's EPIC-0-A3 answer settles E0-2 and the Non-Goals line on tokens
+Source revision: main @ 576b1f1
+Verified at: 2026-11-11
 
 ## Waiting on
 
@@ -74,7 +75,7 @@ none
 | Issue | Role | Owner / Assignment | Title | Status | Depends On | PR/Branch | Base | Latest Evidence | Last Verified | Next Action |
 |---|---|---|---|---|---|---|---|---|---|---|
 | draft | Owner | Jordi | Confirm goal and Done means (see Waiting on) | done (EPIC-0-A1 answered: active, 2026-11-11) | none | none | main | vn_322d841c | 2026-11-11 | Done means confirmed with E0-S1's decision |
-| E0-S1 | Researcher | unassigned | Repayment currency: revenue-backed claims vs the app's own utility tokens; one page, bottom line first, compare upside, accounting, securities risk and what projects do today; recommend; feeds a coded ask | ready | none | main | main | Jordi's ask vn_322d841c 2026-11-11 | 2026-11-11 | write docs/research/repayment-currency.md, then raise the decision as EPIC-0-A3; close done (fed EPIC-0-A3) |
+| E0-S1 | Researcher | unassigned | Repayment currency: revenue-backed claims vs the app's own utility tokens; one page, bottom line first, compare upside, accounting, securities risk and what projects do today; recommend; feeds a coded ask | ready | market-bots E3-S1 iteration 2 (run_3894ef1e, started 2026-11-11T00:41Z on the same question) | main | main | Jordi's ask vn_322d841c 2026-11-11 | 2026-11-11 | when that run ends: write docs/research/repayment-currency.md from its findings plus Nectary's design, raise EPIC-0-A3; close done (fed EPIC-0-A3) |
 | E0-S2 | Ticket worker | unassigned | E0-1: funding-grade ticket template (acceptance, evidence, eligible cost, repayment trigger) | draft | E0-S1 | none | main | none | 2026-11-11 | waits for the repayment-currency decision |
 | E0-S3 | Ticket worker | unassigned | E0-2: repayment queue rules in the repo (order, cap at cost, the currency E0-S1 settles) | draft | E0-S1 | none | main | none | 2026-11-11 | waits for the repayment-currency decision |
 | E0-S4 | Ticket worker | unassigned | E0-3: verification rules (submissions tested against the ticket, approval and repayment by written rule) | draft | E0-S2 | none | main | none | 2026-11-11 | after the template exists |
