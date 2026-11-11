@@ -28,14 +28,13 @@ Define and ship the minimal open protocol and tooling for ticket-backed, capped,
 
 Owner: Jordi (AlfaBlok); root steward: repo delivery manager
 Status: active
-Last attempted: 2026-11-11 run_bdfe9aaf dispatched E0-S1 (child run_69ad9c34 on seat5); earlier run_81aa2c1c recorded Jordi's repayment-currency choice (units now, sellable token only after a lawyer), added E0-4 and E0-S5, answered the market-bots desk note
-Result: pre-alpha, docs only; repayment currency decided by Jordi (Decisions 2026-11-11), so no EPIC-0-A3 ask; E0-S1 writing docs/repayment-currency.md and the design-doc changes
-Evidence: commits 98f8d52, fb771a3 on main ; market-bots 58699a7 (his approval), 7694201 (desk reply) ; research [inference for tokens](http://vps3.taild81fbb.ts.net:8973/)
-Waiting on: nothing from Jordi; E0-S5 starts when E0-S1 lands
-Monitoring: E0-S1 worker run_69ad9c34 running (claimed 06:47Z); E0-S5 ready but depends on E0-S1; nothing else ready; spine unchanged · next check 2026-11-11T08:00:00.000Z
-Approved work: E0-S1, E0-S5 (Jordi, L-37, 2026-11-11)
-Next action: when E0-S1 finishes, dispatch E0-S5 (units ledger on one seed repo, Zenod's backlog first)
-Source revision: main @ fb771a3
+Last attempted: 2026-11-11 E0-S1 done (run_69ad9c34: docs/repayment-currency.md and design-doc changes, 181f9c9); E0-S5 dispatched (child run_f4b01362 on seat5)
+Result: pre-alpha; the repayment rules are written (capped revenue claim or spend-only units per ticket, no sellable token before a lawyer's yes); units ledger being built with Nectary itself as the first seed repo
+Evidence: commits 181f9c9, c1cf768 on main ; [repayment currency](repayment-currency.md)
+Waiting on: nothing from Jordi; E0-S5 in flight
+Approved work: E0-S5 (Jordi, L-37, 2026-11-11)
+Next action: E0-S5 lands its ledger, page and card for Jordi's review; then E0-S2 (ticket template) is the next row to ready
+Source revision: main @ c1cf768
 Verified at: 2026-11-11
 
 ## Waiting on
@@ -77,7 +76,7 @@ none
 | Issue | Role | Owner / Assignment | Title | Status | Depends On | PR/Branch | Base | Latest Evidence | Last Verified | Next Action |
 |---|---|---|---|---|---|---|---|---|---|---|
 | draft | Owner | Jordi | Confirm goal and Done means (see Waiting on) | done (EPIC-0-A1 answered: active, 2026-11-11) | none | none | main | vn_322d841c | 2026-11-11 | Done means confirmed with E0-S1's decision |
-| E0-S1 | Researcher | run_69ad9c34-dd69-4364-b438-dcd26f4b7b41 — claimed 2026-11-11T06:47Z, lease until 2026-11-11T08:47Z | Repayment currency: revenue-backed claims vs the app's own utility tokens; one page, bottom line first, compare upside, accounting, securities risk and what projects do today; recommend; feeds a coded ask | done (no confirm: Jordi approved the research card market-bots E3-S1; docs record his choice) | none (market-bots E3-S1 done, approved by Jordi 2026-11-11) | main | main | 181f9c9: docs/repayment-currency.md + design-principles, mission, README amended (research market-bots 351b64f, choice 58699a7) | 2026-11-11 | followups: started E0-S5 (units ledger on one seed repo); confirm: none |
+| E0-S1 | Researcher | run_69ad9c34-dd69-4364-b438-dcd26f4b7b41 (finished 2026-11-11) | Repayment currency: revenue-backed claims vs the app's own utility tokens; one page, bottom line first, compare upside, accounting, securities risk and what projects do today; recommend; feeds a coded ask | done (no confirm: Jordi approved the research card market-bots E3-S1; docs record his choice) | none (market-bots E3-S1 done, approved by Jordi 2026-11-11) | main | main | 181f9c9: docs/repayment-currency.md + design-principles, mission, README amended (research market-bots 351b64f, choice 58699a7) | 2026-11-11 | followups: started E0-S5 (units ledger on one seed repo); confirm: none |
 | E0-S2 | Ticket worker | unassigned | E0-1: funding-grade ticket template (acceptance, evidence, eligible cost, repayment trigger) | draft | E0-S1 | none | main | none | 2026-11-11 | waits for the repayment-currency decision |
 | E0-S3 | Ticket worker | unassigned | E0-2: repayment queue rules in the repo (order, cap at cost, the currency E0-S1 settles) | draft | E0-S1 | none | main | none | 2026-11-11 | waits for the repayment-currency decision |
 | E0-S4 | Ticket worker | unassigned | E0-3: verification rules (submissions tested against the ticket, approval and repayment by written rule) | draft | E0-S2 | none | main | none | 2026-11-11 | after the template exists |
