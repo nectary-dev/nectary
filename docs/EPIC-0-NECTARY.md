@@ -81,7 +81,7 @@ none
 | E0-S2 | Ticket worker | unassigned | E0-1: funding-grade ticket template (acceptance, evidence, eligible cost, repayment trigger) | draft | E0-S1 | none | main | none | 2026-11-11 | waits for the repayment-currency decision |
 | E0-S3 | Ticket worker | unassigned | E0-2: repayment queue rules in the repo (order, cap at cost, the currency E0-S1 settles) | draft | E0-S1 | none | main | none | 2026-11-11 | waits for the repayment-currency decision |
 | E0-S4 | Ticket worker | unassigned | E0-3: verification rules (submissions tested against the ticket, approval and repayment by written rule) | draft | E0-S2 | none | main | none | 2026-11-11 | after the template exists |
-| E0-S5 | Ticket worker | unassigned | E0-4: spend-only service units ledger on one seed repo (market-bots E3-S2) | ready | E0-S1 | none | main | Jordi started market-bots E3-S2 2026-11-11 | 2026-11-11 | pick the seed repo (Zenod's backlog first), write unit rules and ledger.json, pay the first accepted ticket; review card when units show on the seed repo |
+| E0-S5 | Ticket worker | run_f4b01362-f1ea-4709-9d2c-c16a3700227b — claimed 2026-11-11T06:49Z, lease until 2026-11-11T08:49Z | E0-4: spend-only service units ledger on one seed repo (market-bots E3-S2) | active | E0-S1 | none | main | Jordi started market-bots E3-S2 2026-11-11 | 2026-11-11 | pick the seed repo (Zenod's backlog first), write unit rules and ledger.json, pay the first accepted ticket; review card when units show on the seed repo |
 
 ## Decisions
 
