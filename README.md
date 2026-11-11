@@ -20,6 +20,7 @@ Every meaningful piece of work in a repo can be expressed as a testable GitHub i
 
 - [Mission & objective](docs/mission.md) — what Nectary is for and what it is not
 - [Repayment currency](docs/repayment-currency.md) — capped revenue claims or spend-only service units, and why no sellable token yet
+- [Units](docs/units.md) — the unit rules, with the public [ledger](ledger/units.json) and `python3 tools/units.py verify`
 - [Design principles](docs/design-principles.md) — payment-not-stake and the other constraints that govern every decision
 - [Why "Nectary"](docs/name.md) — the flower/bee metaphor and what it is (and isn't) allowed to mean
 - [The system loop](docs/system-loop.md) — memory → mining → queue → execution, and Nectary's role as queue drainer

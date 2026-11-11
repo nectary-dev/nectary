@@ -1,0 +1,13 @@
+[Unit]
+Description=nectary E0-S5 units page: rules, ledger and balances, built from ledger/units.json, tailnet only :8974
+After=network-online.target
+
+[Service]
+WorkingDirectory=/var/lib/vps3-scratch/t3agent/github/nectary
+ExecStartPre=/usr/bin/python3 tools/units_page.py
+ExecStart=/usr/bin/python3 -m http.server 8974 --bind 100.86.141.63 --directory /var/lib/vps3-scratch/t3agent/github/nectary/site/units
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,65 @@
+{
+  "about": "Nectary spend-only service units, public append-only ledger. Rules: docs/units.md. Check: python3 tools/units.py verify",
+  "unit": {
+    "name": "Nectary unit",
+    "buys": "1,000 Zenod memory operations (one operation = one memory saved or recalled)",
+    "service": "Zenod",
+    "redemption_live": false,
+    "redemption_note": "Proposed to Zenod's team on 2026-11-11 (desk note). Nothing can be spent until they agree."
+  },
+  "epics": {
+    "EPIC-0": {
+      "spine": "docs/EPIC-0-NECTARY.md",
+      "cap": 1000,
+      "cap_set": "2026-11-11",
+      "rates": {
+        "E0-S1": {
+          "units": 100,
+          "pay_in": "units",
+          "fixed": "2026-11-11",
+          "before_work": false,
+          "seed_exception": "rate set when the ledger was created, after the work; first seed award"
+        },
+        "E0-S2": {
+          "units": 100,
+          "pay_in": "units",
+          "fixed": "2026-11-11",
+          "before_work": true
+        },
+        "E0-S3": {
+          "units": 100,
+          "pay_in": "units",
+          "fixed": "2026-11-11",
+          "before_work": true
+        },
+        "E0-S4": {
+          "units": 100,
+          "pay_in": "units",
+          "fixed": "2026-11-11",
+          "before_work": true
+        },
+        "E0-S5": {
+          "units": 100,
+          "pay_in": "units",
+          "fixed": "2026-11-11",
+          "before_work": false,
+          "seed_exception": "this ticket built the ledger, so its rate could only be set while it ran"
+        }
+      }
+    }
+  },
+  "entries": [
+    {
+      "type": "award",
+      "date": "2026-11-11",
+      "holder": "AlfaBlok (team, agent run_69ad9c34)",
+      "epic": "EPIC-0",
+      "row": "E0-S1",
+      "rate": 100,
+      "units": 100,
+      "evidence": "https://github.com/nectary-dev/nectary/commit/181f9c9",
+      "seq": 1,
+      "prev": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  ]
+}
