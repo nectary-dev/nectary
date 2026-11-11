@@ -28,13 +28,13 @@ Define and ship the minimal open protocol and tooling for ticket-backed, capped,
 
 Owner: Jordi (AlfaBlok); root steward: repo delivery manager
 Status: active
-Last attempted: 2026-11-11 E0-S1 done (run_69ad9c34: docs/repayment-currency.md and design-doc changes, 181f9c9); E0-S5 dispatched (child run_f4b01362 on seat5)
-Result: pre-alpha; the repayment rules are written (capped revenue claim or spend-only units per ticket, no sellable token before a lawyer's yes); units ledger being built with Nectary itself as the first seed repo
-Evidence: commits 181f9c9, c1cf768 on main ; [repayment currency](repayment-currency.md)
-Waiting on: nothing from Jordi; E0-S5 in flight
-Approved work: E0-S5 (Jordi, L-37, 2026-11-11)
-Next action: E0-S5 lands its ledger, page and card for Jordi's review; then E0-S2 (ticket template) is the next row to ready
-Source revision: main @ c1cf768
+Last attempted: 2026-11-11 E0-S5 integrated (run_f4b01362: units spec, ledger, tool with tests, page :8974, card), verified by the Delivery Manager: tests pass, verify passes, page 200
+Result: spend-only units work on Nectary as the first seed repo (100 units awarded for E0-S1); spending waits on Zenod agreeing to be the service; E0-S5 in review for Jordi
+Evidence: commits 352bb42, 58b30fa on main ; [units page](http://vps3.taild81fbb.ts.net:8974/) ; [units rules](units.md)
+Waiting on: Jordi's review of the E0-S5 card ; Zenod's answer to desk note c9f55149 (redemption)
+Approved work: none open beyond E0-S5's review
+Next action: on Jordi's close of E0-S5, its followups start (pay accepted EPIC-0 tickets in units) and E0-S2 (ticket template) gets readied; place Zenod's answer when it comes
+Source revision: main @ 58b30fa
 Verified at: 2026-11-11
 
 ## Waiting on
