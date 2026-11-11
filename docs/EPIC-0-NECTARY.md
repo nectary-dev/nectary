@@ -28,13 +28,13 @@ Define and ship the minimal open protocol and tooling for ticket-backed, capped,
 
 Owner: Jordi (AlfaBlok); root steward: repo delivery manager
 Status: active
-Last attempted: 2026-11-11 Jordi relaunched E0-S5 ("If you can't transfer only use, not what we want."); decision recorded (e072a52), iteration 2 dispatched (child run_b9aabfca on seat3)
-Result: units ledger live on Nectary as seed repo (iteration 1, spend-only); iteration 2 makes units transferable between holders, still capped, no sale, listing or price talk
-Evidence: commits 352bb42, 58b30fa, e072a52 on main ; [units page](http://vps3.taild81fbb.ts.net:8974/)
-Waiting on: E0-S5 iteration 2 in flight ; redemption on Zenod parked as E0-S6
-Approved work: E0-S5 iteration 2 (Jordi, 2026-11-11)
-Next action: iteration 2 lands transfers, page and card, row back to review for Jordi
-Source revision: main @ e072a52
+Last attempted: 2026-11-11 E0-S5 iteration 2 integrated (run_b9aabfca: transfer op with tests, rules rewritten with risk note, demonstration transfer, page and card), verified by the Delivery Manager: 15 tests pass, verify passes with 1 transfer, page 200 shows transfers
+Result: transferable service units live on Nectary as the first seed repo; E0-S5 back in review for Jordi
+Evidence: commits 4b98515, 472d364, 347dbd5 on main ; [units page](http://vps3.taild81fbb.ts.net:8974/) ; [units rules](units.md)
+Waiting on: Jordi's review of the E0-S5 card (iteration 2) ; redemption on Zenod parked as E0-S6
+Approved work: none open beyond E0-S5's review
+Next action: on Jordi's close of E0-S5, its followups start (pay accepted EPIC-0 tickets in units) and E0-S2 (ticket template) gets readied
+Source revision: main @ 347dbd5
 Verified at: 2026-11-11
 
 ## Waiting on
