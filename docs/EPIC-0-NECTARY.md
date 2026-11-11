@@ -31,9 +31,9 @@ Status: active
 Last attempted: 2026-11-11 E0-S5 integrated (run_f4b01362: units spec, ledger, tool with tests, page :8974, card), verified by the Delivery Manager: tests pass, verify passes, page 200
 Result: spend-only units work on Nectary as the first seed repo (100 units awarded for E0-S1); spending waits on Zenod agreeing to be the service; E0-S5 in review for Jordi
 Evidence: commits 352bb42, 58b30fa on main ; [units page](http://vps3.taild81fbb.ts.net:8974/) ; [units rules](units.md)
-Waiting on: Jordi's review of the E0-S5 card ; Zenod's answer to desk note c9f55149 (redemption)
+Waiting on: Jordi's review of the E0-S5 card ; redemption on Zenod is parked as E0-S6 (Zenod agreed in principle 9a23657, live redemption is a Jordi cost call raised by Zenod when started)
 Approved work: none open beyond E0-S5's review
-Next action: on Jordi's close of E0-S5, its followups start (pay accepted EPIC-0 tickets in units) and E0-S2 (ticket template) gets readied; place Zenod's answer when it comes
+Next action: on Jordi's close of E0-S5, its followups start (pay accepted EPIC-0 tickets in units) and E0-S2 (ticket template) gets readied; E0-S6 (redemption) stays parked until started
 Source revision: main @ 58b30fa
 Verified at: 2026-11-11
 
@@ -80,12 +80,14 @@ none
 | E0-S2 | Ticket worker | unassigned | E0-1: funding-grade ticket template (acceptance, evidence, eligible cost, repayment trigger) | draft | E0-S1 | none | main | none | 2026-11-11 | waits for the repayment-currency decision |
 | E0-S3 | Ticket worker | unassigned | E0-2: repayment queue rules in the repo (order, cap at cost, the currency E0-S1 settles) | draft | E0-S1 | none | main | none | 2026-11-11 | waits for the repayment-currency decision |
 | E0-S4 | Ticket worker | unassigned | E0-3: verification rules (submissions tested against the ticket, approval and repayment by written rule) | draft | E0-S2 | none | main | none | 2026-11-11 | after the template exists |
-| E0-S5 | Ticket worker | run_f4b01362-f1ea-4709-9d2c-c16a3700227b | E0-4: spend-only service units ledger on one seed repo (market-bots E3-S2) | review | E0-S1 | none | main | [units page](http://vps3.taild81fbb.ts.net:8974/) · [card](cards/E0-S5.md) · [spec](units.md) · 352bb42 (verify OK, 10 tests) · E0-S1 awarded 100 · Zenod asked (zenod c9f55149) | 2026-11-11 | followups: start pay accepted EPIC-0 tickets in units — rates fixed; park redemption — waits for Zenod's yes; confirm: yes — Jordi judges whether units on the seed repo are what he asked for |
+| E0-S5 | Ticket worker | run_f4b01362-f1ea-4709-9d2c-c16a3700227b | E0-4: spend-only service units ledger on one seed repo (market-bots E3-S2) | review | E0-S1 | none | main | [units page](http://vps3.taild81fbb.ts.net:8974/) · [card](cards/E0-S5.md) · [spec](units.md) · 352bb42 (verify OK, 10 tests) · E0-S1 awarded 100 · Zenod asked (zenod c9f55149) | 2026-11-11 | followups: start pay accepted EPIC-0 tickets in units — rates fixed; park redemption (E0-S6) — Zenod agrees in principle, going live costs money so it is Jordi's call; confirm: yes — Jordi judges whether units on the seed repo are what he asked for |
+| E0-S6 | Ticket worker | unassigned | Redemption: units spent on Zenod at 1,000 memory operations per unit | draft | E0-S5 | none | main | Zenod desk reply 9a23657: no objection, about 1 to 3 dollars of model spend per 1,000 operations; going live is Jordi's call | 2026-11-11 | parked by E0-S5's card; when started, send Zenod a note asking for the redemption path, Zenod raises the coded ask to Jordi |
 
 ## Decisions
 
 | Date | Outcome | Decision / Attempt | Durable Summary | Evidence | Revisit When |
 |---|---|---|---|---|---|
+| 2026-11-11 | accepted | Zenod answers the units proposal | Zenod's Delivery Manager: no objection, 1,000 memory operations per unit is a sane size (about 1 to 3 dollars of model spend); accepting units for real costs money so it is Jordi's call, raised by Zenod as one coded ask when Nectary asks for the redemption path. Parked as draft E0-S6. | zenod desk reply 9a23657 | E0-S6 is started |
 | 2026-11-11 | accepted | Repayment currency chosen by Jordi; E0-4 and E0-S5 ready (L-37) | Jordi approved market-bots E3-S1 iteration 2 (units now, sellable token only after a lawyer) and started E3-S2 "restart Nectary with spend-only service units on one seed repo" (market-bots 58699a7, desk note 30c71a6). Settles E0-S1's question without an EPIC-0-A3 ask; adds Done means E0-4 and row E0-S5; Non-Goals now bar a sellable token, not units. | market-bots 58699a7, 351b64f | a lawyer answers the resale question |
 | 2026-11-11 | accepted | decided by Delivery Manager: merge hero SVG branch (EPIC-0-A2) | additive asset, not ask tier — why: stale 4 months, harmless — rollback: delete assets/images/nectary-hero.svg | merge commit on main | site work starts |
 | 2026-11-11 | accepted | Nectary reactivated; E0-S1 ready on Jordi's ask (L-37) | Jordi, voice note vn_322d841c on market-bots E3-S1, 2026-11-11: "I like the idea of reactivating Nectary, because I think it's actually super important, but … what about you're paid back in utility tokens? … you're paid back in the currency of the app itself … this currency will have an FX, and that's how you account for it … if you exchange for the utility token, then you have more upside … it's not you're compensated by the efforts of others. This is a payment in kind for your effort. What do you think?" Readies E0-S1 (compare and recommend); E0-S2..S4 drafted for E0-1..E0-3 behind it. | vn_322d841c | his EPIC-0-A3 answer |
