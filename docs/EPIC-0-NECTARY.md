@@ -28,14 +28,14 @@ Define and ship the minimal open protocol and tooling for ticket-backed, capped,
 
 Owner: Jordi (AlfaBlok); root steward: repo delivery manager
 Status: active
-Last attempted: 2026-11-11 E0-S5 iteration 2 integrated (run_b9aabfca: transfer op with tests, rules rewritten with risk note, demonstration transfer, page and card), verified by the Delivery Manager: 15 tests pass, verify passes with 1 transfer, page 200 shows transfers
-Result: transferable service units live on Nectary as the first seed repo; E0-S5 back in review for Jordi
-Evidence: commits 4b98515, 472d364, 347dbd5 on main ; [units page](http://vps3.taild81fbb.ts.net:8974/) ; [units rules](units.md)
-Waiting on: Jordi's review of the E0-S5 card (iteration 2) ; redemption on Zenod parked as E0-S6
-Approved work: none open beyond E0-S5's review
-Next action: on Jordi's close of E0-S5, its followups start (pay accepted EPIC-0 tickets in units) and E0-S2 (ticket template) gets readied
-Source revision: main @ 347dbd5
-Verified at: 2026-11-11
+Last attempted: 2026-11-12 Jordi approved E0-S5 (E0-4 met) and parked its follow-ups E0-S7 and E0-S8; E0-S6 folded into E0-S8; market-bots told E3-S2 can close
+Result: transferable service units live on Nectary as the first seed repo (E0-4 done); E0-1..E0-3 (ticket template, repayment queue, verification) open with draft rows E0-S2..S4
+Evidence: [units page](http://vps3.taild81fbb.ts.net:8974/) ; commits 4b98515, db8800c on main
+Waiting on: nothing ready; every open row is a draft (E0-S2..S4 for E0-1..E0-3, E0-S7, E0-S8 parked by Jordi)
+Approved work: none open
+Next action: Jordi readies the next goal when wanted (E0-S2 ticket template is first on the critical path, then E0-S7 pays its tickets in units)
+Source revision: main @ db8800c
+Verified at: 2026-11-12
 
 ## Waiting on
 
@@ -81,14 +81,15 @@ none
 | E0-S3 | Ticket worker | unassigned | E0-2: repayment queue rules in the repo (order, cap at cost, the currency E0-S1 settles) | draft | E0-S1 | none | main | none | 2026-11-11 | waits for the repayment-currency decision |
 | E0-S4 | Ticket worker | unassigned | E0-3: verification rules (submissions tested against the ticket, approval and repayment by written rule) | draft | E0-S2 | none | main | none | 2026-11-11 | after the template exists |
 | E0-S5 | Ticket worker | run_b9aabfca-44dd-4f4e-b47c-5744aa74920e (finished 2026-11-11) | E0-4: transferable service units ledger on one seed repo (market-bots E3-S2) | done (approved by Jordi 2026-11-12) | E0-S1 | none | main | iteration 2 · [units page](http://vps3.taild81fbb.ts.net:8974/) · [card](cards/E0-S5.md) · [spec](units.md) · 4b98515 (transfer op, verify OK with 1 transfer, 15 tests; 10 units moved to Jordi as demonstration; rules and lawyer question rewritten for transferable units) | 2026-11-11 | followups: started E0-S7, E0-S8 |
-| E0-S6 | Ticket worker | unassigned | Redemption: units spent on Zenod at 1,000 memory operations per unit | draft | E0-S5 | none | main | Zenod desk reply 9a23657: no objection, about 1 to 3 dollars of model spend per 1,000 operations; going live is Jordi's call | 2026-11-11 | parked by E0-S5's card; when started, send Zenod a note asking for the redemption path, Zenod raises the coded ask to Jordi |
+| E0-S6 | Ticket worker | unassigned | Redemption: units spent on Zenod at 1,000 memory operations per unit | done (folded into E0-S8, Jordi parked spending on Zenod when closing E0-S5 2026-11-12) | E0-S5 | none | main | Zenod desk reply 9a23657: no objection, about 1 to 3 dollars of model spend per 1,000 operations; going live is Jordi's call | 2026-11-11 | parked by E0-S5's card; when started, send Zenod a note asking for the redemption path, Zenod raises the coded ask to Jordi |
 | E0-S7 | Ticket worker | unassigned | pay accepted tickets in units: follow-up of E0-S5 | draft | E0-S5 | none | main | parked by Jordi when closing E0-S5 2026-11-12 | 2026-11-12 | Jordi starts it from the goal when wanted |
-| E0-S8 | Ticket worker | unassigned | spend units on Zenod: follow-up of E0-S5 | draft | E0-S5 | none | main | parked by Jordi when closing E0-S5 2026-11-12 | 2026-11-12 | Jordi starts it from the goal when wanted |
+| E0-S8 | Ticket worker | unassigned | spend units on Zenod: follow-up of E0-S5 | draft | E0-S5 | none | main | parked by Jordi when closing E0-S5 2026-11-12 ; carries E0-S6: Zenod agreed in principle (zenod 9a23657), going live costs about 1 to 3 dollars per unit of model spend | 2026-11-12 | Jordi starts it from the goal when wanted |
 
 ## Decisions
 
 | Date | Outcome | Decision / Attempt | Durable Summary | Evidence | Revisit When |
 |---|---|---|---|---|---|
+| 2026-11-12 | accepted | E0-S5 approved by Jordi, E0-4 met; follow-ups parked | Jordi closed E0-S5 (console db8800c): transferable units on Nectary as the first seed repo meet E0-4; he parked paying accepted tickets in units (E0-S7) and spending units on Zenod (E0-S8, absorbs E0-S6). | db8800c, units page :8974 | Jordi starts E0-S7 or E0-S8 |
 | 2026-11-11 | accepted | Units must be transferable; E0-S5 iteration 2 (L-37) | Jordi, reviewing E0-S5: "If you can't transfer only use, not what we want." Units become transferable between holders in the ledger; still capped, priced in the service and burned when spent; the project does not sell or list them or talk price; the lawyer question now covers listing and an on-chain token. E0-4 text updated to match. | console relaunch fd3cb4d | a lawyer answers, or Jordi asks for listing |
 | 2026-11-11 | accepted | Zenod answers the units proposal | Zenod's Delivery Manager: no objection, 1,000 memory operations per unit is a sane size (about 1 to 3 dollars of model spend); accepting units for real costs money so it is Jordi's call, raised by Zenod as one coded ask when Nectary asks for the redemption path. Parked as draft E0-S6. | zenod desk reply 9a23657 | E0-S6 is started |
 | 2026-11-11 | accepted | Repayment currency chosen by Jordi; E0-4 and E0-S5 ready (L-37) | Jordi approved market-bots E3-S1 iteration 2 (units now, sellable token only after a lawyer) and started E3-S2 "restart Nectary with spend-only service units on one seed repo" (market-bots 58699a7, desk note 30c71a6). Settles E0-S1's question without an EPIC-0-A3 ask; adds Done means E0-4 and row E0-S5; Non-Goals now bar a sellable token, not units. | market-bots 58699a7, 351b64f | a lawyer answers the resale question |
