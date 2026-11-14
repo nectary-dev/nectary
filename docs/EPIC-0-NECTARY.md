@@ -40,7 +40,7 @@ Verified at: 2026-11-12
 ## Waiting on
 
 - [answered EPIC-0-A1 2026-11-11 @Jordi · done 2026-11-11 7f37510] Is Nectary still an active goal, and are E0-1..E0-3 (from docs/mission.md) its Done means? — answer: active again; voice note vn_322d841c on market-bots E3-S1: "I like the idea of reactivating Nectary, because I think it's actually super important" — the Done means stay as drafted until his repayment-currency decision (row E0-S1) lands, since a utility token would change E0-2 and the Non-Goals
-- [answered EPIC-0-A2 2026-11-11 @Delivery-Manager] Branch `origin/add-nectary-hero-image` (hero SVG for nectary.dev, 2026-07-05) is not in main — answer: merged into main (one new file, assets/images/nectary-hero.svg) — why: additive, nothing uses it yet, keeps the art for the future site and clears the stale branch — rollback: delete the file
+- [answered EPIC-0-A2 2026-11-11 @Delivery-Manager · done 2026-11-14 9d0d84d] Branch `origin/add-nectary-hero-image` (hero SVG for nectary.dev, 2026-07-05) is not in main — answer: merged into main (one new file, assets/images/nectary-hero.svg) — why: additive, nothing uses it yet, keeps the art for the future site and clears the stale branch — rollback: delete the file
 
 ## Non-Goals
 
