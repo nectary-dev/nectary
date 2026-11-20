@@ -32,6 +32,7 @@ Last attempted: 2026-11-20 Jordi revived Nectary (voice note 20 Nov, E0-S9 ready
 Result: E0-S9 active (run_408e2f59 on seat3): one proposal page on inference-for-credit, hosters, agent-first tickets, the staged hackathon, Zenod first, PolyQuestion and open accounting
 Evidence: [units page](http://vps3.taild81fbb.ts.net:8974/) ; commits 4b98515, db8800c on main
 Waiting on: the E0-S9 worker; other open rows are drafts (E0-S2..S4 for E0-1..E0-3, E0-S7, E0-S8 parked by Jordi)
+Monitoring: E0-S9 worker run_408e2f59 still running (claimed 02:06Z, lease to 04:06Z), building the proposal page; no other row ready (E0-S2..S4, E0-S7, E0-S8 drafts); no … · next check 2026-11-20T04:10:00.000Z
 Approved work: none open
 Next action: when the E0-S9 page is live, its one blocking decision goes to Jordi as EPIC-0-A3; his answer decides which drafts get readied
 Source revision: main @ db8800c
