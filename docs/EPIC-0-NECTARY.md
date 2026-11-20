@@ -56,6 +56,7 @@ Not an investment platform, equity, governance-by-wealth or exchange-listed toke
 - [Why "Nectary"](name.md): the flower/bee metaphor and its allowed meaning.
 - [The system loop](system-loop.md): memory → mining → queue → execution; Nectary as queue drainer; Zenod as first adopter.
 - [Nectary revived, proposal](http://vps3.taild81fbb.ts.net:8975/) (E0-S9, 2026-11-20, serves docs/proposals/e0-s9): inference for 5x service credit, hosters, agent-first tickets, the staged hackathon, Zenod first, PolyQuestion and open accounting; feeds EPIC-0-A3.
+- [Nectary economics, presentation](http://vps3.taild81fbb.ts.net:8976/) (E0-S13, 2026-11-20, serves docs/proposals/e0-s13, numbers from its model.py): what credit costs a hoster at Zenod's real costs (5x loses today, 2x holds, 5x near 5,000 paying users), how inference is proven, one example per party, the growth wheel; feeds EPIC-0-A4.
 - [Inference for tokens](http://vps3.taild81fbb.ts.net:8973/) (market-bots research, 2026-11-10, [source](https://github.com/AlfaBlok/market-bots/blob/main/docs/research/inference-for-tokens.md), row market-bots E3-S1): who pays tokens for agent work today (Gittensor, FLOP, Naïve, bounty boards); recommends building on Nectary with a non-transferable credits ledger first, no tradable token before a lawyer's read.
 
 ## Spine Map

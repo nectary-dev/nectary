@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nectary economics: what credit costs a hoster, and the multiple that holds</title>
+<link rel="stylesheet" href="/_shell/shell.css">
+<style>
+[data-page-shell] .s13 section{padding:2.2rem 0 1.6rem;border-top:1px solid var(--line)}
+@media (min-width:900px){[data-page-shell] .s13 section{min-height:min(100svh,54rem);display:flex;flex-direction:column;justify-content:center}}
+[data-page-shell] .s13 .n{font:500 .85rem var(--sans);color:var(--faint);margin:0 0 .3rem}
+[data-page-shell] .s13 h2{border-top:0;margin-top:0;padding-top:0}
+[data-page-shell] .s13 .claim{font:400 1.2rem/1.4 var(--serif);color:var(--ink);max-width:40rem;margin:.2rem 0 1rem}
+[data-page-shell] .s13 figure{margin:.6rem 0 1rem;padding:.8rem;background:var(--stage);border-radius:6px}
+[data-page-shell] .s13 figure svg{display:block;width:100%;height:auto;max-width:44rem;margin:0 auto}
+[data-page-shell] .s13 figcaption{font:400 .88rem/1.4 var(--sans);color:var(--muted);margin-top:.5rem}
+[data-page-shell] .s13 .rules{list-style:none;padding:0;margin:.8rem 0;border-top:1px solid var(--ink)}
+[data-page-shell] .s13 .rules li{display:grid;grid-template-columns:minmax(9rem,15rem) 1fr;gap:1rem;padding:.55rem 0;border-bottom:1px solid var(--line);font:400 .95rem/1.4 var(--sans);color:var(--muted);margin:0}
+[data-page-shell] .s13 .rules li b{font:500 1rem/1.3 var(--serif);color:var(--ink)}
+@media (max-width:560px){[data-page-shell] .s13 .rules li{grid-template-columns:1fr;gap:.15rem}}
+[data-page-shell] .s13 table{font-size:.95rem}
+[data-page-shell] .s13 td.y{color:var(--accent);font-weight:600}
+[data-page-shell] .s13 td.x{color:var(--bad,#8a2c1c);font-weight:600}
+[data-page-shell] .s13 .tag{display:inline-block;font:500 .72rem var(--sans);border:1px solid var(--accent);color:var(--accent);border-radius:999px;padding:.05rem .5rem;vertical-align:middle}
+[data-page-shell] .s13 .tag.live{border-color:var(--warn);color:var(--warn)}
+[data-page-shell] .s13 .wide{overflow-x:auto}
+[data-page-shell] .s13 .line{margin:.6rem 0 1rem}
+[data-page-shell] svg text{font-family:"Instrument Sans",system-ui,sans-serif;fill:#18211c}
+[data-page-shell] svg .serif{font-family:Newsreader,Georgia,serif}
+[data-page-shell] svg .mut{fill:#4a554e}
+[data-page-shell] svg .acc{fill:#1f4d3a}
+
+[data-page-shell] .s13 figure.narrow svg,[data-page-shell] .s13 figure.chart svg{max-width:30rem}
+[data-page-shell] .ps-diagram svg{max-width:32rem;margin:0 auto;display:block}
+@media (max-width:560px){[data-page-shell] svg .ws{display:none}[data-page-shell] svg .wt{font-size:24px}[data-page-shell] svg .wh{font-size:21px}}
+[data-page-shell] .s13 figure.wide{overflow-x:auto}
+[data-page-shell] .s13 figure.wide svg{min-width:34rem}
+[data-page-shell] .s13 details.more{margin:.4rem 0 0}
+[data-page-shell] .s13 details.more summary{cursor:pointer;color:var(--muted);font:400 .95rem var(--sans)}
+</style>
+
+</head>
+<body data-page-shell>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#18211c"/></marker>
+<marker id="aha" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f4d3a"/></marker></defs></svg>
+<main class="ps-page s13">
+<header class="ps-head"><p class="ps-kicker">E0-S13 · 2026-11-20 · answers your questions on EPIC-0-A3</p><h1>Nectary economics: what credit costs a hoster</h1></header>
+<p class="ps-punch" data-part="bottom line">At Zenod's real costs 5x credit loses money today: hosters break even near <b>2x</b>, reaching <b>5x</b> around 5,000 paying users.</p>
+<figure class="ps-diagram" data-shape="cycle">
+<svg viewBox="0 0 420 470" role="img" aria-label="The three parties in a circle: builder work makes Zenod better for users, users pay the hoster 9 euros a month, the hoster pays builders 2x in credit, which costs it 95 cents per dollar of work">
+<path d="M273.4,80.8 A135,135 0 0 1 344.9,204.7" fill="none" stroke="#18211c" stroke-width="2.5" marker-end="url(#ah)"/>
+<path d="M281.5,314.5 A135,135 0 0 1 138.5,314.5" fill="none" stroke="#18211c" stroke-width="2.5" marker-end="url(#ah)"/>
+<path d="M75.1,204.7 A135,135 0 0 1 146.6,80.8" fill="none" stroke="#1f4d3a" stroke-width="4" marker-end="url(#aha)"/>
+<rect x="146" y="41" width="128" height="48" rx="6" fill="#f6f2e9" stroke="#18211c"/><text x="210" y="72" text-anchor="middle" class="serif" font-size="22">Builder</text>
+<rect x="263" y="244" width="128" height="48" rx="6" fill="#f6f2e9" stroke="#18211c"/><text x="327" y="275" text-anchor="middle" class="serif" font-size="22">User</text>
+<rect x="29" y="244" width="128" height="48" rx="6" fill="#f6f2e9" stroke="#18211c"/><text x="93" y="275" text-anchor="middle" class="serif" font-size="22">Hoster</text>
+<text x="322" y="150" text-anchor="end" font-size="17">tested work</text><text x="322" y="171" text-anchor="end" font-size="16" class="mut">worth $1</text>
+<text x="98" y="150" font-size="17" class="acc" font-weight="600">2x credit</text><text x="98" y="171" font-size="16" class="mut">$2 of Zenod</text>
+<text x="210" y="222" text-anchor="middle" class="serif mut" font-size="20">Zenod</text>
+<text x="210" y="352" text-anchor="middle" font-size="17">€9 a month</text>
+<line x1="20" y1="378" x2="400" y2="378" stroke="#c9c1ae"/>
+<text x="210" y="406" text-anchor="middle" font-size="18" class="acc" font-weight="600">2x costs the hoster $0.95 per $1 ✓</text>
+<text x="210" y="438" text-anchor="middle" font-size="18">5x costs the hoster $2.37 per $1 ✗</text>
+</svg>
+
+</figure>
+<div class="ps-body">
+<section id="p1" data-part="hoster numbers"><p class="n">1 · Hoster numbers</p><h2>A hoster pays about half the list price to serve credit, not a fifth.</h2><figure class="chart"><svg viewBox="0 0 420 170" role="img" aria-label="Where one paying user's 9 euros go: 1.50 dollars AI, 3 dollars server, 0.40 card fee, 2.30 the hoster keeps, 2.30 funds builder credit">
+<text x="0" y="20" font-size="18" class="serif">Where one user's €9 goes, a month</text>
+<rect x="0" y="34" width="63" height="40" fill="#ded6c4"/><rect x="63" y="34" width="126" height="40" fill="#c9c1ae"/><rect x="189" y="34" width="17" height="40" fill="#8d948c"/><rect x="206" y="34" width="97" height="40" fill="#f6f2e9" stroke="#18211c"/><rect x="303" y="34" width="97" height="40" fill="#1f4d3a"/>
+<text x="0" y="96" font-size="15">AI</text><text x="0" y="116" font-size="15">$1.50</text>
+<text x="67" y="96" font-size="15">server</text><text x="67" y="116" font-size="15">$3.00</text>
+<text x="209" y="96" font-size="15">hoster</text><text x="209" y="116" font-size="15">keeps $2.30</text>
+<text x="306" y="96" font-size="15" class="acc" font-weight="600">credit</text><text x="306" y="116" font-size="15" class="acc" font-weight="600">fund $2.30</text>
+<text x="0" y="146" font-size="14" class="mut">card fee $0.40 · the fund is half the profit, the rule</text>
+</svg>
+</figure><figure class="chart"><svg viewBox="0 0 420 300" role="img" aria-label="Hoster cost per 1 dollar of builder work at 1x, 2x, 3x, 5x and 10x credit, against the 1 dollar the work is worth">
+<text x="0" y="20" font-size="18" class="serif">Hoster cost per $1 of builder work</text>
+<line x1="79.9" y1="34" x2="79.9" y2="262" stroke="#18211c" stroke-dasharray="4 4"/>
+<text x="84.9" y="284" font-size="14" class="mut">$1, what the work is worth</text>
+<text x="0" y="61" font-size="18" class="serif">1x</text>
+<rect x="46" y="44" width="28.5" height="22" fill="none" stroke="#8d948c"/>
+<rect x="46" y="44" width="15.9" height="22" fill="#4a554e"/>
+<text x="80.5" y="61" font-size="15">$0.47</text>
+<text x="0" y="105" font-size="18" class="serif acc" font-weight="600">2x</text>
+<rect x="46" y="88" width="57.3" height="22" fill="none" stroke="#8d948c"/>
+<rect x="46" y="88" width="32.2" height="22" fill="#1f4d3a"/>
+<text x="109.3" y="105" font-size="15" class="acc" font-weight="600">$0.95 ✓</text>
+<text x="0" y="149" font-size="18" class="serif">3x</text>
+<rect x="46" y="132" width="85.8" height="22" fill="none" stroke="#8d948c"/>
+<rect x="46" y="132" width="48.1" height="22" fill="#4a554e"/>
+<text x="137.8" y="149" font-size="15">$1.42 ✗</text>
+<text x="0" y="193" font-size="18" class="serif">5x</text>
+<rect x="46" y="176" width="142.7" height="22" fill="none" stroke="#8d948c"/>
+<rect x="46" y="176" width="80.3" height="22" fill="#4a554e"/>
+<text x="194.7" y="193" font-size="15">$2.37 ✗</text>
+<text x="0" y="237" font-size="18" class="serif">10x</text>
+<rect x="46" y="220" width="285.8" height="22" fill="none" stroke="#8d948c"/>
+<rect x="46" y="220" width="160.7" height="22" fill="#4a554e"/>
+<text x="337.8" y="237" font-size="15">$4.74 ✗</text>
+</svg></figure><details class="more"><summary>How the hoster comes out, and the proposal page it corrects</summary><ul class="rules"><li><b>The month</b><span>One month lists at €9, about $9.49. Serving it costs about $4.50.</span></li><li><b>In profit</b><span>Up to 2x for typical use: the work is worth more than the service.</span></li><li><b>Loses</b><span>Above 2.1x for typical use, above 1.2x at the full AI cap. At 5x: −$1.37 per $1.</span></li><li><b>Never ruined</b><span>Credit is honoured only from half the profit. The rest waits in line, in order.</span></li><li><b>5x holds when</b><span>Serving costs a fifth of the price: about 5,000 paying users, screen 4.</span></li><li><b>Correction</b><span>The page you closed said a fifth. Real numbers say close to half.</span></li></ul></details></section>
+<section id="p2" data-part="how inference is proven"><p class="n">2 · How inference is proven</p><h2>Yes: code that passes the ticket&#x27;s tests, judged by an AI jury. We never count tokens.</h2><figure class="narrow"><svg viewBox="0 0 420 710" role="img" aria-label="From ticket to credit, and what stops gaming at each step" class="steps">
+<rect x="4" y="4" width="412" height="92" rx="6" fill="#f6f2e9" stroke="#18211c"/>
+<text x="20" y="32" class="serif" font-size="23" style="fill:#18211c">Ticket</text>
+<text x="20" y="58" font-size="17" style="fill:#4a554e">its tests and a rate fixed before work</text>
+<text x="20" y="82" font-size="15" style="fill:#4a554e" font-style="italic">stops waste: paid the rate, never per token</text>
+<path d="M210,100 L210,120" stroke="#18211c" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="4" y="126" width="412" height="92" rx="6" fill="#f6f2e9" stroke="#18211c"/>
+<text x="20" y="154" class="serif" font-size="23" style="fill:#18211c">Hold</text>
+<text x="20" y="180" font-size="17" style="fill:#4a554e">a builder&#x27;s agent holds it for 48 hours</text>
+<text x="20" y="204" font-size="15" style="fill:#4a554e" font-style="italic">stops vanishing: $5 deposit, one hold if new</text>
+<path d="M210,222 L210,242" stroke="#18211c" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="4" y="248" width="412" height="92" rx="6" fill="#f6f2e9" stroke="#18211c"/>
+<text x="20" y="276" class="serif" font-size="23" style="fill:#18211c">Code</text>
+<text x="20" y="302" font-size="17" style="fill:#4a554e">the agent submits a change</text>
+<text x="20" y="326" font-size="15" style="fill:#4a554e" font-style="italic">stops cheating: test files are locked</text>
+<path d="M210,344 L210,364" stroke="#18211c" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="4" y="370" width="412" height="92" rx="6" fill="#f6f2e9" stroke="#18211c"/>
+<text x="20" y="398" class="serif" font-size="23" style="fill:#18211c">Tests</text>
+<text x="20" y="424" font-size="17" style="fill:#4a554e">the ticket&#x27;s tests plus hidden ones run</text>
+<text x="20" y="448" font-size="15" style="fill:#4a554e" font-style="italic">stops code that only fits the tests</text>
+<path d="M210,466 L210,486" stroke="#18211c" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="4" y="492" width="412" height="92" rx="6" fill="#f6f2e9" stroke="#18211c"/>
+<text x="20" y="520" class="serif" font-size="23" style="fill:#18211c">Jury</text>
+<text x="20" y="546" font-size="17" style="fill:#4a554e">three different AI models, two must accept</text>
+<text x="20" y="570" font-size="15" style="fill:#4a554e" font-style="italic">judges what tests cannot · contest once</text>
+<path d="M210,588 L210,608" stroke="#18211c" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="4" y="614" width="412" height="92" rx="6" fill="#1f4d3a" stroke="#1f4d3a"/>
+<text x="20" y="642" class="serif" font-size="23" style="fill:#f6f2e9">Credit</text>
+<text x="20" y="668" font-size="17" style="fill:#cfe0d4">the fixed rate times the multiple</text>
+<text x="20" y="692" font-size="15" style="fill:#cfe0d4" font-style="italic">rating rises · a person checks a sample monthly</text>
+</svg></figure><details class="more"><summary>Where the rate comes from, and what exists today</summary><ul class="rules"><li><b>The rate</b><span>Set from what the work costs at API prices. A typical team agent run costs $1.20.</span></li><li><b>Rating</b><span>A good rating unlocks more holds and drops the deposit.</span></li><li><b>A bad accept</b><span>The monthly sample can cancel that credit and drop the rating.</span></li><li><b>Today</b><span>Coming: all of this. Live: the units ledger refusing credit for unaccepted tickets.</span></li></ul></details></section>
+<section id="p3a" data-part="builder example"><p class="n">3 · End to end, the builder</p><h2>Ana gives $10 of inference and gets two months of Zenod.</h2><figure class="narrow"><svg viewBox="0 0 420 588" role="img" aria-label="Builder example" class="steps">
+<rect x="4" y="4" width="412" height="92" rx="6" fill="#f6f2e9" stroke="#18211c"/>
+<text x="20" y="32" class="serif" font-size="23" style="fill:#18211c">Picks a ticket</text>
+<text x="20" y="58" font-size="17" style="fill:#4a554e">Export memories to Markdown: $10 rate, 12 tests</text>
+<path d="M210,100 L210,120" stroke="#18211c" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="4" y="126" width="412" height="92" rx="6" fill="#f6f2e9" stroke="#18211c"/>
+<text x="20" y="154" class="serif" font-size="23" style="fill:#18211c">Her agent builds</text>
+<text x="20" y="180" font-size="17" style="fill:#4a554e">about eight agent runs</text>
+<path d="M210,222 L210,242" stroke="#18211c" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="4" y="248" width="412" height="92" rx="6" fill="#f6f2e9" stroke="#18211c"/>
+<text x="20" y="276" class="serif" font-size="23" style="fill:#18211c">Accepted</text>
+<text x="20" y="302" font-size="17" style="fill:#4a554e">all tests pass, jury three of three, deposit back</text>
+<path d="M210,344 L210,364" stroke="#18211c" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="4" y="370" width="412" height="92" rx="6" fill="#1f4d3a" stroke="#1f4d3a"/>
+<text x="20" y="398" class="serif" font-size="23" style="fill:#f6f2e9">Gets $20 of credit</text>
+<text x="20" y="424" font-size="17" style="fill:#cfe0d4">2x: about 2.1 months of Zenod</text>
+<path d="M210,466 L210,486" stroke="#18211c" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="4" y="492" width="412" height="92" rx="6" fill="#f6f2e9" stroke="#18211c"/>
+<text x="20" y="520" class="serif" font-size="23" style="fill:#18211c">Spends it</text>
+<text x="20" y="546" font-size="17" style="fill:#4a554e">one month herself, one passed to a friend</text>
+</svg></figure><details class="more"><summary>At 5x, and cash</summary><ul class="rules"><li><b>At 5x</b><span>$50 of credit, about 5.3 months. Too costly for the hoster today.</span></li><li><b>Cash</b><span>None. A cash claim instead repays her $10 from revenue, never more.</span></li><li><b>Why she does it</b><span>Spare inference becomes a service she uses, with her feature in it.</span></li></ul></details></section>
+<section id="p3b" data-part="hoster example"><p class="n">3 · End to end, the hoster</p><h2>Jordi, the first hoster, serves Ana&#x27;s two months for $9.48 and gets $10 of work.</h2><figure class="narrow"><svg viewBox="0 0 420 588" role="img" aria-label="Hoster example" class="steps">
+<rect x="4" y="4" width="412" height="92" rx="6" fill="#f6f2e9" stroke="#18211c"/>
+<text x="20" y="32" class="serif" font-size="23" style="fill:#18211c">Gets the work</text>
+<text x="20" y="58" font-size="17" style="fill:#4a554e">the export feature: $10 to build himself</text>
+<path d="M210,100 L210,120" stroke="#18211c" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="4" y="126" width="412" height="92" rx="6" fill="#f6f2e9" stroke="#18211c"/>
+<text x="20" y="154" class="serif" font-size="23" style="fill:#18211c">Serves her credit</text>
+<text x="20" y="180" font-size="17" style="fill:#4a554e">2.1 months of Zenod for Ana</text>
+<path d="M210,222 L210,242" stroke="#18211c" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="4" y="248" width="412" height="92" rx="6" fill="#f6f2e9" stroke="#18211c"/>
+<text x="20" y="276" class="serif" font-size="23" style="fill:#18211c">Pays $9.48</text>
+<text x="20" y="302" font-size="17" style="fill:#4a554e">AI $1.50 and server $3 for each month</text>
+<path d="M210,344 L210,364" stroke="#18211c" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="4" y="370" width="412" height="92" rx="6" fill="#f6f2e9" stroke="#18211c"/>
+<text x="20" y="398" class="serif" font-size="23" style="fill:#18211c">Gains</text>
+<text x="20" y="424" font-size="17" style="fill:#4a554e">the feature for all users, a friend tries Zenod</text>
+<path d="M210,466 L210,486" stroke="#18211c" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="4" y="492" width="412" height="92" rx="6" fill="#1f4d3a" stroke="#1f4d3a"/>
+<text x="20" y="520" class="serif" font-size="23" style="fill:#f6f2e9">Net +$0.52</text>
+<text x="20" y="546" font-size="17" style="fill:#cfe0d4">on the work alone, at 2x</text>
+</svg></figure><details class="more"><summary>At 5x, and his month</summary><ul class="rules"><li><b>At 5x</b><span>$23.70 for $10 of work: −$13.70, unless the friend pays three months.</span></li><li><b>10 users a month</b><span>$94.90 in, $49 out, $45.90 profit. Half, $22.95, funds credit.</span></li><li><b>Why he wants it</b><span>Builders improve what he sells for less than he could, and bring friends.</span></li></ul></details></section>
+<section id="p3c" data-part="user example"><p class="n">3 · End to end, the user</p><h2>Marta pays €9 a month, and part of it buys work that improves her Zenod.</h2><figure class="narrow"><svg viewBox="0 0 420 588" role="img" aria-label="User example" class="steps">
+<rect x="4" y="4" width="412" height="92" rx="6" fill="#f6f2e9" stroke="#18211c"/>
+<text x="20" y="32" class="serif" font-size="23" style="fill:#18211c">Pays €9 + VAT</text>
+<text x="20" y="58" font-size="17" style="fill:#4a554e">every month, the same price as today</text>
+<path d="M210,100 L210,120" stroke="#18211c" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="4" y="126" width="412" height="92" rx="6" fill="#f6f2e9" stroke="#18211c"/>
+<text x="20" y="154" class="serif" font-size="23" style="fill:#18211c">Gets her memory</text>
+<text x="20" y="180" font-size="17" style="fill:#4a554e">over WhatsApp, filing and answers</text>
+<path d="M210,222 L210,242" stroke="#18211c" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="4" y="248" width="412" height="92" rx="6" fill="#f6f2e9" stroke="#18211c"/>
+<text x="20" y="276" class="serif" font-size="23" style="fill:#18211c">Her €9 splits</text>
+<text x="20" y="302" font-size="17" style="fill:#4a554e">AI $1.50 · server $3 · card $0.40 · profit $4.59</text>
+<path d="M210,344 L210,364" stroke="#18211c" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="4" y="370" width="412" height="92" rx="6" fill="#1f4d3a" stroke="#1f4d3a"/>
+<text x="20" y="398" class="serif" font-size="23" style="fill:#f6f2e9">$2.30 funds credit</text>
+<text x="20" y="424" font-size="17" style="fill:#cfe0d4">half the profit buys $2.42 of tested work</text>
+<path d="M210,466 L210,486" stroke="#18211c" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="4" y="492" width="412" height="92" rx="6" fill="#f6f2e9" stroke="#18211c"/>
+<text x="20" y="520" class="serif" font-size="23" style="fill:#18211c">Zenod gets better</text>
+<text x="20" y="546" font-size="17" style="fill:#4a554e">next month the export feature is there</text>
+</svg></figure><details class="more"><summary>At 1,000 users</summary><ul class="rules"><li><b>1,000 users</b><span>About $2,400 of tested work a month, some 2,000 agent runs.</span></li><li><b>No higher price</b><span>Credit comes from the hoster&#x27;s profit, not from her.</span></li></ul></details></section>
+<section id="p4" data-part="dynamics"><p class="n">4 · The dynamics as the service grows</p><h2>Each turn of the wheel makes the next one cheaper, until 5x can hold.</h2><figure class="chart"><svg viewBox="0 0 560 524" role="img" aria-label="The growth cycle: builders give inference, work is accepted, Zenod gets better, more users pay, half of hoster profit funds credit, credit is spent and friends try Zenod">
+<circle cx="280" cy="262" r="190" fill="none" stroke="#c9c1ae" stroke-width="3"/>
+<path d="M360.3,89.8 A190,190 0 0 1 389.0,106.4" fill="none" stroke="#18211c" stroke-width="2.5" marker-end="url(#ah)"/>
+<path d="M469.3,245.4 A190,190 0 0 1 469.3,278.6" fill="none" stroke="#18211c" stroke-width="2.5" marker-end="url(#ah)"/>
+<path d="M389.0,417.6 A190,190 0 0 1 360.3,434.2" fill="none" stroke="#18211c" stroke-width="2.5" marker-end="url(#ah)"/>
+<path d="M199.7,434.2 A190,190 0 0 1 171.0,417.6" fill="none" stroke="#18211c" stroke-width="2.5" marker-end="url(#ah)"/>
+<path d="M90.7,278.6 A190,190 0 0 1 90.7,245.4" fill="none" stroke="#1f4d3a" stroke-width="3.5" marker-end="url(#aha)"/>
+<path d="M171.0,106.4 A190,190 0 0 1 199.7,89.8" fill="none" stroke="#18211c" stroke-width="2.5" marker-end="url(#ah)"/>
+<rect x="204.0" y="42.0" width="152" height="60" rx="6" fill="#f6f2e9" stroke="#18211c"/>
+<text x="280.0" y="68.0" text-anchor="middle" class="serif wt" font-size="20" style="fill:#18211c">Builders</text>
+<text x="280.0" y="89.0" text-anchor="middle" class="ws" font-size="14" style="fill:#4a554e">give inference</text>
+<rect x="368.5" y="137.0" width="152" height="60" rx="6" fill="#f6f2e9" stroke="#18211c"/>
+<text x="444.5" y="163.0" text-anchor="middle" class="serif wt" font-size="20" style="fill:#18211c">Accepted</text>
+<text x="444.5" y="184.0" text-anchor="middle" class="ws" font-size="14" style="fill:#4a554e">tests and jury</text>
+<rect x="368.5" y="327.0" width="152" height="60" rx="6" fill="#f6f2e9" stroke="#18211c"/>
+<text x="444.5" y="353.0" text-anchor="middle" class="serif wt" font-size="20" style="fill:#18211c">Better Zenod</text>
+<text x="444.5" y="374.0" text-anchor="middle" class="ws" font-size="14" style="fill:#4a554e">what users asked for</text>
+<rect x="204.0" y="422.0" width="152" height="60" rx="6" fill="#f6f2e9" stroke="#18211c"/>
+<text x="280.0" y="448.0" text-anchor="middle" class="serif wt" font-size="20" style="fill:#18211c">More users</text>
+<text x="280.0" y="469.0" text-anchor="middle" class="ws" font-size="14" style="fill:#4a554e">pay €9 a month</text>
+<rect x="39.5" y="327.0" width="152" height="60" rx="6" fill="#1f4d3a" stroke="#1f4d3a"/>
+<text x="115.5" y="353.0" text-anchor="middle" class="serif wt" font-size="20" style="fill:#f6f2e9">Credit fund</text>
+<text x="115.5" y="374.0" text-anchor="middle" class="ws" font-size="14" style="fill:#cfe0d4">half of hoster profit</text>
+<rect x="39.5" y="137.0" width="152" height="60" rx="6" fill="#f6f2e9" stroke="#18211c"/>
+<text x="115.5" y="163.0" text-anchor="middle" class="serif wt" font-size="20" style="fill:#18211c">Credit spent</text>
+<text x="115.5" y="184.0" text-anchor="middle" class="ws" font-size="14" style="fill:#4a554e">friends try Zenod</text>
+<text x="280" y="248" text-anchor="middle" class="serif acc" font-size="40">$2.42</text>
+<text x="280" y="276" text-anchor="middle" class="wh" font-size="15">of tested work a month</text>
+<text x="280" y="296" text-anchor="middle" font-size="15" class="mut wh">per paying user, at 2x</text>
+</svg></figure><figure class="chart wide"><svg viewBox="0 0 596 350" role="img" aria-label="The numbers at small, medium and large scale" class="tbl">
+<text x="4" y="29" font-size="17" class="serif" style="fill:#4a554e"></text>
+<text x="206" y="29" font-size="17" class="serif" style="fill:#4a554e">Small, today</text>
+<text x="338" y="29" font-size="17" class="serif" style="fill:#4a554e">Medium</text>
+<text x="470" y="29" font-size="17" class="serif" style="fill:#4a554e">Large</text>
+<line x1="0" y1="42" x2="596" y2="42" stroke="#18211c" stroke-width="1.4"/>
+<text x="4" y="67" font-size="17" class="serif" style="fill:#18211c">Paying users · builders</text>
+<text x="206" y="67" font-size="17" class="" style="fill:#18211c">10 · 5</text>
+<text x="338" y="67" font-size="17" class="" style="fill:#18211c">200 · 40</text>
+<text x="470" y="67" font-size="17" class="" style="fill:#18211c">5,000 · 500</text>
+<line x1="0" y1="80" x2="596" y2="80" stroke="#c9c1ae" stroke-width="1"/>
+<text x="4" y="105" font-size="17" class="serif" style="fill:#18211c">Server · AI per user</text>
+<text x="206" y="105" font-size="17" class="" style="fill:#18211c">$3 · $1.50</text>
+<text x="338" y="105" font-size="17" class="" style="fill:#18211c">$2 · $1.50</text>
+<text x="470" y="105" font-size="17" class="" style="fill:#18211c">$1 · $1</text>
+<line x1="0" y1="118" x2="596" y2="118" stroke="#c9c1ae" stroke-width="1"/>
+<text x="4" y="143" font-size="17" class="serif" style="fill:#18211c">Credit fund a month</text>
+<text x="206" y="143" font-size="17" class="" style="fill:#18211c">$23</text>
+<text x="338" y="143" font-size="17" class="" style="fill:#18211c">$559</text>
+<text x="470" y="143" font-size="17" class="" style="fill:#18211c">$17,737</text>
+<line x1="0" y1="156" x2="596" y2="156" stroke="#c9c1ae" stroke-width="1"/>
+<text x="4" y="181" font-size="17" class="serif" style="fill:#18211c">Builder work a month</text>
+<text x="206" y="181" font-size="17" class="" style="fill:#18211c">$50</text>
+<text x="338" y="181" font-size="17" class="" style="fill:#18211c">$400</text>
+<text x="470" y="181" font-size="17" class="" style="fill:#18211c">$5,000</text>
+<line x1="0" y1="194" x2="596" y2="194" stroke="#c9c1ae" stroke-width="1"/>
+<text x="4" y="219" font-size="17" class="serif" style="fill:#18211c" font-weight="600">Hoster breaks even</text>
+<text x="206" y="219" font-size="17" class="" style="fill:#18211c" font-weight="600">2.1x</text>
+<text x="338" y="219" font-size="17" class="" style="fill:#18211c" font-weight="600">2.7x</text>
+<text x="470" y="219" font-size="17" class="" style="fill:#18211c" font-weight="600">4.7x</text>
+<line x1="0" y1="232" x2="596" y2="232" stroke="#c9c1ae" stroke-width="1"/>
+<text x="4" y="257" font-size="17" class="serif" style="fill:#18211c">Fund pays for now</text>
+<text x="206" y="257" font-size="17" class="" style="fill:#18211c">1x, rest waits</text>
+<text x="338" y="257" font-size="17" class="" style="fill:#18211c">3.8x</text>
+<text x="470" y="257" font-size="17" class="" style="fill:#18211c">16.8x</text>
+<line x1="0" y1="270" x2="596" y2="270" stroke="#c9c1ae" stroke-width="1"/>
+<text x="4" y="295" font-size="17" class="serif" style="fill:#18211c">2x</text>
+<text x="206" y="295" font-size="17" class="" style="fill:#1f4d3a" font-weight="600">✓ over time</text>
+<text x="338" y="295" font-size="17" class="" style="fill:#1f4d3a" font-weight="600">✓</text>
+<text x="470" y="295" font-size="17" class="" style="fill:#1f4d3a" font-weight="600">✓</text>
+<line x1="0" y1="308" x2="596" y2="308" stroke="#c9c1ae" stroke-width="1"/>
+<text x="4" y="333" font-size="17" class="serif" style="fill:#18211c">5x</text>
+<text x="206" y="333" font-size="17" class="" style="fill:#8a2c1c" font-weight="600">✗</text>
+<text x="338" y="333" font-size="17" class="" style="fill:#8a2c1c" font-weight="600">✗</text>
+<text x="470" y="333" font-size="17" class="" style="fill:#1f4d3a" font-weight="600">✓ about</text>
+</svg></figure><details class="more"><summary>Where it breaks: too many builders, heavy users, junk, model prices</summary><ul class="rules"><li><b>Too many builders</b><span>More than one per four paying users at 2x: credit outgrows profit.</span></li><li><b>Heavy users</b><span>Credit holders at the full AI cap push break-even to 1.2x.</span></li><li><b>Junk accepted</b><span>Credit with no work behind it. Tests, jury and the sample guard it.</span></li><li><b>Model prices rise</b><span>Every number moves with AI cost. The multiple is reset monthly.</span></li></ul></details></section>
+<section id="rec" class="ps-bottom" data-part="our recommendation"><div class="ps-rec"><h2>Our recommendation</h2>
+<p>Start at 2x service credit, rising monthly by a public rule toward 5x. Cash stays at cost.</p></div>
+<figure class="chart"><svg viewBox="0 0 464 160" role="img" aria-label="2x against 5x, today and at large scale" class="tbl">
+<text x="4" y="29" font-size="17" class="serif" style="fill:#4a554e"></text>
+<text x="206" y="29" font-size="17" class="serif" style="fill:#4a554e">Today</text>
+<text x="338" y="29" font-size="17" class="serif" style="fill:#4a554e">5,000 users</text>
+<line x1="0" y1="42" x2="464" y2="42" stroke="#18211c" stroke-width="1.4"/>
+<text x="4" y="67" font-size="17" class="serif" style="fill:#18211c">2x service credit</text>
+<text x="206" y="67" font-size="17" class="" style="fill:#1f4d3a" font-weight="600">✓ $0.95 per $1</text>
+<text x="338" y="67" font-size="17" class="" style="fill:#1f4d3a" font-weight="600">✓ $0.42 per $1</text>
+<line x1="0" y1="80" x2="464" y2="80" stroke="#c9c1ae" stroke-width="1"/>
+<text x="4" y="105" font-size="17" class="serif" style="fill:#18211c">5x service credit</text>
+<text x="206" y="105" font-size="17" class="" style="fill:#8a2c1c" font-weight="600">✗ $2.37 per $1</text>
+<text x="338" y="105" font-size="17" class="" style="fill:#1f4d3a" font-weight="600">✓ $1.05, even</text>
+<line x1="0" y1="118" x2="464" y2="118" stroke="#c9c1ae" stroke-width="1"/>
+<text x="4" y="143" font-size="17" class="serif" style="fill:#18211c">Cash</text>
+<text x="206" y="143" font-size="17" class="" style="fill:#18211c">at cost</text>
+<text x="338" y="143" font-size="17" class="" style="fill:#18211c">at cost</text>
+</svg></figure>
+<table aria-label="Your four points, covered"><tr><th>Your point, 20 Nov</th><th>Where</th><th></th></tr>
+<tr><td>"numbers for hosters having to shoulder this"</td><td><a href="#p1">screen 1</a></td><td class="y">✓</td></tr>
+<tr><td>"How is inference proven?"</td><td><a href="#p2">screen 2</a></td><td class="y">✓</td></tr>
+<tr><td>"end to end for each party"</td><td><a href="#p3a">builder</a>, <a href="#p3b">hoster</a>, <a href="#p3c">user</a></td><td class="y">✓</td></tr>
+<tr><td>"dynamics we want as service grows"</td><td><a href="#p4">screen 4</a></td><td class="y">✓</td></tr></table>
+<p class="ps-punch" data-part="bottom line">2x holds today; 5x holds near 5,000 paying users. Your call on the promise.</p></section>
+<p class="ps-foot">Sources. Live: Zenod Hosted €9 a month + VAT (zenod terms.html); at most $5 of AI cost per account a month (zenod limits.ts, your E26-A7); a typical team agent run $1.20 at API prices (zenod docs/evidence/e7-s1). Estimate: server €2 to €4 per account, a €20 box for 5 to 10 accounts (zenod docs/HOSTED-PLAN). Assumptions: €1 = $1.055; card fee $0.40; typical AI use $1.50, not yet measured; $1 of accepted work worth $1 to the hoster; the three scales. Every number comes from model.py beside this page. Demo names. Not legal advice. · E0-S13 keeps this page · one shared page shell (E75-S5)</p>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,15 @@
+<svg viewBox="0 0 420 470" role="img" aria-label="The three parties in a circle: builder work makes Zenod better for users, users pay the hoster 9 euros a month, the hoster pays builders 2x in credit, which costs it 95 cents per dollar of work">
+<path d="M273.4,80.8 A135,135 0 0 1 344.9,204.7" fill="none" stroke="#18211c" stroke-width="2.5" marker-end="url(#ah)"/>
+<path d="M281.5,314.5 A135,135 0 0 1 138.5,314.5" fill="none" stroke="#18211c" stroke-width="2.5" marker-end="url(#ah)"/>
+<path d="M75.1,204.7 A135,135 0 0 1 146.6,80.8" fill="none" stroke="#1f4d3a" stroke-width="4" marker-end="url(#aha)"/>
+<rect x="146" y="41" width="128" height="48" rx="6" fill="#f6f2e9" stroke="#18211c"/><text x="210" y="72" text-anchor="middle" class="serif" font-size="22">Builder</text>
+<rect x="263" y="244" width="128" height="48" rx="6" fill="#f6f2e9" stroke="#18211c"/><text x="327" y="275" text-anchor="middle" class="serif" font-size="22">User</text>
+<rect x="29" y="244" width="128" height="48" rx="6" fill="#f6f2e9" stroke="#18211c"/><text x="93" y="275" text-anchor="middle" class="serif" font-size="22">Hoster</text>
+<text x="322" y="150" text-anchor="end" font-size="17">tested work</text><text x="322" y="171" text-anchor="end" font-size="16" class="mut">worth $1</text>
+<text x="98" y="150" font-size="17" class="acc" font-weight="600">2x credit</text><text x="98" y="171" font-size="16" class="mut">$2 of Zenod</text>
+<text x="210" y="222" text-anchor="middle" class="serif mut" font-size="20">Zenod</text>
+<text x="210" y="352" text-anchor="middle" font-size="17">€9 a month</text>
+<line x1="20" y1="378" x2="400" y2="378" stroke="#c9c1ae"/>
+<text x="210" y="406" text-anchor="middle" font-size="18" class="acc" font-weight="600">2x costs the hoster $0.95 per $1 ✓</text>
+<text x="210" y="438" text-anchor="middle" font-size="18">5x costs the hoster $2.37 per $1 ✗</text>
+</svg>

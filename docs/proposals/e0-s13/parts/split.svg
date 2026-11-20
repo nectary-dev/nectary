@@ -1,0 +1,9 @@
+<svg viewBox="0 0 420 170" role="img" aria-label="Where one paying user's 9 euros go: 1.50 dollars AI, 3 dollars server, 0.40 card fee, 2.30 the hoster keeps, 2.30 funds builder credit">
+<text x="0" y="20" font-size="18" class="serif">Where one user's €9 goes, a month</text>
+<rect x="0" y="34" width="63" height="40" fill="#ded6c4"/><rect x="63" y="34" width="126" height="40" fill="#c9c1ae"/><rect x="189" y="34" width="17" height="40" fill="#8d948c"/><rect x="206" y="34" width="97" height="40" fill="#f6f2e9" stroke="#18211c"/><rect x="303" y="34" width="97" height="40" fill="#1f4d3a"/>
+<text x="0" y="96" font-size="15">AI</text><text x="0" y="116" font-size="15">$1.50</text>
+<text x="67" y="96" font-size="15">server</text><text x="67" y="116" font-size="15">$3.00</text>
+<text x="209" y="96" font-size="15">hoster</text><text x="209" y="116" font-size="15">keeps $2.30</text>
+<text x="306" y="96" font-size="15" class="acc" font-weight="600">credit</text><text x="306" y="116" font-size="15" class="acc" font-weight="600">fund $2.30</text>
+<text x="0" y="146" font-size="14" class="mut">card fee $0.40 · the fund is half the profit, the rule</text>
+</svg>

@@ -1,0 +1,12 @@
+[Unit]
+Description=nectary E0-S13 presentation: Nectary economics for builder, hoster and user, tailnet only :8976
+After=network-online.target
+
+[Service]
+WorkingDirectory=/var/lib/vps3-scratch/t3agent/github/nectary
+ExecStart=/usr/bin/python3 /home/t3agent/github/agent_team/scripts/page_server.py --serve /var/lib/vps3-scratch/t3agent/github/nectary/docs/proposals/e0-s13 --port 8976 --bind 100.86.141.63
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target
