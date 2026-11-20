@@ -34,7 +34,7 @@ Evidence: [proposal page](http://vps3.taild81fbb.ts.net:8975/) ; [units page](ht
 Waiting on: Jordi: EPIC-0-A3 (5x service credit, cash at cost); other open rows are drafts (E0-S2..S4, E0-S7, E0-S8)
 Monitoring: E0-S9 worker run_408e2f59 still running (claimed 02:06Z, lease to 04:06Z), building the proposal page; no other row ready (E0-S2..S4, E0-S7, E0-S8 drafts); no … · next check 2026-11-20T04:10:00.000Z
 Approved work: none open
-Next action: on his EPIC-0-A3 answer, ready the builds the page lists (yes) or keep Nectary at cost (no)
+Next action: on his EPIC-0-A3 answer, ready the builds the page lists (yes, and send Zenod the redemption ask: it becomes a Zenod row; Zenod opening for hosters is its own draft row zenod E0-S4) or keep Nectary at cost (no)
 Source revision: main @ 2fcd7c8
 Verified at: 2026-11-20
 
