@@ -32,7 +32,7 @@ Last attempted: 2026-11-20 E0-S14 closed the unknown-inference-cost loop: credit
 Result: presentation at http://vps3.taild81fbb.ts.net:8976/ opens with the price rule (AI estimate, +25% when unheld, cap 1.5x), the risk, the hoster's cost known at posting (95 cents per $1 of price) and one ticket end to end; EPIC-0-A5 open
 Evidence: [economics presentation](http://vps3.taild81fbb.ts.net:8976/) ; [proposal page](http://vps3.taild81fbb.ts.net:8975/) ; commit b28db19, ask EPIC-0-A5 dry run pass
 Waiting on: Jordi: EPIC-0-A5 (credit 2x a price fixed before work); other open rows are drafts
-Monitoring: none: E0-S14 closed done (fed EPIC-0-A5); the next step waits on Jordi's A5 answer
+Monitoring: EPIC-0-A5 snoozed by Jordi since 2026-11-20T21:4xZ until 2026-11-23 · next check 2026-11-23T09:00Z his answer · then act on it (yes: ready E0-S10 credit ledger; a question: research it)
 Approved work: none open
 Next action: on an EPIC-0-A5 yes, start E0-S10 (credit ledger) and E0-S11 (agent ticket board) on the price rule
 Source revision: main @ b28db19
