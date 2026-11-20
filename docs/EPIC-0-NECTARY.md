@@ -32,7 +32,7 @@ Last attempted: 2026-11-20 Jordi closed E0-S9 complete and parked E0-S10..S12; E
 Result: proposal page live at http://vps3.taild81fbb.ts.net:8975/ and closed by Jordi; one decision open: EPIC-0-A3, 5x Zenod service credit with no cash multiple
 Evidence: [proposal page](http://vps3.taild81fbb.ts.net:8975/) ; [units page](http://vps3.taild81fbb.ts.net:8974/) ; commits 2fcd7c8, c7d6da0 on main
 Waiting on: Jordi: EPIC-0-A3 (5x service credit only, cash at cost); every other open row is a draft (E0-S2..S4, E0-S7, E0-S8, E0-S10..S12)
-Monitoring: EPIC-0-A3 passed its ask dry run (ask_dryrun.py --only EPIC-0-A3: pass) and the E0-S9 proposal is a review card (docs/cards/E0-S9.md + screenshot, row review, … · next check 2026-11-20T04:35:00.000Z
+Monitoring: Jordi closed E0-S9 complete (1e12774) and parked E0-S10..S12. EPIC-0-A3 was still held: the stored dry-run verdict was for the old line, and a rejudge found Ye… · next check 2026-11-20T05:00:00.000Z
 Approved work: none open
 Next action: on an EPIC-0-A3 yes, ready E0-S10 credit ledger then E0-S11 board and E0-S12 hosters and hackathon, and send Zenod the redemption ask; on no, keep units at cost
 Source revision: main @ 2fcd7c8
