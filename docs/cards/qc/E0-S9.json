@@ -1,0 +1,83 @@
+{
+  "row": "E0-S9",
+  "card": "docs/cards/E0-S9.md",
+  "cardSha": "892d8829b5366f8d",
+  "inputs": {
+    "card": "892d8829b5366f8d",
+    "page": "1f2a3786eacf1042",
+    "rules": "7dd845c8b4b0e115",
+    "words": "75d554f884195cd2"
+  },
+  "checkedAt": "2026-11-20T04:13:16Z",
+  "by": "card_qc.py (console judge)",
+  "words": [
+    {
+      "said": "5x your inference back in credit in the hosters",
+      "where": "2026-11-20",
+      "status": "met",
+      "how": "Page shows 'Pay builders 5x their inference as Zenod service credit' and 'Usage rights at 5x. Cash stays repayment of cost.' with inference in, credit out."
+    },
+    {
+      "said": "the Nectary proposal is not in his inbox … also put the proposal itself (E0-S9, page :8975) as a review card so he sees it",
+      "where": "2026-11-20",
+      "status": "met",
+      "how": "The card is the review card for the proposal page itself, linking the served page at :8975 with the page shown as evidence."
+    }
+  ],
+  "visual": {
+    "pass": true,
+    "problems": [],
+    "breaches": [],
+    "summary": "The phone and laptop pages both show a drawn wheel diagram under the punchline and a consistent green-and-grey look, with the ticket board and 2x2 comparison below; the page itself is the delivered result."
+  },
+  "pass": true,
+  "held": [],
+  "reader": {
+    "asked": "Confirm whether the Nectary described in his voice note is the right one, then answer the 5x credit card.",
+    "ambiguous": ""
+  },
+  "clicks": {
+    "dead": null,
+    "end": "a page to read",
+    "page": "1f2a3786eacf1042",
+    "walkedAt": "2026-11-20T04:13:16Z",
+    "steps": [
+      {
+        "n": 1,
+        "what": "open the card's link",
+        "url": "http://vps3.taild81fbb.ts.net:8975/",
+        "result": "opened"
+      },
+      {
+        "n": 2,
+        "what": "open the link '↑ Pages › EPIC-0'",
+        "url": "https://team.alpha9.io/pages",
+        "result": "answered 200"
+      },
+      {
+        "n": 3,
+        "what": "open the link 'Epic deck'",
+        "url": "https://team.alpha9.io/deck/nectary/EPIC-0",
+        "result": "answered 200"
+      },
+      {
+        "n": 4,
+        "what": "open the link 'http://vps3.taild81fbb.ts.net:8973/'",
+        "url": "http://vps3.taild81fbb.ts.net:8973/",
+        "result": "answered 200"
+      }
+    ]
+  },
+  "shots": [
+    {
+      "width": 390,
+      "url": "http://vps3.taild81fbb.ts.net:8975/",
+      "file": "E0-S9-390.webp"
+    },
+    {
+      "width": 1280,
+      "url": "http://vps3.taild81fbb.ts.net:8975/",
+      "file": "E0-S9-1280.webp"
+    }
+  ]
+}
