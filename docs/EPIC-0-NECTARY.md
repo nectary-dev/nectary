@@ -32,7 +32,7 @@ Last attempted: 2026-11-20 Jordi closed E0-S9 complete and parked E0-S10..S12; E
 Result: proposal page live at http://vps3.taild81fbb.ts.net:8975/ and closed by Jordi; one decision open: EPIC-0-A3, 5x Zenod service credit with no cash multiple
 Evidence: [proposal page](http://vps3.taild81fbb.ts.net:8975/) ; [units page](http://vps3.taild81fbb.ts.net:8974/) ; commits 2fcd7c8, c7d6da0 on main
 Waiting on: E0-S13 worker (economics presentation answering Jordi's A3 questions); other open rows are drafts (E0-S2..S4, E0-S7, E0-S8, E0-S10..S12)
-Monitoring: Jordi closed E0-S9 complete (1e12774) and parked E0-S10..S12. EPIC-0-A3 was still held: the stored dry-run verdict was for the old line, and a rejudge found Ye… · next check 2026-11-20T05:00:00.000Z
+Monitoring: E0-S13 worker run_38a49de0 (seat5) is working: it claimed the row at 19:41Z, lease to 21:41Z, building the economics presentation and then EPIC-0-A4. No other … · next check 2026-11-20T21:45:00.000Z
 Approved work: none open
 Next action: E0-S13 presentation live, then the 5x decision goes back to Jordi with the numbers
 Source revision: main @ 2fcd7c8
