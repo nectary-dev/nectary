@@ -28,14 +28,14 @@ Define and ship the minimal open protocol and tooling for ticket-backed, capped,
 
 Owner: Jordi (AlfaBlok); root steward: repo delivery manager
 Status: active
-Last attempted: 2026-11-20 Jordi revived Nectary (voice note 20 Nov, E0-S9 ready on his ask); Delivery manager dispatched one worker for its proposal page
-Result: E0-S9 active (run_408e2f59 on seat3): one proposal page on inference-for-credit, hosters, agent-first tickets, the staged hackathon, Zenod first, PolyQuestion and open accounting
-Evidence: [units page](http://vps3.taild81fbb.ts.net:8974/) ; commits 4b98515, db8800c on main
-Waiting on: the E0-S9 worker; other open rows are drafts (E0-S2..S4 for E0-1..E0-3, E0-S7, E0-S8 parked by Jordi); Jordi: EPIC-0-A3
+Last attempted: 2026-11-20 E0-S9: one proposal page for Jordi's 20 Nov note (inference for credit, hosters, agent-first tickets, staged hackathon, Zenod first, PolyQuestion, open accounting)
+Result: page live at http://vps3.taild81fbb.ts.net:8975/ (2fcd7c8); recommends 5x inference as Zenod service credit with cash kept at cost; its one blocking decision posted as EPIC-0-A3; E0-S9 done (fed EPIC-0-A3)
+Evidence: [proposal page](http://vps3.taild81fbb.ts.net:8975/) ; [units page](http://vps3.taild81fbb.ts.net:8974/) ; commits 2fcd7c8, c7d6da0 on main
+Waiting on: Jordi: EPIC-0-A3 (5x service credit, cash at cost); other open rows are drafts (E0-S2..S4, E0-S7, E0-S8)
 Monitoring: E0-S9 worker run_408e2f59 still running (claimed 02:06Z, lease to 04:06Z), building the proposal page; no other row ready (E0-S2..S4, E0-S7, E0-S8 drafts); no … · next check 2026-11-20T04:10:00.000Z
 Approved work: none open
-Next action: when the E0-S9 page is live, its one blocking decision goes to Jordi as EPIC-0-A3; his answer decides which drafts get readied
-Source revision: main @ db8800c
+Next action: on his EPIC-0-A3 answer, ready the builds the page lists (yes) or keep Nectary at cost (no)
+Source revision: main @ 2fcd7c8
 Verified at: 2026-11-20
 
 ## Waiting on
@@ -55,6 +55,7 @@ Not an investment platform, equity, governance-by-wealth or exchange-listed toke
 - [Repayment currency](repayment-currency.md): Jordi's choice (2026-11-11): per ticket a capped revenue claim or spend-only service units; unit rules; the lawyer question that gates a sellable token.
 - [Why "Nectary"](name.md): the flower/bee metaphor and its allowed meaning.
 - [The system loop](system-loop.md): memory → mining → queue → execution; Nectary as queue drainer; Zenod as first adopter.
+- [Nectary revived, proposal](http://vps3.taild81fbb.ts.net:8975/) (E0-S9, 2026-11-20, serves docs/proposals/e0-s9): inference for 5x service credit, hosters, agent-first tickets, the staged hackathon, Zenod first, PolyQuestion and open accounting; feeds EPIC-0-A3.
 - [Inference for tokens](http://vps3.taild81fbb.ts.net:8973/) (market-bots research, 2026-11-10, [source](https://github.com/AlfaBlok/market-bots/blob/main/docs/research/inference-for-tokens.md), row market-bots E3-S1): who pays tokens for agent work today (Gittensor, FLOP, Naïve, bounty boards); recommends building on Nectary with a non-transferable credits ledger first, no tradable token before a lawyer's read.
 
 ## Spine Map
@@ -86,7 +87,7 @@ none
 | E0-S6 | Ticket worker | unassigned | Redemption: units spent on Zenod at 1,000 memory operations per unit | done (folded into E0-S8, Jordi parked spending on Zenod when closing E0-S5 2026-11-12) | E0-S5 | none | main | Zenod desk reply 9a23657: no objection, about 1 to 3 dollars of model spend per 1,000 operations; going live is Jordi's call | 2026-11-11 | parked by E0-S5's card; when started, send Zenod a note asking for the redemption path, Zenod raises the coded ask to Jordi |
 | E0-S7 | Ticket worker | unassigned | pay accepted tickets in units: follow-up of E0-S5 | draft | E0-S5 | none | main | parked by Jordi when closing E0-S5 2026-11-12 | 2026-11-12 | Jordi starts it from the goal when wanted |
 | E0-S8 | Ticket worker | unassigned | spend units on Zenod: follow-up of E0-S5 | draft | E0-S5 | none | main | parked by Jordi when closing E0-S5 2026-11-12 ; carries E0-S6: Zenod agreed in principle (zenod 9a23657), going live costs about 1 to 3 dollars per unit of model spend | 2026-11-12 | Jordi starts it from the goal when wanted |
-| E0-S9 | Ticket worker | run_408e2f59-c37c-4649-b473-80e20e5e4f56 — claimed 2026-11-20T02:06Z, lease until 2026-11-20T04:06Z | Nectary revived: inference-for-credit model, hosters, a hackathon to build it, Zenod first. Core: reuses objective: One proposal page to his inbox (20 Nov note): inference in, credit or tokens out (10x, revenue backed or usage rights), hosters fund it, agent-first tickets with deposit and rating, a staged AI-judged hackathon, ideas PolyQuestion and open accounting. Log/2026-11-20.md#^e-c8fe26 | active | none | none | main | worker dispatched 2026-11-20 | 2026-11-20 | worker builds one proposal page (cycle diagram first, points 1-6) and posts its one blocking decision as EPIC-0-A3; row closes done (fed EPIC-0-A3) |
+| E0-S9 | Ticket worker | run_408e2f59-c37c-4649-b473-80e20e5e4f56 (finished 2026-11-20) | Nectary revived: inference-for-credit model, hosters, a hackathon to build it, Zenod first. Core: reuses objective: One proposal page to his inbox (20 Nov note): inference in, credit or tokens out (10x, revenue backed or usage rights), hosters fund it, agent-first tickets with deposit and rating, a staged AI-judged hackathon, ideas PolyQuestion and open accounting. Log/2026-11-20.md#^e-c8fe26 | done (fed EPIC-0-A3) | none | none | main | [proposal page](http://vps3.taild81fbb.ts.net:8975/) (docs/proposals/e0-s9, served by ops/systemd/nectary-proposal-page.service) · 2fcd7c8 · ask EPIC-0-A3 c7d6da0 · desk notes: agent_team 9b550a08c (wheels, knowledge graph, Linux of AIs, YouTube teaser), zenod 3b1d3450 (decentralize Zenod, Jordi first hoster) · totems: none hold Nectary (gap) | 2026-11-20 | his EPIC-0-A3 answer: yes readies credit ledger (E0-S7), ticket template (E0-S2), agent board, hoster rules, hackathon week one; no keeps units as they are |
 
 ## Decisions
 
@@ -99,4 +100,5 @@ none
 | 2026-11-11 | accepted | decided by Delivery Manager: merge hero SVG branch (EPIC-0-A2) | additive asset, not ask tier — why: stale 4 months, harmless — rollback: delete assets/images/nectary-hero.svg | merge commit on main | site work starts |
 | 2026-11-11 | accepted | Nectary reactivated; E0-S1 ready on Jordi's ask (L-37) | Jordi, voice note vn_322d841c on market-bots E3-S1, 2026-11-11: "I like the idea of reactivating Nectary, because I think it's actually super important, but … what about you're paid back in utility tokens? … you're paid back in the currency of the app itself … this currency will have an FX, and that's how you account for it … if you exchange for the utility token, then you have more upside … it's not you're compensated by the efforts of others. This is a payment in kind for your effort. What do you think?" Readies E0-S1 (compare and recommend); E0-S2..S4 drafted for E0-1..E0-3 behind it. | vn_322d841c | his EPIC-0-A3 answer |
 | 2026-10-24 | accepted | Root spine for nectary | Goal and Done means from docs/mission.md, not invented; owner to confirm. Concept docs are pages, no child epic: none is an active plan. | EPIC-3-A1 answer 2026-10-24 | owner confirms the goal |
+| 2026-11-20 | proposed | E0-S9 proposal: inference for credit at 5x as usage rights (EPIC-0-A3) | Jordi's note e-c8fe26 asked for 10x, then "5x your inference back in credit in the hosters". Proposal: 5x as service credit at certified hosters (hoster cost about 1x at Zenod margins), cash repayment kept at cost (L-1), pay per accepted ticket at a seat-hour rate, 5 dollar refundable hold deposit for new builders, one hackathon idea per week (week one Nectary itself), PolyQuestion public log first, voting by inference parked. | [page](http://vps3.taild81fbb.ts.net:8975/) 2fcd7c8 | his EPIC-0-A3 answer |
 | 2026-11-20 | accepted | E0-S9 ready on Jordi's ask (L-37, Team desk: "🎙 Voice note (WhatsApp → Zenod), 2026-11-20 01:05Z 📋 Long note (25,987 characters, over 2,000): two passes before fili") | Jordi's ask is his ready stamp: the Delivery manager's next wake works it | console commit | — |
