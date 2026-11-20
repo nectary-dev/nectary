@@ -1,46 +1,51 @@
 {
   "row": "E0-S9",
   "card": "docs/cards/E0-S9.md",
-  "cardSha": "892d8829b5366f8d",
+  "cardSha": "35bc96ae9de99718",
   "inputs": {
-    "card": "892d8829b5366f8d",
+    "card": "35bc96ae9de99718",
     "page": "1f2a3786eacf1042",
     "rules": "7dd845c8b4b0e115",
     "words": "75d554f884195cd2"
   },
-  "checkedAt": "2026-11-20T04:13:16Z",
+  "checkedAt": "2026-11-20T04:13:38Z",
   "by": "card_qc.py (console judge)",
   "words": [
     {
       "said": "5x your inference back in credit in the hosters",
       "where": "2026-11-20",
       "status": "met",
-      "how": "Page shows 'Pay builders 5x their inference as Zenod service credit' and 'Usage rights at 5x. Cash stays repayment of cost.' with inference in, credit out."
+      "how": "Page shows 'Pay builders 5x their inference as Zenod service credit' and 'Usage rights at 5x. Cash stays repayment of cost.'"
     },
     {
       "said": "the Nectary proposal is not in his inbox … also put the proposal itself (E0-S9, page :8975) as a review card so he sees it",
       "where": "2026-11-20",
       "status": "met",
-      "how": "The card is the review card for the proposal page itself, linking the served page at :8975 with the page shown as evidence."
+      "how": "The card is the review card for the proposal page, linking the served page at :8975 and showing it as evidence."
     }
   ],
   "visual": {
     "pass": true,
     "problems": [],
     "breaches": [],
-    "summary": "The phone and laptop pages both show a drawn wheel diagram under the punchline and a consistent green-and-grey look, with the ticket board and 2x2 comparison below; the page itself is the delivered result."
+    "summary": "Both widths show a working page with the wheel diagram, ticket board and cards; the 390 px first screen puts the punchline first and the wheel diagram under it, and no sideways overflow is shown, but the plan's later sections lean on text and the 390 px layout cuts the flow chart at the edge.",
+    "notes": [
+      "at 390 px: The proposal's first screen opens with paragraphs and a boxed summary before the diagram; the wheel diagram sits under the punchline but the sections below are text-led lists like 'Usage rights at 5x' with 'Why and how' toggles, so the plan is not shown as one diagram first. (rule 7)",
+      "at 390 px: The review card's evidence has no feedback row ending with Voice and Text in the screenshots shown of the card itself; the card itself is not visible on the screenshots. (rule 5)"
+    ]
   },
   "pass": true,
   "held": [],
   "reader": {
-    "asked": "Confirm whether the Nectary described in his voice note is the right one, then answer the 5x credit card.",
-    "ambiguous": ""
+    "asked": "Decide whether the Nectary described in the card is the one he meant, and then answer the 5x credit card.",
+    "ambiguous": "",
+    "note": "\"Is this the Nectary you described? We recommend yes, then answer the 5x credit card.\" A stranger could not tell which 5x credit card is meant or where it is; it is not clear whether it is a separate card or a choice on this page."
   },
   "clicks": {
     "dead": null,
     "end": "a page to read",
     "page": "1f2a3786eacf1042",
-    "walkedAt": "2026-11-20T04:13:16Z",
+    "walkedAt": "2026-11-20T04:13:38Z",
     "steps": [
       {
         "n": 1,
