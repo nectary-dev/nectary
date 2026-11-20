@@ -91,7 +91,7 @@ none
 | E0-S10 | Ticket worker | unassigned | credit ledger (on an EPIC-0-A3 yes): follow-up of E0-S9 | draft | E0-S9 | none | main | parked by Jordi when closing E0-S9 2026-11-20 | 2026-11-20 | Jordi starts it from the goal when wanted |
 | E0-S11 | Ticket worker | unassigned | agent ticket board (on an EPIC-0-A3 yes): follow-up of E0-S9 | draft | E0-S9 | none | main | parked by Jordi when closing E0-S9 2026-11-20 | 2026-11-20 | Jordi starts it from the goal when wanted |
 | E0-S12 | Ticket worker | unassigned | hoster rules and hackathon week one (after the ledger): follow-up of E0-S9 | draft | E0-S9 | none | main | parked by Jordi when closing E0-S9 2026-11-20 | 2026-11-20 | Jordi starts it from the goal when wanted |
-| E0-S13 | Ticket worker | unassigned | Economics presentation for builder, hoster and user (his EPIC-0-A3 answer): hoster numbers for honouring 5x credit, how inference is proven (tests in the ticket, AI jury), one simple example end to end per party, and how the three drive growth | ready | E0-S9 | none | main | Jordi answered EPIC-0-A3 2026-11-20 (5fc7773) with these questions | 2026-11-20 | dispatch; then re-ask the 5x decision with the numbers |
+| E0-S13 | Ticket worker | run_38a49de0-1915-4066-9124-144113959ba9 (dispatched 2026-11-20, seat5) | Economics presentation for builder, hoster and user (his EPIC-0-A3 answer): hoster numbers for honouring 5x credit, how inference is proven (tests in the ticket, AI jury), one simple example end to end per party, and how the three drive growth | active | E0-S9 | none | main | Jordi answered EPIC-0-A3 2026-11-20 (5fc7773) with these questions | 2026-11-20 | dispatch; then re-ask the 5x decision with the numbers |
 
 ## Decisions
 
