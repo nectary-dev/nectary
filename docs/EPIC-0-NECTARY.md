@@ -31,7 +31,7 @@ Status: active
 Last attempted: 2026-11-20 Jordi revived Nectary (voice note 20 Nov, E0-S9 ready on his ask); Delivery manager dispatched one worker for its proposal page
 Result: E0-S9 active (run_408e2f59 on seat3): one proposal page on inference-for-credit, hosters, agent-first tickets, the staged hackathon, Zenod first, PolyQuestion and open accounting
 Evidence: [units page](http://vps3.taild81fbb.ts.net:8974/) ; commits 4b98515, db8800c on main
-Waiting on: the E0-S9 worker; other open rows are drafts (E0-S2..S4 for E0-1..E0-3, E0-S7, E0-S8 parked by Jordi)
+Waiting on: the E0-S9 worker; other open rows are drafts (E0-S2..S4 for E0-1..E0-3, E0-S7, E0-S8 parked by Jordi); Jordi: EPIC-0-A3
 Monitoring: E0-S9 worker run_408e2f59 still running (claimed 02:06Z, lease to 04:06Z), building the proposal page; no other row ready (E0-S2..S4, E0-S7, E0-S8 drafts); no … · next check 2026-11-20T04:10:00.000Z
 Approved work: none open
 Next action: when the E0-S9 page is live, its one blocking decision goes to Jordi as EPIC-0-A3; his answer decides which drafts get readied
@@ -42,6 +42,7 @@ Verified at: 2026-11-20
 
 - [answered EPIC-0-A1 2026-11-11 @Jordi · done 2026-11-11 7f37510] Is Nectary still an active goal, and are E0-1..E0-3 (from docs/mission.md) its Done means? — answer: active again; voice note vn_322d841c on market-bots E3-S1: "I like the idea of reactivating Nectary, because I think it's actually super important" — the Done means stay as drafted until his repayment-currency decision (row E0-S1) lands, since a utility token would change E0-2 and the Non-Goals
 - [answered EPIC-0-A2 2026-11-11 @Delivery-Manager · done 2026-11-14 9d0d84d] Branch `origin/add-nectary-hero-image` (hero SVG for nectary.dev, 2026-07-05) is not in main — answer: merged into main (one new file, assets/images/nectary-hero.svg) — why: additive, nothing uses it yet, keeps the art for the future site and clears the stale branch — rollback: delete the file
+- [ask EPIC-0-A3: decide @Jordi since 2026-11-20 row E0-S9] Do we promise builders 5x their inference as Zenod service credit, keeping cash repayment at cost? Your words (voice note e-c8fe26, 20 Nov): "my inference will be paid uh 10 times over. That's the promise" and "You get 5x your inference back in credit in the hosters" — recommend: recommend: Yes. 5x in service credit is a promise a hoster can keep, about 1x its serving cost; a cash multiple needs a lawyer first. Yes: we build the credit ledger, agent ticket board, hoster rules and hackathon week one. No: Nectary stays at cost and units wait. options: Yes: build the loop | No: keep cash at cost only ; details: http://vps3.taild81fbb.ts.net:8975/ — context: raised by Delivery Manager (run run_408e2f59-c37c-4649-b473-80e20e5e4f56) through the console API; the console wrote this line
 
 ## Non-Goals
 
