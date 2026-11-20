@@ -28,14 +28,14 @@ Define and ship the minimal open protocol and tooling for ticket-backed, capped,
 
 Owner: Jordi (AlfaBlok); root steward: repo delivery manager
 Status: active
-Last attempted: 2026-11-12 Jordi approved E0-S5 (E0-4 met) and parked its follow-ups E0-S7 and E0-S8; E0-S6 folded into E0-S8; market-bots told E3-S2 can close
-Result: transferable service units live on Nectary as the first seed repo (E0-4 done); E0-1..E0-3 (ticket template, repayment queue, verification) open with draft rows E0-S2..S4
+Last attempted: 2026-11-20 Jordi revived Nectary (voice note 20 Nov, E0-S9 ready on his ask); Delivery manager dispatched one worker for its proposal page
+Result: E0-S9 active (run_408e2f59 on seat3): one proposal page on inference-for-credit, hosters, agent-first tickets, the staged hackathon, Zenod first, PolyQuestion and open accounting
 Evidence: [units page](http://vps3.taild81fbb.ts.net:8974/) ; commits 4b98515, db8800c on main
-Waiting on: nothing ready; every open row is a draft (E0-S2..S4 for E0-1..E0-3, E0-S7, E0-S8 parked by Jordi)
+Waiting on: the E0-S9 worker; other open rows are drafts (E0-S2..S4 for E0-1..E0-3, E0-S7, E0-S8 parked by Jordi)
 Approved work: none open
-Next action: Jordi readies the next goal when wanted (E0-S2 ticket template is first on the critical path, then E0-S7 pays its tickets in units)
+Next action: when the E0-S9 page is live, its one blocking decision goes to Jordi as EPIC-0-A3; his answer decides which drafts get readied
 Source revision: main @ db8800c
-Verified at: 2026-11-12
+Verified at: 2026-11-20
 
 ## Waiting on
 
@@ -84,7 +84,7 @@ none
 | E0-S6 | Ticket worker | unassigned | Redemption: units spent on Zenod at 1,000 memory operations per unit | done (folded into E0-S8, Jordi parked spending on Zenod when closing E0-S5 2026-11-12) | E0-S5 | none | main | Zenod desk reply 9a23657: no objection, about 1 to 3 dollars of model spend per 1,000 operations; going live is Jordi's call | 2026-11-11 | parked by E0-S5's card; when started, send Zenod a note asking for the redemption path, Zenod raises the coded ask to Jordi |
 | E0-S7 | Ticket worker | unassigned | pay accepted tickets in units: follow-up of E0-S5 | draft | E0-S5 | none | main | parked by Jordi when closing E0-S5 2026-11-12 | 2026-11-12 | Jordi starts it from the goal when wanted |
 | E0-S8 | Ticket worker | unassigned | spend units on Zenod: follow-up of E0-S5 | draft | E0-S5 | none | main | parked by Jordi when closing E0-S5 2026-11-12 ; carries E0-S6: Zenod agreed in principle (zenod 9a23657), going live costs about 1 to 3 dollars per unit of model spend | 2026-11-12 | Jordi starts it from the goal when wanted |
-| E0-S9 | Ticket worker | unassigned | Nectary revived: inference-for-credit model, hosters, a hackathon to build it, Zenod first. Core: reuses objective: One proposal page to his inbox (20 Nov note): inference in, credit or tokens out (10x, revenue backed or usage rights), hosters fund it, agent-first tickets with deposit and rating, a staged AI-judged hackathon, ideas PolyQuestion and open accounting. Log/2026-11-20.md#^e-c8fe26 | ready | none | none | main | none | 2026-11-20 | dispatch (Jordi's ask, L-37) |
+| E0-S9 | Ticket worker | run_408e2f59-c37c-4649-b473-80e20e5e4f56 (dispatched 2026-11-20, seat3) | Nectary revived: inference-for-credit model, hosters, a hackathon to build it, Zenod first. Core: reuses objective: One proposal page to his inbox (20 Nov note): inference in, credit or tokens out (10x, revenue backed or usage rights), hosters fund it, agent-first tickets with deposit and rating, a staged AI-judged hackathon, ideas PolyQuestion and open accounting. Log/2026-11-20.md#^e-c8fe26 | active | none | none | main | worker dispatched 2026-11-20 | 2026-11-20 | worker builds one proposal page (cycle diagram first, points 1-6) and posts its one blocking decision as EPIC-0-A3; row closes done (fed EPIC-0-A3) |
 
 ## Decisions
 
