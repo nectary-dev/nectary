@@ -55,9 +55,9 @@ def wheel_svg():
     return "\n".join(out)
 
 
-def table_svg(label, rows, strong=()):
+def table_svg(label, rows, strong=(), cw=132):
     """A small ruled table drawn as SVG: first row is the head; cells with ✓ go in the accent."""
-    cw0, cw, rh = 200, 132, 38
+    cw0, rh = 200, 38
     w, h = cw0 + cw * (len(rows[0]) - 1), rh * len(rows) + 8
     out = [f'<svg viewBox="0 0 {w} {h}" role="img" aria-label="{e(label)}" class="tbl">']
     for j, row in enumerate(rows):
@@ -70,6 +70,51 @@ def table_svg(label, rows, strong=()):
             col = ACC if "✓" in cell else ("#8a2c1c" if "✗" in cell else (MUT if j == 0 else INK))
             fw = ' font-weight="600"' if ("✓" in cell or "✗" in cell or row[0] in strong) else ""
             out.append(f'<text x="{x}" y="{y+25}" font-size="17" class="{style}" style="fill:{col}"{fw}>{e(cell)}</text>')
+    out.append("</svg>")
+    return "\n".join(out)
+
+
+def loop_svg():
+    """Opening diagram: the multiple attaches to the price known before work; real inference sits beside it, unmultiplied."""
+    W = 420
+    boxes = [("AI estimate", "tests, size, past tickets: $10", False),
+             ("Price $10, fixed", "posted before any work", True),
+             ("x 2 = $20 credit", "Zenod service, after tests and jury", False),
+             ("Hoster pays $9.48", "known the moment the price is posted", False)]
+    bw, bh, gap, x0 = 300, 66, 34, 4
+    out = [f'<svg viewBox="0 0 {W} 470" role="img" aria-label="Price first: an AI estimate sets a ten dollar price before work, the credit is two times that price, twenty dollars, the hoster pays 9.48 dollars, and the real inference stays beside it as the builder\'s risk, never multiplied">']
+    for i, (t, s, on) in enumerate(boxes):
+        y = 4 + i * (bh + gap)
+        out.append(f'<rect x="{x0}" y="{y}" width="{bw}" height="{bh}" rx="6" fill="{ACC if on else PAPER}" stroke="{ACC if on else INK}"/>')
+        out.append(f'<text x="{x0+16}" y="{y+28}" class="serif" font-size="23" style="fill:{PAPER if on else INK}">{e(t)}</text>')
+        out.append(f'<text x="{x0+16}" y="{y+52}" font-size="16" style="fill:{"#cfe0d4" if on else MUT}">{e(s)}</text>')
+        if i < len(boxes) - 1:
+            out.append(f'<path d="M{x0+bw//2},{y+bh+3} L{x0+bw//2},{y+bh+gap-5}" stroke="{ACC if i == 1 else INK}" stroke-width="{3 if i == 1 else 2}" marker-end="url(#{"aha" if i == 1 else "ah"})"/>')
+    y1 = 4 + bh + gap + bh // 2
+    out.append(f'<path d="M{x0+bw},{y1} L{W-14},{y1} L{W-14},{4+4*(bh+gap)}" fill="none" stroke="{MUT}" stroke-width="1.6" stroke-dasharray="5 5"/>')
+    yb = 4 + 4 * (bh + gap)
+    out.append(f'<rect x="{x0}" y="{yb}" width="{W-8}" height="62" rx="6" fill="none" stroke="{MUT}" stroke-dasharray="5 5"/>')
+    out.append(f'<text x="{x0+16}" y="{yb+26}" class="serif" font-size="20">Real inference: never multiplied</text>')
+    out.append(f'<text x="{x0+16}" y="{yb+49}" font-size="16" class="mut">builder keeps a saving, eats an overrun</text>')
+    out.append("</svg>")
+    return "\n".join(out)
+
+
+def risk_svg():
+    """Same $10 price, three builders: real inference against the fixed $20 credit, the multiple each one really got."""
+    rows = [("Ana", 8.40, "2.4x"), ("Typical", 10.0, "2.0x"), ("Ben", 13.20, "1.5x")]
+    W, x0, sc, rh = 420, 96, 13.0, 58
+    out = [f'<svg viewBox="0 0 {W} 268" role="img" aria-label="Same ten dollar price for three builders: Ana spends 8.40 dollars and gets 2.4 times, a typical builder spends 10 and gets 2 times, Ben spends 13.20 and gets 1.5 times; credit is twenty dollars for all three">']
+    px = x0 + 10 * sc
+    for i, (n, real, k) in enumerate(rows):
+        y = 26 + i * rh
+        out.append(f'<text x="0" y="{y+22}" class="serif" font-size="19">{e(n)}</text>')
+        out.append(f'<rect x="{x0}" y="{y+6}" width="{real*sc:.1f}" height="24" fill="{ACC if real < 10 else (MUT if real == 10 else "#8a2c1c")}" opacity="{1 if real != 10 else .55}"/>')
+        out.append(f'<text x="{max(x0+real*sc, px)+8:.1f}" y="{y+24}" font-size="16">${real:.2f} · {k}</text>')
+    out.append(f'<line x1="{px}" y1="14" x2="{px}" y2="{30+3*rh}" stroke="{INK}" stroke-width="2"/>')
+    out.append(f'<text x="{px}" y="10" text-anchor="middle" font-size="15" class="mut">price $10</text>')
+    out.append(f'<line x1="0" y1="{40+3*rh}" x2="{W}" y2="{40+3*rh}" stroke="{LINE}"/>')
+    out.append(f'<text x="0" y="{68+3*rh}" font-size="17" class="acc" font-weight="600">All three get $20 of credit</text>')
     out.append("</svg>")
     return "\n".join(out)
 
@@ -92,10 +137,66 @@ def section(id_, part_, n, h2, figures, detail=""):
     return f'<section id="{id_}" data-part="{part_}"><p class="n">{e(n)}</p><h2>{e(h2)}</h2>{figs}{detail}</section>'
 
 
+compare = table_svg("Three ways to set the price before work, side by side, ours first", [
+    ["", "Ours: estimate, rises", "Estimate, fixed", "Builders bid"],
+    ["Known before work", "✓", "✓", "✓"],
+    ["If priced too low", "✓ +25% in 48 h", "✗ sits unheld", "✓ bids rise"],
+    ["If priced too high", "✓ next one −10%", "✗ hoster overpays", "✓ bids fall"],
+    ["Hard to game", "✓ capped 1.5x", "✓", "✗ lowball, junk"],
+    ["Starts work", "✓ at once", "✓ at once", "✗ after 2 days"],
+], cw=170)
+q1 = section("q1", "how the price is set", "A · The price",
+             "The 2x multiplies a price set before work. Three ways to set it:",
+             [(compare, "chart wide")],
+             more("How the estimate is made, with the numbers", rules([
+                 ("Who estimates", "An AI estimator reads the ticket's tests, the files it touches and what past tickets like it took."),
+                 ("In agent runs", "It counts expected agent runs. A typical team agent run costs $1.20 at API prices."),
+                 ("Example", "12 tests, 3 files, similar tickets took 7 to 9 runs: 8 runs, $9.60, posted at $10."),
+                 ("Too low", "Nobody holds it in 48 hours: the price rises 25%, to $12.50, then $15, never above 1.5x."),
+                 ("Learns", "Tickets taken at once lower the next estimates 10%. Tickets that had to rise raise them."),
+                 ("Why not bids", "Bids race to the bottom and pull junk. They also wait two days for every ticket."),
+             ])))
+q2 = section("q2", "who carries the risk", "B · The risk",
+             "The builder carries it: same price, same credit.",
+             [(risk_svg(), "chart")],
+             more("Why that is fair and hard to game", rules([
+                 ("Builder keeps", "A saving. Ana's agent was efficient: $20 for $8.40 is 2.4x."),
+                 ("Builder eats", "An overrun. Ben's agent wandered: $20 for $13.20 is still 1.5x."),
+                 ("Below 1x", "Only when real inference is over twice the price: about 1 ticket in 40."),
+                 ("Re-quote", "Only when the hoster changes the ticket after a hold. The builder may then drop it, deposit back."),
+                 ("Cap", "No ticket above 1.5x its estimate, none above $50. Bigger work is split."),
+                 ("Nothing to inflate", "Tokens never enter the sum, so burning more earns nothing. A release never raises the price."),
+             ])))
+q3 = section("q3", "hoster cost bounded", "C · The hoster",
+             "The hoster knows its cost before work starts.",
+             [(steps_svg("The hoster's cost, known at posting", [
+                 ("Price $10", "posted, worth $10 to the hoster", ""),
+                 ("x 2 = $20 credit", "about 2.1 months of Zenod", ""),
+                 ("x 47¢ = $9.48", "what serving it costs: 95¢ per $1 of price", ""),
+                 ("Under half the profit", "posted only when the credit fund holds it", ""),
+             ], 2), "narrow")],
+             more("The bounds, in numbers", rules([
+                 ("Per $1 of price", "95¢ at 2x, under the $1 the work is worth. Break-even stays 2.1x."),
+                 ("Worst ticket", "At the $15 cap: $14.22. At the full AI cap: $16.85 for a $10 ticket."),
+                 ("Per month", "Never above half the hoster's profit. Today, 10 users: about 2 tickets of $10."),
+                 ("Real inference", "Never seen by the hoster and never paid for. Only the posted price is."),
+             ])))
+q4 = section("q4", "one ticket end to end", "D · One ticket",
+             "One ticket, posted to spent, in real numbers.",
+             [(steps_svg("One ticket end to end", [
+                 ("Posted, Monday", "Jordi: export memories to Markdown, 12 tests", ""),
+                 ("Priced", "estimate 8 runs, $9.60: price $10, cap $15", ""),
+                 ("Held", "Ana's agent takes it at $10, $5 deposit, 48 h", ""),
+                 ("Built", "7 agent runs, $8.40 real, no one counts", ""),
+                 ("Tested and judged", "12 plus 4 hidden tests pass, jury 3 of 3", ""),
+                 ("Paid $20 credit", "2 x $10 price · Jordi's cost $9.48", ""),
+                 ("Spent", "one month herself, one to a friend", ""),
+             ], 5), "narrow")])
+
 open_svg = part("open.svg").replace('<defs>', '<defs>', 1)
 s1 = section("p1", "hoster numbers", "1 · Hoster numbers",
              "A hoster pays about half the list price to serve credit, not a fifth.",
-             [(part("split.svg"), "chart"), (part("bars.svg"), "chart")],
+             [(open_svg, "narrow"), (part("split.svg"), "chart"), (part("bars.svg"), "chart")],
              more("How the hoster comes out, and the proposal page it corrects", rules([
                  ("The month", "One month lists at €9, about $9.49. Serving it costs about $4.50."),
                  ("In profit", "Up to 2x for typical use: the work is worth more than the service."),
@@ -188,46 +289,57 @@ rec_svg = table_svg("2x against 5x, today and at large scale", [
     ["Cash", "at cost", "at cost"],
 ])
 rec = f'''<section id="rec" class="ps-bottom" data-part="our recommendation"><div class="ps-rec"><h2>Our recommendation</h2>
-<p>Start at 2x service credit, rising monthly by a public rule toward 5x. Cash stays at cost.</p></div>
+<p>2x the price set before work. Builders carry overruns. Toward 5x monthly.</p></div>
 <figure class="chart">{rec_svg}</figure>
-<table aria-label="Your four points, covered"><tr><th>Your point, 20 Nov</th><th>Where</th><th></th></tr>
+<table aria-label="Your points, covered"><tr><th>Your point, 20 Nov</th><th>Where</th><th></th></tr>
+<tr><td>"we don't know inference cost upfront"</td><td><a href="#q1">A</a></td><td class="y">✓</td></tr>
+<tr><td>who carries an overrun</td><td><a href="#q2">B</a></td><td class="y">✓</td></tr>
+<tr><td>the hoster's cost bounded</td><td><a href="#q3">C</a></td><td class="y">✓</td></tr>
+<tr><td>one ticket end to end</td><td><a href="#q4">D</a></td><td class="y">✓</td></tr>
 <tr><td>"numbers for hosters having to shoulder this"</td><td><a href="#p1">screen 1</a></td><td class="y">✓</td></tr>
 <tr><td>"How is inference proven?"</td><td><a href="#p2">screen 2</a></td><td class="y">✓</td></tr>
 <tr><td>"end to end for each party"</td><td><a href="#p3a">builder</a>, <a href="#p3b">hoster</a>, <a href="#p3c">user</a></td><td class="y">✓</td></tr>
 <tr><td>"dynamics we want as service grows"</td><td><a href="#p4">screen 4</a></td><td class="y">✓</td></tr></table>
-<p class="ps-punch" data-part="bottom line">2x holds today; 5x holds near 5,000 paying users. Your call on the promise.</p></section>'''
+<p class="ps-punch" data-part="bottom line">Credit is 2x a price known before work; 5x holds near 5,000 paying users. Your call.</p></section>'''
 
 FOOT = ("Sources. Live: Zenod Hosted €9 a month + VAT (zenod terms.html); at most $5 of AI cost per account a month "
         "(zenod limits.ts, your E26-A7); a typical team agent run $1.20 at API prices (zenod docs/evidence/e7-s1). "
         "Estimate: server €2 to €4 per account, a €20 box for 5 to 10 accounts (zenod docs/HOSTED-PLAN). "
         "Assumptions: €1 = $1.055; card fee $0.40; typical AI use $1.50, not yet measured; $1 of accepted work worth $1 "
-        "to the hoster; the three scales. Every number comes from model.py beside this page. Demo names. Not legal advice.")
+        "to the hoster; the three scales; real inference spread ±35% around the estimate (log-normal); the 25% step, 1.5x cap and $50 ticket limit are our proposal. Every number comes from model.py beside this page. Demo names. Not legal advice.")
 
 style = part("style.css.html").replace("</style>", """
 [data-page-shell] .s13 figure.narrow svg,[data-page-shell] .s13 figure.chart svg{max-width:30rem}
-[data-page-shell] .ps-diagram svg{max-width:32rem;margin:0 auto;display:block}
+[data-page-shell] .ps-diagram .dg{max-width:26rem;margin:0 auto}
+[data-page-shell] .ps-diagram svg{display:block;width:100%;height:auto}
 @media (max-width:560px){[data-page-shell] svg .ws{display:none}[data-page-shell] svg .wt{font-size:24px}[data-page-shell] svg .wh{font-size:21px}}
 [data-page-shell] .s13 figure.wide{overflow-x:auto}
 [data-page-shell] .s13 figure.wide svg{min-width:34rem}
 [data-page-shell] .s13 details.more{margin:.4rem 0 0}
+[data-page-shell] .s13 p.earlier{margin:2.4rem 0 0;font-size:1rem}
 [data-page-shell] .s13 details.more summary{cursor:pointer;color:var(--muted);font:400 .95rem var(--sans)}
 </style>""")
 
 html = f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nectary economics: what credit costs a hoster, and the multiple that holds</title>
+<title>Nectary economics: 2x of a price known before work</title>
 <link rel="stylesheet" href="/_shell/shell.css">
 {style}
 </head>
 <body data-page-shell>
 {DEFS}
 <main class="ps-page s13">
-<header class="ps-head"><p class="ps-kicker">E0-S13 · 2026-11-20 · answers your questions on EPIC-0-A3</p><h1>Nectary economics: what credit costs a hoster</h1></header>
-<p class="ps-punch" data-part="bottom line">At Zenod's real costs 5x credit loses money today: hosters break even near <b>2x</b>, reaching <b>5x</b> around 5,000 paying users.</p>
-<figure class="ps-diagram" data-shape="cycle">
-{open_svg}
-</figure>
+<header class="ps-head"><p class="ps-kicker">E0-S14 · 2026-11-20 · answers "we don't know inference cost upfront" on EPIC-0-A4</p><h1>Nectary economics: 2x of a price known before work</h1></header>
+<p class="ps-punch" data-part="bottom line">Credit is <b>2x the ticket's price</b>, fixed before work. The inference actually burned is the builder's risk, so nobody needs to know it upfront.</p>
+<figure class="ps-diagram" data-shape="line"><div class="dg">
+{loop_svg()}
+</div></figure>
 <div class="ps-body">
+{q1}
+{q2}
+{q3}
+{q4}
+<p class="n earlier">Earlier, on EPIC-0-A3</p>
 {s1}
 {s2}
 {s3a}
@@ -235,7 +347,7 @@ html = f'''<!doctype html>
 {s3c}
 {s4}
 {rec}
-<p class="ps-foot">{e(FOOT)} · E0-S13 keeps this page · one shared page shell (E75-S5)</p>
+<p class="ps-foot">{e(FOOT)} · E0-S13 made this page, E0-S14 added the four questions · one shared page shell (E75-S5)</p>
 </div>
 </main>
 </body></html>

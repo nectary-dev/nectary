@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nectary economics: what credit costs a hoster, and the multiple that holds</title>
+<title>Nectary economics: 2x of a price known before work</title>
 <link rel="stylesheet" href="/_shell/shell.css">
 <style>
 [data-page-shell] .s13 section{padding:2.2rem 0 1.6rem;border-top:1px solid var(--line)}
@@ -28,11 +28,13 @@
 [data-page-shell] svg .acc{fill:#1f4d3a}
 
 [data-page-shell] .s13 figure.narrow svg,[data-page-shell] .s13 figure.chart svg{max-width:30rem}
-[data-page-shell] .ps-diagram svg{max-width:32rem;margin:0 auto;display:block}
+[data-page-shell] .ps-diagram .dg{max-width:26rem;margin:0 auto}
+[data-page-shell] .ps-diagram svg{display:block;width:100%;height:auto}
 @media (max-width:560px){[data-page-shell] svg .ws{display:none}[data-page-shell] svg .wt{font-size:24px}[data-page-shell] svg .wh{font-size:21px}}
 [data-page-shell] .s13 figure.wide{overflow-x:auto}
 [data-page-shell] .s13 figure.wide svg{min-width:34rem}
 [data-page-shell] .s13 details.more{margin:.4rem 0 0}
+[data-page-shell] .s13 p.earlier{margin:2.4rem 0 0;font-size:1rem}
 [data-page-shell] .s13 details.more summary{cursor:pointer;color:var(--muted);font:400 .95rem var(--sans)}
 </style>
 
@@ -42,10 +44,126 @@
 <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#18211c"/></marker>
 <marker id="aha" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1f4d3a"/></marker></defs></svg>
 <main class="ps-page s13">
-<header class="ps-head"><p class="ps-kicker">E0-S13 · 2026-11-20 · answers your questions on EPIC-0-A3</p><h1>Nectary economics: what credit costs a hoster</h1></header>
-<p class="ps-punch" data-part="bottom line">At Zenod's real costs 5x credit loses money today: hosters break even near <b>2x</b>, reaching <b>5x</b> around 5,000 paying users.</p>
-<figure class="ps-diagram" data-shape="cycle">
-<svg viewBox="0 0 420 470" role="img" aria-label="The three parties in a circle: builder work makes Zenod better for users, users pay the hoster 9 euros a month, the hoster pays builders 2x in credit, which costs it 95 cents per dollar of work">
+<header class="ps-head"><p class="ps-kicker">E0-S14 · 2026-11-20 · answers "we don't know inference cost upfront" on EPIC-0-A4</p><h1>Nectary economics: 2x of a price known before work</h1></header>
+<p class="ps-punch" data-part="bottom line">Credit is <b>2x the ticket's price</b>, fixed before work. The inference actually burned is the builder's risk, so nobody needs to know it upfront.</p>
+<figure class="ps-diagram" data-shape="line"><div class="dg">
+<svg viewBox="0 0 420 470" role="img" aria-label="Price first: an AI estimate sets a ten dollar price before work, the credit is two times that price, twenty dollars, the hoster pays 9.48 dollars, and the real inference stays beside it as the builder's risk, never multiplied">
+<rect x="4" y="4" width="300" height="66" rx="6" fill="#f6f2e9" stroke="#18211c"/>
+<text x="20" y="32" class="serif" font-size="23" style="fill:#18211c">AI estimate</text>
+<text x="20" y="56" font-size="16" style="fill:#4a554e">tests, size, past tickets: $10</text>
+<path d="M154,73 L154,99" stroke="#18211c" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="4" y="104" width="300" height="66" rx="6" fill="#1f4d3a" stroke="#1f4d3a"/>
+<text x="20" y="132" class="serif" font-size="23" style="fill:#f6f2e9">Price $10, fixed</text>
+<text x="20" y="156" font-size="16" style="fill:#cfe0d4">posted before any work</text>
+<path d="M154,173 L154,199" stroke="#1f4d3a" stroke-width="3" marker-end="url(#aha)"/>
+<rect x="4" y="204" width="300" height="66" rx="6" fill="#f6f2e9" stroke="#18211c"/>
+<text x="20" y="232" class="serif" font-size="23" style="fill:#18211c">x 2 = $20 credit</text>
+<text x="20" y="256" font-size="16" style="fill:#4a554e">Zenod service, after tests and jury</text>
+<path d="M154,273 L154,299" stroke="#18211c" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="4" y="304" width="300" height="66" rx="6" fill="#f6f2e9" stroke="#18211c"/>
+<text x="20" y="332" class="serif" font-size="23" style="fill:#18211c">Hoster pays $9.48</text>
+<text x="20" y="356" font-size="16" style="fill:#4a554e">known the moment the price is posted</text>
+<path d="M304,137 L406,137 L406,404" fill="none" stroke="#4a554e" stroke-width="1.6" stroke-dasharray="5 5"/>
+<rect x="4" y="404" width="412" height="62" rx="6" fill="none" stroke="#4a554e" stroke-dasharray="5 5"/>
+<text x="20" y="430" class="serif" font-size="20">Real inference: never multiplied</text>
+<text x="20" y="453" font-size="16" class="mut">builder keeps a saving, eats an overrun</text>
+</svg>
+</div></figure>
+<div class="ps-body">
+<section id="q1" data-part="how the price is set"><p class="n">A · The price</p><h2>The 2x multiplies a price set before work. Three ways to set it:</h2><figure class="chart wide"><svg viewBox="0 0 710 236" role="img" aria-label="Three ways to set the price before work, side by side, ours first" class="tbl">
+<text x="4" y="29" font-size="17" class="serif" style="fill:#4a554e"></text>
+<text x="206" y="29" font-size="17" class="serif" style="fill:#4a554e">Ours: estimate, rises</text>
+<text x="376" y="29" font-size="17" class="serif" style="fill:#4a554e">Estimate, fixed</text>
+<text x="546" y="29" font-size="17" class="serif" style="fill:#4a554e">Builders bid</text>
+<line x1="0" y1="42" x2="710" y2="42" stroke="#18211c" stroke-width="1.4"/>
+<text x="4" y="67" font-size="17" class="serif" style="fill:#18211c">Known before work</text>
+<text x="206" y="67" font-size="17" class="" style="fill:#1f4d3a" font-weight="600">✓</text>
+<text x="376" y="67" font-size="17" class="" style="fill:#1f4d3a" font-weight="600">✓</text>
+<text x="546" y="67" font-size="17" class="" style="fill:#1f4d3a" font-weight="600">✓</text>
+<line x1="0" y1="80" x2="710" y2="80" stroke="#c9c1ae" stroke-width="1"/>
+<text x="4" y="105" font-size="17" class="serif" style="fill:#18211c">If priced too low</text>
+<text x="206" y="105" font-size="17" class="" style="fill:#1f4d3a" font-weight="600">✓ +25% in 48 h</text>
+<text x="376" y="105" font-size="17" class="" style="fill:#8a2c1c" font-weight="600">✗ sits unheld</text>
+<text x="546" y="105" font-size="17" class="" style="fill:#1f4d3a" font-weight="600">✓ bids rise</text>
+<line x1="0" y1="118" x2="710" y2="118" stroke="#c9c1ae" stroke-width="1"/>
+<text x="4" y="143" font-size="17" class="serif" style="fill:#18211c">If priced too high</text>
+<text x="206" y="143" font-size="17" class="" style="fill:#1f4d3a" font-weight="600">✓ next one −10%</text>
+<text x="376" y="143" font-size="17" class="" style="fill:#8a2c1c" font-weight="600">✗ hoster overpays</text>
+<text x="546" y="143" font-size="17" class="" style="fill:#1f4d3a" font-weight="600">✓ bids fall</text>
+<line x1="0" y1="156" x2="710" y2="156" stroke="#c9c1ae" stroke-width="1"/>
+<text x="4" y="181" font-size="17" class="serif" style="fill:#18211c">Hard to game</text>
+<text x="206" y="181" font-size="17" class="" style="fill:#1f4d3a" font-weight="600">✓ capped 1.5x</text>
+<text x="376" y="181" font-size="17" class="" style="fill:#1f4d3a" font-weight="600">✓</text>
+<text x="546" y="181" font-size="17" class="" style="fill:#8a2c1c" font-weight="600">✗ lowball, junk</text>
+<line x1="0" y1="194" x2="710" y2="194" stroke="#c9c1ae" stroke-width="1"/>
+<text x="4" y="219" font-size="17" class="serif" style="fill:#18211c">Starts work</text>
+<text x="206" y="219" font-size="17" class="" style="fill:#1f4d3a" font-weight="600">✓ at once</text>
+<text x="376" y="219" font-size="17" class="" style="fill:#1f4d3a" font-weight="600">✓ at once</text>
+<text x="546" y="219" font-size="17" class="" style="fill:#8a2c1c" font-weight="600">✗ after 2 days</text>
+</svg></figure><details class="more"><summary>How the estimate is made, with the numbers</summary><ul class="rules"><li><b>Who estimates</b><span>An AI estimator reads the ticket&#x27;s tests, the files it touches and what past tickets like it took.</span></li><li><b>In agent runs</b><span>It counts expected agent runs. A typical team agent run costs $1.20 at API prices.</span></li><li><b>Example</b><span>12 tests, 3 files, similar tickets took 7 to 9 runs: 8 runs, $9.60, posted at $10.</span></li><li><b>Too low</b><span>Nobody holds it in 48 hours: the price rises 25%, to $12.50, then $15, never above 1.5x.</span></li><li><b>Learns</b><span>Tickets taken at once lower the next estimates 10%. Tickets that had to rise raise them.</span></li><li><b>Why not bids</b><span>Bids race to the bottom and pull junk. They also wait two days for every ticket.</span></li></ul></details></section>
+<section id="q2" data-part="who carries the risk"><p class="n">B · The risk</p><h2>The builder carries it: same price, same credit.</h2><figure class="chart"><svg viewBox="0 0 420 268" role="img" aria-label="Same ten dollar price for three builders: Ana spends 8.40 dollars and gets 2.4 times, a typical builder spends 10 and gets 2 times, Ben spends 13.20 and gets 1.5 times; credit is twenty dollars for all three">
+<text x="0" y="48" class="serif" font-size="19">Ana</text>
+<rect x="96" y="32" width="109.2" height="24" fill="#1f4d3a" opacity="1"/>
+<text x="234.0" y="50" font-size="16">$8.40 · 2.4x</text>
+<text x="0" y="106" class="serif" font-size="19">Typical</text>
+<rect x="96" y="90" width="130.0" height="24" fill="#4a554e" opacity="0.55"/>
+<text x="234.0" y="108" font-size="16">$10.00 · 2.0x</text>
+<text x="0" y="164" class="serif" font-size="19">Ben</text>
+<rect x="96" y="148" width="171.6" height="24" fill="#8a2c1c" opacity="1"/>
+<text x="275.6" y="166" font-size="16">$13.20 · 1.5x</text>
+<line x1="226.0" y1="14" x2="226.0" y2="204" stroke="#18211c" stroke-width="2"/>
+<text x="226.0" y="10" text-anchor="middle" font-size="15" class="mut">price $10</text>
+<line x1="0" y1="214" x2="420" y2="214" stroke="#c9c1ae"/>
+<text x="0" y="242" font-size="17" class="acc" font-weight="600">All three get $20 of credit</text>
+</svg></figure><details class="more"><summary>Why that is fair and hard to game</summary><ul class="rules"><li><b>Builder keeps</b><span>A saving. Ana&#x27;s agent was efficient: $20 for $8.40 is 2.4x.</span></li><li><b>Builder eats</b><span>An overrun. Ben&#x27;s agent wandered: $20 for $13.20 is still 1.5x.</span></li><li><b>Below 1x</b><span>Only when real inference is over twice the price: about 1 ticket in 40.</span></li><li><b>Re-quote</b><span>Only when the hoster changes the ticket after a hold. The builder may then drop it, deposit back.</span></li><li><b>Cap</b><span>No ticket above 1.5x its estimate, none above $50. Bigger work is split.</span></li><li><b>Nothing to inflate</b><span>Tokens never enter the sum, so burning more earns nothing. A release never raises the price.</span></li></ul></details></section>
+<section id="q3" data-part="hoster cost bounded"><p class="n">C · The hoster</p><h2>The hoster knows its cost before work starts.</h2><figure class="narrow"><svg viewBox="0 0 420 466" role="img" aria-label="The hoster&#x27;s cost, known at posting" class="steps">
+<rect x="4" y="4" width="412" height="92" rx="6" fill="#f6f2e9" stroke="#18211c"/>
+<text x="20" y="32" class="serif" font-size="23" style="fill:#18211c">Price $10</text>
+<text x="20" y="58" font-size="17" style="fill:#4a554e">posted, worth $10 to the hoster</text>
+<path d="M210,100 L210,120" stroke="#18211c" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="4" y="126" width="412" height="92" rx="6" fill="#f6f2e9" stroke="#18211c"/>
+<text x="20" y="154" class="serif" font-size="23" style="fill:#18211c">x 2 = $20 credit</text>
+<text x="20" y="180" font-size="17" style="fill:#4a554e">about 2.1 months of Zenod</text>
+<path d="M210,222 L210,242" stroke="#18211c" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="4" y="248" width="412" height="92" rx="6" fill="#1f4d3a" stroke="#1f4d3a"/>
+<text x="20" y="276" class="serif" font-size="23" style="fill:#f6f2e9">x 47¢ = $9.48</text>
+<text x="20" y="302" font-size="17" style="fill:#cfe0d4">what serving it costs: 95¢ per $1 of price</text>
+<path d="M210,344 L210,364" stroke="#18211c" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="4" y="370" width="412" height="92" rx="6" fill="#f6f2e9" stroke="#18211c"/>
+<text x="20" y="398" class="serif" font-size="23" style="fill:#18211c">Under half the profit</text>
+<text x="20" y="424" font-size="17" style="fill:#4a554e">posted only when the credit fund holds it</text>
+</svg></figure><details class="more"><summary>The bounds, in numbers</summary><ul class="rules"><li><b>Per $1 of price</b><span>95¢ at 2x, under the $1 the work is worth. Break-even stays 2.1x.</span></li><li><b>Worst ticket</b><span>At the $15 cap: $14.22. At the full AI cap: $16.85 for a $10 ticket.</span></li><li><b>Per month</b><span>Never above half the hoster&#x27;s profit. Today, 10 users: about 2 tickets of $10.</span></li><li><b>Real inference</b><span>Never seen by the hoster and never paid for. Only the posted price is.</span></li></ul></details></section>
+<section id="q4" data-part="one ticket end to end"><p class="n">D · One ticket</p><h2>One ticket, posted to spent, in real numbers.</h2><figure class="narrow"><svg viewBox="0 0 420 832" role="img" aria-label="One ticket end to end" class="steps">
+<rect x="4" y="4" width="412" height="92" rx="6" fill="#f6f2e9" stroke="#18211c"/>
+<text x="20" y="32" class="serif" font-size="23" style="fill:#18211c">Posted, Monday</text>
+<text x="20" y="58" font-size="17" style="fill:#4a554e">Jordi: export memories to Markdown, 12 tests</text>
+<path d="M210,100 L210,120" stroke="#18211c" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="4" y="126" width="412" height="92" rx="6" fill="#f6f2e9" stroke="#18211c"/>
+<text x="20" y="154" class="serif" font-size="23" style="fill:#18211c">Priced</text>
+<text x="20" y="180" font-size="17" style="fill:#4a554e">estimate 8 runs, $9.60: price $10, cap $15</text>
+<path d="M210,222 L210,242" stroke="#18211c" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="4" y="248" width="412" height="92" rx="6" fill="#f6f2e9" stroke="#18211c"/>
+<text x="20" y="276" class="serif" font-size="23" style="fill:#18211c">Held</text>
+<text x="20" y="302" font-size="17" style="fill:#4a554e">Ana&#x27;s agent takes it at $10, $5 deposit, 48 h</text>
+<path d="M210,344 L210,364" stroke="#18211c" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="4" y="370" width="412" height="92" rx="6" fill="#f6f2e9" stroke="#18211c"/>
+<text x="20" y="398" class="serif" font-size="23" style="fill:#18211c">Built</text>
+<text x="20" y="424" font-size="17" style="fill:#4a554e">7 agent runs, $8.40 real, no one counts</text>
+<path d="M210,466 L210,486" stroke="#18211c" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="4" y="492" width="412" height="92" rx="6" fill="#f6f2e9" stroke="#18211c"/>
+<text x="20" y="520" class="serif" font-size="23" style="fill:#18211c">Tested and judged</text>
+<text x="20" y="546" font-size="17" style="fill:#4a554e">12 plus 4 hidden tests pass, jury 3 of 3</text>
+<path d="M210,588 L210,608" stroke="#18211c" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="4" y="614" width="412" height="92" rx="6" fill="#1f4d3a" stroke="#1f4d3a"/>
+<text x="20" y="642" class="serif" font-size="23" style="fill:#f6f2e9">Paid $20 credit</text>
+<text x="20" y="668" font-size="17" style="fill:#cfe0d4">2 x $10 price · Jordi&#x27;s cost $9.48</text>
+<path d="M210,710 L210,730" stroke="#18211c" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="4" y="736" width="412" height="92" rx="6" fill="#f6f2e9" stroke="#18211c"/>
+<text x="20" y="764" class="serif" font-size="23" style="fill:#18211c">Spent</text>
+<text x="20" y="790" font-size="17" style="fill:#4a554e">one month herself, one to a friend</text>
+</svg></figure></section>
+<p class="n earlier">Earlier, on EPIC-0-A3</p>
+<section id="p1" data-part="hoster numbers"><p class="n">1 · Hoster numbers</p><h2>A hoster pays about half the list price to serve credit, not a fifth.</h2><figure class="narrow"><svg viewBox="0 0 420 470" role="img" aria-label="The three parties in a circle: builder work makes Zenod better for users, users pay the hoster 9 euros a month, the hoster pays builders 2x in credit, which costs it 95 cents per dollar of work">
 <path d="M273.4,80.8 A135,135 0 0 1 344.9,204.7" fill="none" stroke="#18211c" stroke-width="2.5" marker-end="url(#ah)"/>
 <path d="M281.5,314.5 A135,135 0 0 1 138.5,314.5" fill="none" stroke="#18211c" stroke-width="2.5" marker-end="url(#ah)"/>
 <path d="M75.1,204.7 A135,135 0 0 1 146.6,80.8" fill="none" stroke="#1f4d3a" stroke-width="4" marker-end="url(#aha)"/>
@@ -60,10 +178,7 @@
 <text x="210" y="406" text-anchor="middle" font-size="18" class="acc" font-weight="600">2x costs the hoster $0.95 per $1 ✓</text>
 <text x="210" y="438" text-anchor="middle" font-size="18">5x costs the hoster $2.37 per $1 ✗</text>
 </svg>
-
-</figure>
-<div class="ps-body">
-<section id="p1" data-part="hoster numbers"><p class="n">1 · Hoster numbers</p><h2>A hoster pays about half the list price to serve credit, not a fifth.</h2><figure class="chart"><svg viewBox="0 0 420 170" role="img" aria-label="Where one paying user's 9 euros go: 1.50 dollars AI, 3 dollars server, 0.40 card fee, 2.30 the hoster keeps, 2.30 funds builder credit">
+</figure><figure class="chart"><svg viewBox="0 0 420 170" role="img" aria-label="Where one paying user's 9 euros go: 1.50 dollars AI, 3 dollars server, 0.40 card fee, 2.30 the hoster keeps, 2.30 funds builder credit">
 <text x="0" y="20" font-size="18" class="serif">Where one user's €9 goes, a month</text>
 <rect x="0" y="34" width="63" height="40" fill="#ded6c4"/><rect x="63" y="34" width="126" height="40" fill="#c9c1ae"/><rect x="189" y="34" width="17" height="40" fill="#8d948c"/><rect x="206" y="34" width="97" height="40" fill="#f6f2e9" stroke="#18211c"/><rect x="303" y="34" width="97" height="40" fill="#1f4d3a"/>
 <text x="0" y="96" font-size="15">AI</text><text x="0" y="116" font-size="15">$1.50</text>
@@ -267,7 +382,7 @@
 <text x="470" y="333" font-size="17" class="" style="fill:#1f4d3a" font-weight="600">✓ about</text>
 </svg></figure><details class="more"><summary>Where it breaks: too many builders, heavy users, junk, model prices</summary><ul class="rules"><li><b>Too many builders</b><span>More than one per four paying users at 2x: credit outgrows profit.</span></li><li><b>Heavy users</b><span>Credit holders at the full AI cap push break-even to 1.2x.</span></li><li><b>Junk accepted</b><span>Credit with no work behind it. Tests, jury and the sample guard it.</span></li><li><b>Model prices rise</b><span>Every number moves with AI cost. The multiple is reset monthly.</span></li></ul></details></section>
 <section id="rec" class="ps-bottom" data-part="our recommendation"><div class="ps-rec"><h2>Our recommendation</h2>
-<p>Start at 2x service credit, rising monthly by a public rule toward 5x. Cash stays at cost.</p></div>
+<p>2x the price set before work. Builders carry overruns. Toward 5x monthly.</p></div>
 <figure class="chart"><svg viewBox="0 0 464 160" role="img" aria-label="2x against 5x, today and at large scale" class="tbl">
 <text x="4" y="29" font-size="17" class="serif" style="fill:#4a554e"></text>
 <text x="206" y="29" font-size="17" class="serif" style="fill:#4a554e">Today</text>
@@ -285,13 +400,17 @@
 <text x="206" y="143" font-size="17" class="" style="fill:#18211c">at cost</text>
 <text x="338" y="143" font-size="17" class="" style="fill:#18211c">at cost</text>
 </svg></figure>
-<table aria-label="Your four points, covered"><tr><th>Your point, 20 Nov</th><th>Where</th><th></th></tr>
+<table aria-label="Your points, covered"><tr><th>Your point, 20 Nov</th><th>Where</th><th></th></tr>
+<tr><td>"we don't know inference cost upfront"</td><td><a href="#q1">A</a></td><td class="y">✓</td></tr>
+<tr><td>who carries an overrun</td><td><a href="#q2">B</a></td><td class="y">✓</td></tr>
+<tr><td>the hoster's cost bounded</td><td><a href="#q3">C</a></td><td class="y">✓</td></tr>
+<tr><td>one ticket end to end</td><td><a href="#q4">D</a></td><td class="y">✓</td></tr>
 <tr><td>"numbers for hosters having to shoulder this"</td><td><a href="#p1">screen 1</a></td><td class="y">✓</td></tr>
 <tr><td>"How is inference proven?"</td><td><a href="#p2">screen 2</a></td><td class="y">✓</td></tr>
 <tr><td>"end to end for each party"</td><td><a href="#p3a">builder</a>, <a href="#p3b">hoster</a>, <a href="#p3c">user</a></td><td class="y">✓</td></tr>
 <tr><td>"dynamics we want as service grows"</td><td><a href="#p4">screen 4</a></td><td class="y">✓</td></tr></table>
-<p class="ps-punch" data-part="bottom line">2x holds today; 5x holds near 5,000 paying users. Your call on the promise.</p></section>
-<p class="ps-foot">Sources. Live: Zenod Hosted €9 a month + VAT (zenod terms.html); at most $5 of AI cost per account a month (zenod limits.ts, your E26-A7); a typical team agent run $1.20 at API prices (zenod docs/evidence/e7-s1). Estimate: server €2 to €4 per account, a €20 box for 5 to 10 accounts (zenod docs/HOSTED-PLAN). Assumptions: €1 = $1.055; card fee $0.40; typical AI use $1.50, not yet measured; $1 of accepted work worth $1 to the hoster; the three scales. Every number comes from model.py beside this page. Demo names. Not legal advice. · E0-S13 keeps this page · one shared page shell (E75-S5)</p>
+<p class="ps-punch" data-part="bottom line">Credit is 2x a price known before work; 5x holds near 5,000 paying users. Your call.</p></section>
+<p class="ps-foot">Sources. Live: Zenod Hosted €9 a month + VAT (zenod terms.html); at most $5 of AI cost per account a month (zenod limits.ts, your E26-A7); a typical team agent run $1.20 at API prices (zenod docs/evidence/e7-s1). Estimate: server €2 to €4 per account, a €20 box for 5 to 10 accounts (zenod docs/HOSTED-PLAN). Assumptions: €1 = $1.055; card fee $0.40; typical AI use $1.50, not yet measured; $1 of accepted work worth $1 to the hoster; the three scales; real inference spread ±35% around the estimate (log-normal); the 25% step, 1.5x cap and $50 ticket limit are our proposal. Every number comes from model.py beside this page. Demo names. Not legal advice. · E0-S13 made this page, E0-S14 added the four questions · one shared page shell (E75-S5)</p>
 </div>
 </main>
 </body></html>

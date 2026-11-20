@@ -46,3 +46,36 @@ if __name__ == "__main__":
         cost5 = cost_per_dollar(5, s["model"], s["infra"]) * inflow
         kfund = fund / cost_per_dollar(1, s["model"], s["infra"]) / inflow
         print(f"{name}: profit/user {p:.2f} fund ${fund:,.0f}/mo inflow ${inflow:,}/mo; cost 2x ${cost2:,.0f} 5x ${cost5:,.0f}; break-even {be:.1f}x; fund covers {kfund:.1f}x; supported {min(be, kfund):.1f}x")
+
+# ---- E0-S14: the 2x multiplies a price known before work, never the inference burned ----
+RUN_COST = 1.20            # REAL: a typical team agent run costs $1.20 at API prices (zenod docs/evidence/e7-s1)
+STEP_UP = 0.25             # PROPOSAL: an unheld ticket's price rises 25% every 48 hours
+CAP_X = 1.5                # PROPOSAL: the price never goes above 1.5x the first estimate (the hoster's ceiling)
+TICKET_MAX = 50.0          # PROPOSAL: no single ticket above $50; bigger work is split
+SPREAD = 0.35              # ASSUMPTION: real inference varies around a calibrated estimate, log-normal sigma 0.35
+
+def estimate(runs):                       # AI estimator: expected agent runs (tests, size, past tickets) x run cost
+    return round(runs * RUN_COST)
+
+def price_ladder(est):                    # posted price after 0, 1, 2 ... unheld 48 h windows, up to the cap
+    out, p = [], float(est)
+    while p < est * CAP_X:
+        out.append(round(p, 2)); p *= 1 + STEP_UP
+    return out + [round(est * CAP_X, 2)]
+
+def hoster_cost(price, k=2, model=MODEL_TYPICAL, infra=INFRA_TODAY):   # known the moment the price is posted
+    return k * price * serve_cost(model, infra) / PRICE
+
+def share_under(k, sigma=SPREAD):         # share of builders whose real inference exceeds k x price (credit < 1x real)
+    import math
+    return 0.5 * math.erfc(math.log(k) / (sigma * math.sqrt(2)))
+
+if __name__ == "__main__":
+    est = estimate(8)
+    print(f"\nE0-S14 estimate: 8 runs x ${RUN_COST} = ${8*RUN_COST:.2f} -> ${est}; ladder {price_ladder(est)}")
+    for name, real in (("Ana", 7 * RUN_COST), ("Ben", 11 * RUN_COST)):
+        print(f"{name}: real ${real:.2f}, credit ${2*est} = {2*est/real:.1f}x the real inference, keeps {est-real:+.2f}")
+    print(f"hoster cost at price ${est}: 2x ${hoster_cost(est):.2f} typical, ${hoster_cost(est, model=MODEL_CAP):.2f} at AI cap;"
+          f" at cap price ${est*CAP_X:.0f}: ${hoster_cost(est*CAP_X):.2f}; per $1 of price ${hoster_cost(1):.2f}")
+    print(f"share of tickets where credit < real inference at 2x: {share_under(2):.1%}; at 1x price (cash at cost): {share_under(1):.0%}")
+    print(f"tickets the small fund pays a month: {(PRICE-MODEL_TYPICAL-INFRA_TODAY-CARD)*10/2/hoster_cost(est):.1f} at ${est}")
