@@ -31,10 +31,10 @@ Status: active
 Last attempted: 2026-11-20 E0-S13 economics presentation live; it found 5x loses a hoster money today (break-even 2.1x) and raised EPIC-0-A4 (2x rising to 5x), dry run passes
 Result: presentation live at http://vps3.taild81fbb.ts.net:8976/: 5x costs a hoster $2.37 per $1 of work today, 2x costs $0.95, 5x holds near 5,000 paying users; one decision open: EPIC-0-A4
 Evidence: [economics presentation](http://vps3.taild81fbb.ts.net:8976/) ; [proposal page](http://vps3.taild81fbb.ts.net:8975/) ; commits 76e641f, A4 line on main
-Waiting on: other open rows are drafts (E0-S2..S4, E0-S7, E0-S8, E0-S10..S12)
+Waiting on: E0-S14 worker (closing the unknown-inference-cost loop Jordi raised on EPIC-0-A4); other open rows are drafts
 Monitoring: none: E0-S13 closed done (fed EPIC-0-A4); the next step waits on Jordi's A4 answer
 Approved work: none open
-Next action: Jordi answers EPIC-0-A4; on Yes start E0-S10 (credit ledger) at 2x with the monthly multiple rule
+Next action: E0-S14 updates the presentation, then the credit multiple goes back to Jordi with the loop closed
 Source revision: main @ 76e641f
 Verified at: 2026-11-20
 
@@ -94,6 +94,7 @@ none
 | E0-S11 | Ticket worker | unassigned | agent ticket board (on an EPIC-0-A3 yes): follow-up of E0-S9 | draft | E0-S9 | none | main | parked by Jordi when closing E0-S9 2026-11-20 | 2026-11-20 | Jordi starts it from the goal when wanted |
 | E0-S12 | Ticket worker | unassigned | hoster rules and hackathon week one (after the ledger): follow-up of E0-S9 | draft | E0-S9 | none | main | parked by Jordi when closing E0-S9 2026-11-20 | 2026-11-20 | Jordi starts it from the goal when wanted |
 | E0-S13 | Ticket worker | run_38a49de0-1915-4066-9124-144113959ba9 (finished 2026-11-20) | Economics presentation for builder, hoster and user (his EPIC-0-A3 answer): hoster numbers for honouring 5x credit, how inference is proven (tests in the ticket, AI jury), one simple example end to end per party, and how the three drive growth | done (fed EPIC-0-A4) | E0-S9 | none | main | [presentation](http://vps3.taild81fbb.ts.net:8976/) (docs/proposals/e0-s13, numbers in model.py) · 76e641f · ask EPIC-0-A4, dry run pass (agent_team d9c6a0322) · totems: none hold Nectary (gap); Zenod pricing totem read, unchanged | 2026-11-20 | Jordi answers EPIC-0-A4 |
+| E0-S14 | Ticket worker | unassigned | Close the loop on unknown inference cost (his EPIC-0-A4 answer): how a ticket's price is set before work when inference cost is not known upfront, who carries an overrun, and how credit stays 2x of a known number; update the :8976 presentation and re-ask | ready | E0-S13 | none | main | Jordi answered EPIC-0-A4 2026-11-20 (fef0743) with this question | 2026-11-20 | dispatch; then re-ask the multiple with the loop closed |
 
 ## Decisions
 
@@ -111,3 +112,4 @@ none
 | 2026-11-20 | accepted | E0-S9 to review as a card on Jordi's ask (L-37) | Jordi, console note 2026-11-20 04:1xZ: "the Nectary proposal is not in his inbox … also put the proposal itself (E0-S9, page :8975) as a review card so he sees it"; his per-task ask overrides L-43 for this proposal | console note | — |
 | 2026-11-20 | accepted | E0-S13 ready on Jordi's ask (L-37): his EPIC-0-A3 answer is a question, so the team researches it | Jordi, EPIC-0-A3 answer 2026-11-20: "Show me the numbers for holsters having to shoulder this. What are hoster econòmics? How is inference proven? Is it providing code that passes the unit tests described in ticket as judged by ai jury? I want presentation on economics for builder and hoster and user how the three create the dynamics we want as service grows. Show me end to end for esch party with a simple example" | 5fc7773 | — |
 | 2026-11-20 | proposed | E0-S13 numbers: 2x service credit now, rising to 5x by a public monthly rule (EPIC-0-A4) | At Zenod's real price and caps (EUR 9, at most $5 AI per account) serving $1 of credit costs a hoster about 47 cents: 5x costs $2.37 per $1 of accepted work, 2x costs $0.95; break-even 2.1x today, 4.7x near 5,000 paying users. Corrects E0-S9's "about a fifth". Proof of inference: ticket tests plus hidden tests and a three-model AI jury, paid at a rate fixed before work. | [presentation](http://vps3.taild81fbb.ts.net:8976/) 76e641f | his EPIC-0-A4 answer |
+| 2026-11-20 | accepted | E0-S14 ready on Jordi's ask (L-37): his EPIC-0-A4 answer is a question, so the team researches it | Jordi, EPIC-0-A4 answer 2026-11-20: "But it's 2x the inference, but we don't know inference cost upfront.. Can you try to close that loop?" | fef0743 | — |
