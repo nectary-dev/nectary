@@ -1,0 +1,9 @@
+{"title": "PolyQuestion counts each valid Spanish ID once",
+ "subtitle": "The phone proves the ID is real and not expired. Nothing else leaves it.",
+ "layout": "flow",
+ "nodes": [{"id": "ask", "label": "Anyone asks", "sub": "a yes or no question", "tone": "warm"},
+           {"id": "tap", "label": "Tap your DNI", "sub": "the phone reads the chip"},
+           {"id": "proof", "label": "Proof on the phone", "sub": "real, Spanish, valid"},
+           {"id": "vote", "label": "One vote", "sub": "per ID per question"},
+           {"id": "tally", "label": "Public tally", "sub": "anyone can recount", "tone": "accent"}],
+ "footer": "Nectary hackathon idea · PolyQuestion"}

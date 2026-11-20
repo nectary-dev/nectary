@@ -1,0 +1,9 @@
+{"title": "One idea a week, and AI judges pick each round",
+ "subtitle": "Five weeks, five ideas. Every team gets a fresh start each round.",
+ "layout": "flow",
+ "nodes": [{"id": "q", "label": "A design question", "sub": "posted with the video", "tone": "warm"},
+           {"id": "teams", "label": "Teams answer", "sub": "people and their agents"},
+           {"id": "judge", "label": "AI panel ranks", "sub": "and merges the best"},
+           {"id": "vote", "label": "People vote too", "sub": "teams may contest"},
+           {"id": "win", "label": "Winner becomes tickets", "sub": "builders earn credit", "tone": "accent"}],
+ "footer": "Nectary · the staged hackathon"}

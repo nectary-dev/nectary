@@ -1,0 +1,11 @@
+{"title": "One answer from you decides what we build",
+ "subtitle": "5x in service credit, cash repayment kept at cost?",
+ "layout": "tree",
+ "root": "q",
+ "nodes": [{"id": "q", "label": "5x as service credit?", "sub": "cash stays at cost", "tone": "warm"},
+           {"id": "y", "label": "Yes, our pick", "sub": "build the loop now", "tone": "accent"},
+           {"id": "n", "label": "No, cash multiple", "sub": "a lawyer reads it first"},
+           {"id": "y1", "label": "Ledger, board, hackathon", "sub": "week one in about two weeks"},
+           {"id": "n1", "label": "Nectary waits", "sub": "units stay as they are", "tone": "muted"}],
+ "edges": [["q", "y"], ["q", "n"], ["y", "y1"], ["n", "n1"]],
+ "footer": "Nectary · your decision"}

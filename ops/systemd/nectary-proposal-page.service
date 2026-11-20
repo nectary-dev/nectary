@@ -1,0 +1,12 @@
+[Unit]
+Description=nectary E0-S9 proposal page: Nectary revived (inference for credit, hosters, agent tickets, hackathon, Zenod first), tailnet only :8975
+After=network-online.target
+
+[Service]
+WorkingDirectory=/var/lib/vps3-scratch/t3agent/github/nectary
+ExecStart=/usr/bin/python3 /home/t3agent/github/agent_team/scripts/page_server.py --serve /var/lib/vps3-scratch/t3agent/github/nectary/docs/proposals/e0-s9 --port 8975 --bind 100.86.141.63
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target

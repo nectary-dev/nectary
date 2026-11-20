@@ -1,0 +1,9 @@
+{"title": "What we build once you say yes",
+ "subtitle": "Each step is its own ticket, each one live before the next.",
+ "layout": "flow",
+ "nodes": [{"id": "l", "label": "Credit ledger", "sub": "5x per accepted ticket", "tone": "warm"},
+           {"id": "t", "label": "Ticket template", "sub": "tests, seat-hours, hold"},
+           {"id": "b", "label": "Agent board", "sub": "WebMCP, Zenod tickets"},
+           {"id": "h", "label": "Hoster rules", "sub": "you certified first"},
+           {"id": "k", "label": "Hackathon week one", "sub": "teaser and video script", "tone": "accent"}],
+ "footer": "Nectary · next builds"}

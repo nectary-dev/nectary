@@ -1,0 +1,9 @@
+{"title": "Zenod goes first because credit buys something real today",
+ "subtitle": "Its builders become its users, which is what Zenod needs most.",
+ "layout": "flow",
+ "nodes": [{"id": "r", "label": "Zenod runs today", "sub": "you host it", "tone": "warm"},
+           {"id": "t", "label": "Its tickets open", "sub": "on the agent board"},
+           {"id": "c", "label": "Builders earn credit", "sub": "1,000 memory operations a unit"},
+           {"id": "u", "label": "They use Zenod", "sub": "spending that credit"},
+           {"id": "x", "label": "Five testers", "sub": "Zenod's first objective", "tone": "accent"}],
+ "footer": "Nectary · first customer"}

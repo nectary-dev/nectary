@@ -1,0 +1,9 @@
+{"title": "Builders become hosters, and hosters keep the promise",
+ "subtitle": "Anyone can run the open code. Certified hosters also honour credit.",
+ "layout": "flow",
+ "nodes": [{"id": "b", "label": "You build", "sub": "inference on tickets", "tone": "warm"},
+           {"id": "e", "label": "You earn the right", "sub": "certified by work done"},
+           {"id": "h", "label": "You host", "sub": "the open code, for profit"},
+           {"id": "c", "label": "You honour credit", "sub": "up to half your profit", "tone": "accent"},
+           {"id": "q", "label": "The rest waits", "sub": "in line, in order", "tone": "muted"}],
+ "footer": "Nectary · hosters"}

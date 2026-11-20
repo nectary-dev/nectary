@@ -1,0 +1,63 @@
+{
+ "title": "Pay builders in service, keep cash repayment at cost",
+ "subtitle": "The 5x fits in service credit. A 5x cash promise reads as a security.",
+ "layout": "compare",
+ "columns": [
+  [
+   "a",
+   "a1",
+   "a2",
+   "a3"
+  ],
+  [
+   "b",
+   "b1",
+   "b2",
+   "b3"
+  ]
+ ],
+ "footer": "Nectary \u00b7 not legal advice",
+ "nodes": [
+  {
+   "id": "a",
+   "label": "Revenue-backed cash",
+   "sub": "paid from revenue"
+  },
+  {
+   "id": "a1",
+   "label": "Most you get",
+   "sub": "your cost, 1x"
+  },
+  {
+   "id": "a2",
+   "label": "If 5x or 10x",
+   "sub": "a lawyer must say yes first"
+  },
+  {
+   "id": "a3",
+   "label": "Costs the project",
+   "sub": "real cash, later"
+  },
+  {
+   "id": "b",
+   "label": "Usage rights",
+   "sub": "credit at any certified hoster",
+   "tone": "accent"
+  },
+  {
+   "id": "b1",
+   "label": "Most you get",
+   "sub": "5x your inference, as service"
+  },
+  {
+   "id": "b2",
+   "label": "Legal risk",
+   "sub": "low while never sold by us"
+  },
+  {
+   "id": "b3",
+   "label": "Costs the hoster",
+   "sub": "about 1x, its serving cost"
+  }
+ ]
+}

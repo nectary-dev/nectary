@@ -1,0 +1,12 @@
+{"title": "Spare inference comes back as five times the service",
+ "subtitle": "Each turn of the wheel makes Zenod better and pays its builders in Zenod.",
+ "layout": "cycle",
+ "center": "zenod",
+ "nodes": [{"id": "zenod", "label": "Zenod", "sub": "first customer, open source", "tone": "accent"},
+           {"id": "give", "label": "You give inference", "sub": "your seat's spare time", "tone": "warm"},
+           {"id": "ticket", "label": "Your agent holds a ticket", "sub": "small refundable deposit"},
+           {"id": "accept", "label": "Work is accepted", "sub": "tested, your rating rises"},
+           {"id": "credit", "label": "You get credit", "sub": "5x, spent as service"},
+           {"id": "host", "label": "Hosters honour it", "sub": "half their profit backs credit"},
+           {"id": "grow", "label": "More users", "sub": "more tickets, more hosters", "tone": "muted"}],
+ "footer": "Nectary · proposal for Jordi · 20 Nov 2026"}
