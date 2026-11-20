@@ -28,13 +28,13 @@ Define and ship the minimal open protocol and tooling for ticket-backed, capped,
 
 Owner: Jordi (AlfaBlok); root steward: repo delivery manager
 Status: active
-Last attempted: 2026-11-20 E0-S9: one proposal page for Jordi's 20 Nov note (inference for credit, hosters, agent-first tickets, staged hackathon, Zenod first, PolyQuestion, open accounting)
-Result: page live at http://vps3.taild81fbb.ts.net:8975/ (2fcd7c8); recommends 5x inference as Zenod service credit with cash kept at cost; its one blocking decision posted as EPIC-0-A3; E0-S9 done (fed EPIC-0-A3)
+Last attempted: 2026-11-20 Jordi closed E0-S9 complete and parked E0-S10..S12; EPIC-0-A3 reworded after its dry run found Yes unclear on cash, dry run now passes (agent_team 42b74a144)
+Result: proposal page live at http://vps3.taild81fbb.ts.net:8975/ and closed by Jordi; one decision open: EPIC-0-A3, 5x Zenod service credit with no cash multiple
 Evidence: [proposal page](http://vps3.taild81fbb.ts.net:8975/) ; [units page](http://vps3.taild81fbb.ts.net:8974/) ; commits 2fcd7c8, c7d6da0 on main
-Waiting on: Jordi: EPIC-0-A3 (5x service credit, cash at cost; dry run passed 2026-11-20) and the E0-S9 proposal card; other open rows are drafts (E0-S2..S4, E0-S7, E0-S8)
+Waiting on: Jordi: EPIC-0-A3 (5x service credit only, cash at cost); every other open row is a draft (E0-S2..S4, E0-S7, E0-S8, E0-S10..S12)
 Monitoring: EPIC-0-A3 passed its ask dry run (ask_dryrun.py --only EPIC-0-A3: pass) and the E0-S9 proposal is a review card (docs/cards/E0-S9.md + screenshot, row review, … · next check 2026-11-20T04:35:00.000Z
 Approved work: none open
-Next action: on his EPIC-0-A3 answer, ready the builds the page lists (yes, and send Zenod the redemption ask: it becomes a Zenod row; Zenod opening for hosters is its own draft row zenod E0-S4) or keep Nectary at cost (no)
+Next action: on an EPIC-0-A3 yes, ready E0-S10 credit ledger then E0-S11 board and E0-S12 hosters and hackathon, and send Zenod the redemption ask; on no, keep units at cost
 Source revision: main @ 2fcd7c8
 Verified at: 2026-11-20
 
