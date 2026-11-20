@@ -32,7 +32,7 @@ Last attempted: 2026-11-20 E0-S9: one proposal page for Jordi's 20 Nov note (inf
 Result: page live at http://vps3.taild81fbb.ts.net:8975/ (2fcd7c8); recommends 5x inference as Zenod service credit with cash kept at cost; its one blocking decision posted as EPIC-0-A3; E0-S9 done (fed EPIC-0-A3)
 Evidence: [proposal page](http://vps3.taild81fbb.ts.net:8975/) ; [units page](http://vps3.taild81fbb.ts.net:8974/) ; commits 2fcd7c8, c7d6da0 on main
 Waiting on: Jordi: EPIC-0-A3 (5x service credit, cash at cost; dry run passed 2026-11-20) and the E0-S9 proposal card; other open rows are drafts (E0-S2..S4, E0-S7, E0-S8)
-Monitoring: E0-S9 worker run_408e2f59 still running (claimed 02:06Z, lease to 04:06Z), building the proposal page; no other row ready (E0-S2..S4, E0-S7, E0-S8 drafts); no … · next check 2026-11-20T04:10:00.000Z
+Monitoring: EPIC-0-A3 passed its ask dry run (ask_dryrun.py --only EPIC-0-A3: pass) and the E0-S9 proposal is a review card (docs/cards/E0-S9.md + screenshot, row review, … · next check 2026-11-20T04:35:00.000Z
 Approved work: none open
 Next action: on his EPIC-0-A3 answer, ready the builds the page lists (yes, and send Zenod the redemption ask: it becomes a Zenod row; Zenod opening for hosters is its own draft row zenod E0-S4) or keep Nectary at cost (no)
 Source revision: main @ 2fcd7c8
