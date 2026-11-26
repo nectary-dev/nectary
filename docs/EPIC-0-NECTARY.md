@@ -20,7 +20,7 @@ Define and ship the minimal open protocol and tooling for ticket-backed, capped,
 <!-- Taken from the Objective in docs/mission.md (2026-06-12). The owner has not yet confirmed these as acceptance criteria or set evidence for them. -->
 
 - [x] E0-1 Funding-grade ticket template: a published template whose tickets carry acceptance criteria, evidence requirements, eligible-cost accounting and a repayment trigger ([principle 2](design-principles.md#2-claims-attach-to-auditable-deliverables)).
-- [ ] E0-2 Repayment queue: revenue flows to a queue that repays eligible contributors in order, up to their eligible contributed cost and no further, written as rules in the repo.
+- [x] E0-2 Repayment queue: revenue flows to a queue that repays eligible contributors in order, up to their eligible contributed cost and no further, written as rules in the repo.
 - [ ] E0-3 Verification: submissions are tested against the ticket's deliverable, and approval and repayment follow rules written in the repo, not operator discretion.
 - [x] E0-4 Service units work on one seed repo: each accepted ticket earns units priced in the service that holders can transfer to others and spend (burned when spent, capped issue per epic; transferable per Jordi 2026-11-11), recorded in a public ledger in that repo, as the contributor's alternative to a capped revenue claim (Jordi, market-bots E3-S2, 2026-11-11).
 
@@ -28,12 +28,12 @@ Define and ship the minimal open protocol and tooling for ticket-backed, capped,
 
 Owner: Jordi (AlfaBlok); root steward: repo delivery manager
 Status: active
-Last attempted: 2026-11-26 E0-S2 template done (61fc31a) ; E0-S10 credit ledger live (01fb1a8) and E0-S11 ticket board live (cd1c02c), both in review ; E0-S3 repayment queue running ; E0-S4 verification queued at the console (vps3 load)
-Result: 2 of 4 MVP parts done (units, template) ; credit ledger and ticket board live for Jordi's review
+Last attempted: 2026-11-26 E0-S3 repayment queue done (4d47eee), E0-2 ticked ; E0-S10 credit ledger and E0-S11 ticket board live in review ; E0-S4 verification queued at the console (vps3 load)
+Result: 3 of 4 MVP parts done (units, template, repayment queue) ; credit ledger and ticket board live for Jordi's review
 Evidence: [ticket board](http://vps3.taild81fbb.ts.net:8974/board/#EXAMPLE-1) ; [credit ledger](http://vps3.taild81fbb.ts.net:8974/credit.html#credit) ; [ticket template](ticket-template.md) ; EPIC-0-A5 answer 952e3af
 Waiting on: nothing from Jordi ; E0-S11 waits on E0-S2 ; E0-S3 and E0-S4 follow the template per the Plan tab
 Approved work: none open
-Next action: E0-S3 report lands, then tick E0-2 ; E0-S4 starts from the console queue, then tick E0-3 ; Jordi reviews E0-S10 and E0-S11 cards
+Next action: E0-S4 (verification) starts from the console queue (run_101f7fc1), then tick E0-3 and write the Outcome ; Jordi reviews E0-S10 and E0-S11 cards
 Source revision: main @ 952e3af
 Verified at: 2026-11-26
 
@@ -55,6 +55,7 @@ Not an investment platform, equity, governance-by-wealth or exchange-listed toke
 - [Design principles](design-principles.md): payment-not-stake and the other constraints every proposal must pass.
 - [Repayment currency](repayment-currency.md): Jordi's choice (2026-11-11): per ticket a capped revenue claim or spend-only service units; unit rules; the lawyer question that gates a sellable token.
 - [Ticket template](ticket-template.md) (E0-S2, 2026-11-26): every ticket's shape: price set before work, credit 2x that price, cash claim 1x; [schema](ticket.schema.json), validator tools/ticket.py, [worked example](../tickets/EXAMPLE-1.md).
+- [Repayment queue](repayment-queue.md) (E0-S3, 2026-11-26): cash claims at 1x the fixed price, oldest first, funded from half the hoster's monthly profit after credit; tool tools/queue.py.
 - [Why "Nectary"](name.md): the flower/bee metaphor and its allowed meaning.
 - [The system loop](system-loop.md): memory → mining → queue → execution; Nectary as queue drainer; Zenod as first adopter.
 - [Nectary revived, proposal](http://vps3.taild81fbb.ts.net:8975/) (E0-S9, 2026-11-20, serves docs/proposals/e0-s9): inference for 5x service credit, hosters, agent-first tickets, the staged hackathon, Zenod first, PolyQuestion and open accounting; feeds EPIC-0-A3.
