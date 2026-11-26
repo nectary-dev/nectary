@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/nectary-dev/nectary/docs/ticket.schema.json",
+  "title": "Nectary funding-grade ticket",
+  "description": "The JSON front matter every Nectary ticket carries (docs/ticket-template.md). tools/ticket.py checks a ticket against this schema and then against the price, credit and pay rules no schema can state.",
+  "type": "object",
+  "required": ["template", "id", "title", "epic", "row", "hoster", "service", "status", "deliverable", "acceptance", "evidence", "eligible_cost", "price", "credit", "pay_in", "repayment_trigger", "requotes"],
+  "properties": {
+    "template": {"type": "string", "enum": ["nectary-ticket/1"]},
+    "id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$"},
+    "title": {"type": "string", "minLength": 5},
+    "example": {"type": "boolean"},
+    "epic": {"type": "string", "minLength": 1},
+    "row": {"type": "string", "minLength": 1},
+    "hoster": {"type": "string", "minLength": 1},
+    "service": {"type": "string", "minLength": 1},
+    "status": {"type": "string", "enum": ["posted", "held", "submitted", "accepted", "rejected", "withdrawn"]},
+    "builder": {"type": "string"},
+    "deliverable": {"type": "string", "minLength": 10},
+    "acceptance": {
+      "type": "object",
+      "required": ["tests", "hidden_tests", "jury"],
+      "properties": {
+        "tests": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["id", "checks", "cmd"],
+            "properties": {
+              "id": {"type": "string", "minLength": 1},
+              "checks": {"type": "string", "minLength": 5},
+              "cmd": {"type": "string", "minLength": 1}
+            }
+          }
+        },
+        "hidden_tests": {
+          "type": "object",
+          "required": ["count", "held_by", "sha256"],
+          "properties": {
+            "count": {"type": "integer", "minimum": 1},
+            "held_by": {"type": "string", "minLength": 1},
+            "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+          }
+        },
+        "jury": {
+          "type": "object",
+          "required": ["models", "pass"],
+          "properties": {
+            "models": {"type": "integer", "minimum": 3},
+            "pass": {"type": "integer", "minimum": 2}
+          }
+        }
+      }
+    },
+    "evidence": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 3}},
+    "eligible_cost": {
+      "type": "object",
+      "required": ["counts", "excludes", "recorded_as", "basis"],
+      "properties": {
+        "counts": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "excludes": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "recorded_as": {"type": "string", "minLength": 3},
+        "basis": {"type": "string", "enum": ["fixed_price"]}
+      }
+    },
+    "price": {
+      "type": "object",
+      "required": ["currency", "estimate", "posted", "posted_at", "step_up", "step_hours", "cap_multiple", "ticket_max", "price_cap"],
+      "properties": {
+        "currency": {"type": "string", "enum": ["USD"]},
+        "estimate": {
+          "type": "object",
+          "required": ["by", "at", "runs", "run_cost", "amount", "basis"],
+          "properties": {
+            "by": {"type": "string", "minLength": 1},
+            "at": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}Z$"},
+            "runs": {"type": "integer", "minimum": 1},
+            "run_cost": {"type": "number", "minimum": 0.01},
+            "amount": {"type": "number", "minimum": 0.01},
+            "basis": {"type": "string", "minLength": 5}
+          }
+        },
+        "posted": {"type": "number", "minimum": 1},
+        "posted_at": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}Z$"},
+        "step_up": {"type": "number", "enum": [0.25]},
+        "step_hours": {"type": "integer", "enum": [48]},
+        "cap_multiple": {"type": "number", "enum": [1.5]},
+        "ticket_max": {"type": "number", "enum": [50]},
+        "price_cap": {"type": "number", "minimum": 1},
+        "held_at": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}Z$"},
+        "fixed": {"type": "number", "minimum": 1}
+      }
+    },
+    "credit": {
+      "type": "object",
+      "required": ["multiple", "multiple_month"],
+      "properties": {
+        "multiple": {"type": "number", "minimum": 1},
+        "multiple_month": {"type": "string", "pattern": "^\\d{4}-\\d{2}$"},
+        "amount": {"type": "number", "minimum": 0}
+      }
+    },
+    "pay_in": {
+      "type": "object",
+      "required": ["choice"],
+      "properties": {
+        "choice": {"type": "string", "enum": ["open", "credit", "claim", "units"]},
+        "units_rate": {"type": "integer", "minimum": 1},
+        "claim_amount": {"type": "number", "minimum": 0}
+      }
+    },
+    "repayment_trigger": {
+      "type": "object",
+      "required": ["when", "credit", "claim", "units"],
+      "properties": {
+        "when": {"type": "string", "minLength": 10},
+        "credit": {"type": "string", "minLength": 5},
+        "claim": {"type": "string", "minLength": 5},
+        "units": {"type": "string", "minLength": 5}
+      }
+    },
+    "requotes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["at", "change", "estimate_runs", "posted"],
+        "properties": {
+          "at": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}Z$"},
+          "change": {"type": "string", "minLength": 5},
+          "estimate_runs": {"type": "integer", "minimum": 1},
+          "posted": {"type": "number", "minimum": 1}
+        }
+      }
+    }
+  }
+}
