@@ -1,0 +1,4 @@
+{
+ "about": "Nectary verdicts: every submission judged against its ticket (docs/verification.md). Append-only, sha256 hash chain. Check: python3 tools/verify_ticket.py verify",
+ "entries": []
+}

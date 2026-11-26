@@ -1,0 +1,44 @@
+{
+ "ticket": "EXAMPLE-1",
+ "note": "Hidden tests for the EXAMPLE-1 worked run. A real hoster keeps this file off the repo until the verdict; this one is public because the ticket is an illustration.",
+ "files": {
+  "tests/hidden/test_hidden_since.py": "import recall\nimport api\n\n\ndef test_same_day():\n    assert 2 in [m[\"id\"] for m in recall.recall(\"2026-11-01\")]\n\n\ndef test_future_empty():\n    assert recall.recall(\"2030-01-01\") == []\n\n\ndef test_impossible_date():\n    assert recall.main([\"--since\", \"2026-02-30\"]) == 2\n\n\ndef test_short_date():\n    assert recall.main([\"--since\", \"2026-1-5\"]) == 2\n\n\ndef test_api_bad_date():\n    assert api.get_recall({\"since\": \"nope\"})[\"status\"] == 400\n\n\ndef test_api_no_since():\n    assert api.get_recall({})[\"memories\"] == recall.MEMORIES\n\n\ndef test_order_kept():\n    got = [m[\"id\"] for m in recall.recall(\"2026-10-01\")]\n    assert got == sorted(got)\n"
+ },
+ "tests": [
+  {
+   "id": "H1",
+   "checks": "a memory saved on the --since day itself is listed",
+   "cmd": "pytest tests/hidden/test_hidden_since.py::test_same_day"
+  },
+  {
+   "id": "H2",
+   "checks": "a date in the future lists nothing",
+   "cmd": "pytest tests/hidden/test_hidden_since.py::test_future_empty"
+  },
+  {
+   "id": "H3",
+   "checks": "an impossible date (30 Feb) is refused with exit code 2",
+   "cmd": "pytest tests/hidden/test_hidden_since.py::test_impossible_date"
+  },
+  {
+   "id": "H4",
+   "checks": "a date without leading zeros is refused with exit code 2",
+   "cmd": "pytest tests/hidden/test_hidden_since.py::test_short_date"
+  },
+  {
+   "id": "H5",
+   "checks": "the API answers 400 to a bad since=",
+   "cmd": "pytest tests/hidden/test_hidden_since.py::test_api_bad_date"
+  },
+  {
+   "id": "H6",
+   "checks": "the API without since= is unchanged",
+   "cmd": "pytest tests/hidden/test_hidden_since.py::test_api_no_since"
+  },
+  {
+   "id": "H7",
+   "checks": "the order of memories is kept",
+   "cmd": "pytest tests/hidden/test_hidden_since.py::test_order_kept"
+  }
+ ]
+}

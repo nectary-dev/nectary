@@ -1,0 +1,40 @@
+#!/usr/bin/env python3
+"""A tiny stand-in for pytest (this box has none), enough for the EXAMPLE-1 worked run.
+
+pytest                      runs every test_* function in tests/**/test_*.py
+pytest path.py::test_name   runs one function. Exit 0 when all pass, 1 otherwise.
+"""
+import glob
+import importlib.util
+import os
+import sys
+import traceback
+
+sys.path.insert(0, os.getcwd())
+
+
+def load(path):
+    spec = importlib.util.spec_from_file_location(path.replace("/", "_")[:-3], path)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+picks = []
+for arg in sys.argv[1:] or sorted(glob.glob("tests/**/test_*.py", recursive=True)):
+    path, _, name = arg.partition("::")
+    mod = load(path)
+    names = [name] if name else [n for n in dir(mod) if n.startswith("test_")]
+    picks += [(path, n, getattr(mod, n, None)) for n in names]
+failed = 0
+for path, name, fn in picks:
+    try:
+        if fn is None:
+            raise AssertionError("no such test")
+        fn()
+        print(f"PASS {path}::{name}")
+    except Exception:
+        failed += 1
+        print(f"FAIL {path}::{name}\n{traceback.format_exc(limit=1)}")
+print(f"{len(picks) - failed} passed, {failed} failed")
+sys.exit(1 if failed or not picks else 0)

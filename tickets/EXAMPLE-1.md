@@ -19,7 +19,7 @@
       {"id": "T4", "checks": "the API takes since= with the same meaning as the CLI flag", "cmd": "pytest tests/test_api_recall.py::test_since_param"},
       {"id": "T5", "checks": "the whole suite still passes", "cmd": "pytest"}
     ],
-    "hidden_tests": {"count": 7, "held_by": "hoster", "sha256": "57ccbef0d5147f3f2fcfe093f2ee51f94a63a54394c0d5aaec32d4b3b195ba7b"},
+    "hidden_tests": {"count": 7, "held_by": "hoster", "sha256": "66f328067e680d5e7ce9905b78d03a7efef60e1b5a684dfd8f95c2fcaac7796d"},
     "jury": {"models": 3, "pass": 2}
   },
   "evidence": [

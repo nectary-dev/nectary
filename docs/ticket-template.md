@@ -62,7 +62,7 @@ No ticket says stake, share, investment or return, in any field or section (L-1)
 
 ## What this template does not settle yet
 
-- Who runs the hidden tests and jury, and the rule that approves: E0-3, row E0-S4.
+- Who runs the hidden tests and jury, and the rule that approves: settled in [verification.md](verification.md) (E0-S4).
 - How the estimator learns (10% lower after a ticket taken at once): the ticket board, E0-S11.
 
 *Not legal, securities, tax or accounting advice.*

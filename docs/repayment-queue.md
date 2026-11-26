@@ -74,7 +74,7 @@ Nothing. No accepted Nectary ticket has picked cash yet. The first real claim is
 
 ## Not settled here
 
-- Who runs the hidden tests and jury, and the rule that accepts a row: E0-3, row E0-S4. The queue trusts the row's `done` in its spine.
+- Who runs the hidden tests and jury, and the rule that accepts a row: [verification.md](verification.md) (E0-S4). A row is set done only on an accepted verdict; the queue trusts that `done`.
 - Paying out cash at all needs a hoster with real profit and real books. Zenod's numbers are a model until it publishes them; no money moves before that.
 
 *Not legal, securities, tax or accounting advice.*
