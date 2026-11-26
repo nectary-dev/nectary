@@ -1,0 +1,67 @@
+{
+  "about": "Nectary builder credit, public append-only ledger. Sibling of ledger/units.json with the same hash chain. Rules: docs/credit-ledger.md. Check: python3 tools/credit.py verify",
+  "credit": {
+    "name": "Nectary builder credit",
+    "counted_in": "US dollars of hoster service at list price, held in cents. Service credit only: never cash, never a stake, share or return.",
+    "rule": "Jordi, EPIC-0-A5, 2026-11-26: 'Yes: build the ledger and ticket board on 2x the price set before work'",
+    "cash": "Any cash repayment stays capped at cost (L-1).",
+    "redemption_live": false,
+    "redemption_note": "Spending at Zenod is not switched on yet (E0-S8 parked by Jordi 2026-11-12); entries below are the rule working, not service served."
+  },
+  "multiples": [
+    {
+      "from": "2026-11-26",
+      "multiple": 2,
+      "source": "EPIC-0-A5 answer 2026-11-26 (952e3af); reset monthly from public books, only for tickets priced after the reset"
+    }
+  ],
+  "spines": {
+    "EPIC-0": "docs/EPIC-0-NECTARY.md"
+  },
+  "hosters": {
+    "zenod": {
+      "name": "Zenod",
+      "months": {
+        "2026-11": {
+          "profit_cents": 4595,
+          "serve_cost_per_credit_dollar": 0.474,
+          "basis": "E0-S13 model.py, small scale (10 paying users x $4.60 profit); an assumption until Zenod publishes real books"
+        }
+      },
+      "service": "Zenod Hosted"
+    }
+  },
+  "tickets": {
+    "EXAMPLE-1": {
+      "hoster": "zenod",
+      "epic": "EXAMPLE",
+      "row": "EXAMPLE-1",
+      "estimate_runs": 8,
+      "run_cost_cents": 120,
+      "estimate_cents": 1000,
+      "unheld_windows": 0,
+      "price_cents": 1000,
+      "posted": "2026-11-26",
+      "price_fixed": "2026-11-26",
+      "work_started": "2026-11-26",
+      "multiple_at_posting": 2,
+      "demonstration": true,
+      "source": "tickets/EXAMPLE-1.md"
+    }
+  },
+  "entries": [
+    {
+      "type": "issue",
+      "date": "2026-11-26",
+      "holder": "Ana (example builder)",
+      "ticket": "EXAMPLE-1",
+      "price_cents": 1000,
+      "multiple": 2,
+      "cents": 2000,
+      "evidence": "https://github.com/nectary-dev/nectary/blob/main/tickets/EXAMPLE-1.md",
+      "inference_cents": 840,
+      "seq": 1,
+      "prev": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  ]
+}
