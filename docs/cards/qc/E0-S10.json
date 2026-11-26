@@ -1,40 +1,40 @@
 {
   "row": "E0-S10",
   "card": "docs/cards/E0-S10.md",
-  "cardSha": "d75ed98ee9790a57",
+  "cardSha": "e41212428eda9c57",
   "inputs": {
-    "card": "d75ed98ee9790a57",
+    "card": "e41212428eda9c57",
     "page": "0fd48c4441507b59",
     "rules": "c1a7854c21d10fb4",
     "words": "1eaf66c1510c1a67"
   },
-  "checkedAt": "2026-11-26T00:25:29Z",
+  "checkedAt": "2026-11-26T00:26:20Z",
   "by": "card_qc.py (console judge)",
   "words": [
     {
       "said": "Yes: build the ledger and ticket board on 2x the price set before work",
       "where": "2026-11-26",
       "status": "met",
-      "how": "The evidence page shows the 2x rule stated, a worked $10 ticket credited $20 in the ledger, and the Credit 2x step highlighted."
+      "how": "Evidence page states the 2x rule in the punchline, shows a worked $10 ticket credited $20, and highlights the Credit 2x step."
     }
   ],
   "visual": {
     "pass": true,
     "problems": [],
     "breaches": [],
-    "summary": "The 1280 px first screen opens with the punchline box and a boxed five-step sequence; the 390 px view stacks the steps vertically, with the Builder and Hoster notes in prose, and the wide tables are cramped."
+    "summary": "Phone view opens with the punchline box and a vertical step stack that is readable; the 1280 view is clean with a single accent. Only minor clipping in phone tables."
   },
   "pass": true,
   "held": [],
   "reader": {
-    "asked": "Decide whether builders should be paid by the rule of crediting twice the ticket price fixed before work, and approve building the ticket board on it.",
+    "asked": "Decide whether builders should be paid by the credit rule of twice the ticket's fixed price set before work, and approve building the ticket board on it.",
     "ambiguous": ""
   },
   "clicks": {
     "dead": null,
     "end": "a page to read",
     "page": "0fd48c4441507b59",
-    "walkedAt": "2026-11-26T00:25:29Z",
+    "walkedAt": "2026-11-26T00:26:20Z",
     "steps": [
       {
         "n": 1,
