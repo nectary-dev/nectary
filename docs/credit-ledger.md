@@ -26,7 +26,7 @@ The credit ledger is a sibling of the [units ledger](units.md), and `tools/credi
 5. **Transferable.** Units can be sent between holders, so credit can too: a `transfer` moves spendable credit to another holder. Never more than the sender holds, never to oneself.
 6. **Spent at a hoster, burned.** A `request` sets credit aside to spend at a hoster. An `honour` entry serves a whole request and burns that credit.
 7. **A hoster honours credit from at most half its monthly profit.** Each hoster's month in `hosters` records its profit and its cost to serve $1 of credit (about $0.47 for Zenod today). That month's room is half the profit divided by that cost: $22.97 / 0.474 = $48.47 of credit. Requests beyond the room wait in line and are honoured in order, starting the next month with new room. A later request never jumps an earlier one.
-8. **Cash stays at cost.** Credit is service only. A builder who picks cash gets a claim of the fixed price, 1x, never more, through the repayment queue (E0-S3). Nobody on the project calls credit a stake, share, investment or return (L-1).
+8. **Cash stays at cost.** Credit is service only. A builder who picks cash gets a claim of the fixed price, 1x, never more, through the [repayment queue](repayment-queue.md), which gets what is left of the same half after credit. Nobody on the project calls credit a stake, share, investment or return (L-1).
 
 ## Entries
 
@@ -53,6 +53,5 @@ One demonstration entry: the template's worked ticket [EXAMPLE-1](../tickets/EXA
 
 - Spending credit at Zenod is not switched on. It costs model spend and is parked with E0-S8. The ledger records the rule, not service served.
 - Who sets the monthly reset from which public books: the first reset is due in December.
-- The cash repayment queue for builders who pick a claim: E0-S3.
 
 *Not legal, securities, tax or accounting advice.*

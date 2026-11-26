@@ -1,0 +1,14 @@
+{
+  "about": "Nectary repayment queue, public append-only ledger. Sibling of ledger/units.json and ledger/credit.json with the same hash chain. Rules: docs/repayment-queue.md. Check: python3 tools/queue.py verify",
+  "queue": {
+    "name": "Nectary repayment queue",
+    "counted_in": "US dollars of cash, held in cents. Repayment of the ticket's price fixed before work, 1x, never more; no interest while a claim waits.",
+    "order": "one line per hoster, in the order claims were accepted; the oldest open claim is paid first, part by part",
+    "funded_by": "each closed month: half the hoster's profit (its books in ledger/credit.json) less what serving builder credit cost it that month",
+    "words": "Never a stake, share, investment or return (L-1)."
+  },
+  "spines": {
+    "EPIC-0": "docs/EPIC-0-NECTARY.md"
+  },
+  "entries": []
+}

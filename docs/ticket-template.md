@@ -48,7 +48,7 @@ The builder keeps any saving and carries any overrun: Ana's 7 runs ($8.40) on a 
 | `pay_in.choice` | What the builder gets | Rule |
 |---|---|---|
 | `credit` | `credit.multiple` x `price.fixed` in the hoster's service (`service`) | `credit.amount` = multiple x fixed. The multiple starts at 2x; it is reset monthly from public books for new tickets (`credit.multiple_month`), and credit already issued never shrinks. |
-| `claim` | `pay_in.claim_amount` in cash from revenue, through the repayment queue | equals `price.fixed`, 1x, never more |
+| `claim` | `pay_in.claim_amount` in cash from revenue, through the [repayment queue](repayment-queue.md) | equals `price.fixed`, 1x, never more |
 | `units` | `pay_in.units_rate` service units ([units.md](units.md)) | rate fixed before work, under the epic's cap |
 | `open` | not chosen yet | allowed until accepted; never two currencies |
 
@@ -62,7 +62,6 @@ No ticket says stake, share, investment or return, in any field or section (L-1)
 
 ## What this template does not settle yet
 
-- The order and pace of the cash repayment queue: E0-2, row E0-S3.
 - Who runs the hidden tests and jury, and the rule that approves: E0-3, row E0-S4.
 - How the estimator learns (10% lower after a ticket taken at once): the ticket board, E0-S11.
 
