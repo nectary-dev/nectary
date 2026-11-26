@@ -1,0 +1,92 @@
+{
+  "board": "nectary-ticket-board/1",
+  "built_at": "2026-11-26T00:26Z",
+  "rule": "credit = multiple x the price fixed before work; an unheld ticket's price rises 25% per 48 h, never above 1.5x the posted price or $50; cash claims never pay more than the fixed price",
+  "states": [
+    "posted",
+    "held",
+    "submitted",
+    "accepted",
+    "paid"
+  ],
+  "counts": {
+    "posted": 0,
+    "held": 0,
+    "submitted": 0,
+    "accepted": 0,
+    "paid": 1
+  },
+  "tickets": [
+    {
+      "id": "EXAMPLE-1",
+      "title": "Zenod recall takes a --since date filter",
+      "example": true,
+      "state": "paid",
+      "status": "accepted",
+      "hoster": "Jordi (Zenod Hosted)",
+      "service": "Zenod Hosted",
+      "deliverable": "zenod recall accepts --since YYYY-MM-DD and lists only memories saved on or after that day, in the CLI and the API.",
+      "price": {
+        "currency": "USD",
+        "current": 10.0,
+        "fixed": true,
+        "estimate": 9.6,
+        "estimate_runs": 8,
+        "posted": 10.0,
+        "posted_at": "2026-11-26T09:05Z",
+        "cap": 15.0,
+        "ladder": [
+          10.0,
+          12.5,
+          15.0
+        ],
+        "next_step_at": null,
+        "next_price": null
+      },
+      "credit": {
+        "multiple": 2,
+        "amount": 20.0,
+        "final": true,
+        "issued": 20.0
+      },
+      "pay_in": "credit",
+      "tests": {
+        "own": [
+          {
+            "id": "T1",
+            "checks": "recall --since 2026-11-01 lists only memories saved on or after 1 Nov",
+            "cmd": "pytest tests/test_recall_since.py::test_filters_by_day"
+          },
+          {
+            "id": "T2",
+            "checks": "recall without --since lists the same memories as before the change",
+            "cmd": "pytest tests/test_recall_since.py::test_no_flag_unchanged"
+          },
+          {
+            "id": "T3",
+            "checks": "a malformed date is refused with a clear message and exit code 2",
+            "cmd": "pytest tests/test_recall_since.py::test_bad_date"
+          },
+          {
+            "id": "T4",
+            "checks": "the API takes since= with the same meaning as the CLI flag",
+            "cmd": "pytest tests/test_api_recall.py::test_since_param"
+          },
+          {
+            "id": "T5",
+            "checks": "the whole suite still passes",
+            "cmd": "pytest"
+          }
+        ],
+        "hidden": 7,
+        "jury": "2 of 3"
+      },
+      "holder": "Ana (example builder)",
+      "held_since": "2026-11-26T15:40Z",
+      "hold_until": null,
+      "path": "tickets/EXAMPLE-1.md"
+    }
+  ],
+  "failed": [],
+  "ledger_page": "../credit.html#credit"
+}

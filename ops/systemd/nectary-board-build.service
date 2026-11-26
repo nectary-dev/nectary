@@ -1,0 +1,7 @@
+[Unit]
+Description=nectary E0-S11 ticket board: rebuild site/units/board from tickets/ (prices climb every 48 h)
+
+[Service]
+Type=oneshot
+WorkingDirectory=/var/lib/vps3-scratch/t3agent/github/nectary
+ExecStart=/usr/bin/python3 tools/board.py

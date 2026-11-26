@@ -1,0 +1,9 @@
+[Unit]
+Description=nectary E0-S11 ticket board: rebuild hourly so posted prices follow the 48 h ladder
+
+[Timer]
+OnCalendar=hourly
+Persistent=true
+
+[Install]
+WantedBy=timers.target
