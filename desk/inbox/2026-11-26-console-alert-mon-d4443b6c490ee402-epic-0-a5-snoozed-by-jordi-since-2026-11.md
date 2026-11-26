@@ -2,7 +2,8 @@
 from: alpha9
 about: Monitoring item with no ask for Jordi (check overdue): EPIC-0-A5 snoozed by Jordi since 2026-11-20T21:4xZ
 reply-to: nectary-dev/nectary
-status: open
+status: answered
+answered: Jordi answered EPIC-0-A5 yes on 26 Nov; the Monitoring line is removed from Current State (039ff49) and E0-S2 and E0-S10 are running
 kind: monitor-alert
 alert: mon_d4443b6c490ee402
 ---
