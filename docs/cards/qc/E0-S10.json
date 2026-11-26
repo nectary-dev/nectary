@@ -1,0 +1,83 @@
+{
+  "row": "E0-S10",
+  "card": "docs/cards/E0-S10.md",
+  "cardSha": "d75ed98ee9790a57",
+  "inputs": {
+    "card": "d75ed98ee9790a57",
+    "page": "0fd48c4441507b59",
+    "rules": "c1a7854c21d10fb4",
+    "words": "1eaf66c1510c1a67"
+  },
+  "checkedAt": "2026-11-26T00:25:29Z",
+  "by": "card_qc.py (console judge)",
+  "words": [
+    {
+      "said": "Yes: build the ledger and ticket board on 2x the price set before work",
+      "where": "2026-11-26",
+      "status": "met",
+      "how": "The evidence page shows the 2x rule stated, a worked $10 ticket credited $20 in the ledger, and the Credit 2x step highlighted."
+    }
+  ],
+  "visual": {
+    "pass": true,
+    "problems": [],
+    "breaches": [],
+    "summary": "The 1280 px first screen opens with the punchline box and a boxed five-step sequence; the 390 px view stacks the steps vertically, with the Builder and Hoster notes in prose, and the wide tables are cramped."
+  },
+  "pass": true,
+  "held": [],
+  "reader": {
+    "asked": "Decide whether builders should be paid by the rule of crediting twice the ticket price fixed before work, and approve building the ticket board on it.",
+    "ambiguous": ""
+  },
+  "clicks": {
+    "dead": null,
+    "end": "a page to read",
+    "page": "0fd48c4441507b59",
+    "walkedAt": "2026-11-26T00:25:29Z",
+    "steps": [
+      {
+        "n": 1,
+        "what": "open the card's link",
+        "url": "http://vps3.taild81fbb.ts.net:8974/credit.html#credit",
+        "result": "opened"
+      },
+      {
+        "n": 2,
+        "what": "open the link 'Nectary units'",
+        "url": "http://vps3.taild81fbb.ts.net:8974/",
+        "result": "answered 200"
+      },
+      {
+        "n": 3,
+        "what": "open the link 'docs/credit-ledger.md'",
+        "url": "https://github.com/nectary-dev/nectary/blob/main/docs/credit-ledger.md",
+        "result": "answered 200 (another site)"
+      },
+      {
+        "n": 4,
+        "what": "open the link 'ledger/credit.json'",
+        "url": "https://github.com/nectary-dev/nectary/blob/main/ledger/credit.json",
+        "result": "answered 200 (another site)"
+      },
+      {
+        "n": 5,
+        "what": "open the link 'economics page'",
+        "url": "http://vps3.taild81fbb.ts.net:8976/",
+        "result": "answered 200"
+      }
+    ]
+  },
+  "shots": [
+    {
+      "width": 390,
+      "url": "http://vps3.taild81fbb.ts.net:8974/credit.html#credit",
+      "file": "E0-S10-390.webp"
+    },
+    {
+      "width": 1280,
+      "url": "http://vps3.taild81fbb.ts.net:8974/credit.html#credit",
+      "file": "E0-S10-1280.webp"
+    }
+  ]
+}
