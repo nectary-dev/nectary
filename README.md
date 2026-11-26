@@ -20,6 +20,7 @@ Every meaningful piece of work in a repo can be expressed as a testable GitHub i
 
 - [Mission & objective](docs/mission.md) — what Nectary is for and what it is not
 - [Repayment currency](docs/repayment-currency.md) — capped revenue claims or transferable service units, the risk that brings, and why no on-chain token yet
+- [Ticket template](docs/ticket-template.md) — every ticket priced before work, credit at 2x that price, cash at cost; [schema](docs/ticket.schema.json), [worked example](tickets/EXAMPLE-1.md) and `python3 tools/ticket.py check tickets/*.md`
 - [Units](docs/units.md) — the unit rules, with the public [ledger](ledger/units.json) and `python3 tools/units.py verify`
 - [Design principles](docs/design-principles.md) — payment-not-stake and the other constraints that govern every decision
 - [Why "Nectary"](docs/name.md) — the flower/bee metaphor and what it is (and isn't) allowed to mean
